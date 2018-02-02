@@ -1,5 +1,3 @@
-Your group should submit one response to the following questions:
-
 What programming language is your team using for the project?  Everyone on the team must use the same programming language and contribute code for the group's submission.
 Python
 
