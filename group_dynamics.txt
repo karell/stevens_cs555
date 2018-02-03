@@ -33,3 +33,7 @@ Roseberry, Keith:
 Scrum Master
 Developer/Tester
 
+Git Rules:
+git checkout -b StoryName
+//Commit your code
+git push --set-upstream origin StoryName
