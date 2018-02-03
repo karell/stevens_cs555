@@ -33,7 +33,13 @@ Roseberry, Keith:
 Scrum Master
 Developer/Tester
 
-Git Rules:
+Git Notes:
+
+New Branches -
 git checkout -b StoryName
 //Commit your code
 git push --set-upstream origin StoryName
+
+Updating local code
+git fetch -p  
+git pull
