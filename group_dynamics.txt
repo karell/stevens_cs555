@@ -45,4 +45,8 @@ Updating local code
 git fetch -p  
 git pull
 
+Handy Commands
+git branch -a  //See all Branches
+git branch -d branchName //Delete a local branch
+
 *Pull requests only to master
