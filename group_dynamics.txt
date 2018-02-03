@@ -13,6 +13,7 @@ What is the URL of your team's GitHub repository?
 https://github.com/karell/stevens_cs555
 
 Identify the roles and responsibilities for each team member.   You'll need to fill the role of developers, testers, and someone to update the Team Report including the burn down chart and sprint retrospective. A single person is likely to have multiple roles.  For each person, identify the roles to be filled for that person.
+
 Team Profile Page: https://sit.instructure.com/groups/21896/pages/team-profile
 
 Johnson, Esther:
