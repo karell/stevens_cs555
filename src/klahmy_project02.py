@@ -7,7 +7,7 @@ individualsDict = {}
 familiesDict = {}
 outputtableI = PrettyTable()
 outputtableF = PrettyTable()
-
+#
 class Individual:
     type = "I"
     id = ""
