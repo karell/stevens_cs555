@@ -1,8 +1,12 @@
-import datetime
+from datetime import datetime
+from datetime import date
+from prettytable import PrettyTable
 
 tags = {'INDI':'0','NAME':'1','SEX':'1','BIRT':'1','DEAT':'1','FAMC':'1','FAMS':'1','FAM':'0','MARR':'1','HUSB':'1','WIFE':'1','CHIL':'1','DIV':'1','DATE':'2','HEAD':'0','TRLR':'0','NOTE':'0'}
 individualsDict = {}
 familiesDict = {}
+outputtableI = PrettyTable()
+outputtableF = PrettyTable()
 
 class Individual:
     type = "I"
@@ -17,18 +21,13 @@ class Individual:
     familyIdSpouse = None
     
     def toString(self):
-        print("")
-        #TODO - define a function that can print pretty 
+        outputtableI.add_row(self.id,self.name,self.gender,self.birthDate,self.calculateAge())
     
     def calculateAge(self):
         #TODO parse birthdate from string to date object
-        today = datetime.date.today()
-        age = today.year - self.birthDate.year
-
-        if today < datetime.date(today.year, self.birthDate.month, self.birthDate.day):
-            age -= 1
-
-        return age
+        today = date.today()
+        
+        return today.year - self.birthDate.year - ((today.month, today.day) < (self.birthDate.month, self.birthDate.day))
 
 class Family:
     type = "F"
@@ -41,6 +40,15 @@ class Family:
     wifeName = ""
     children = []
 
+def parseStringtoDate(day,month,year):
+    retDate = None
+    if (int(day) < 10):
+        day = "0" + day
+    try:
+        retDate = datetime.strptime(day + " " + month + " " + year,'%d %b %Y')
+    except ValueError:
+        print "Wrong Date Format for " + day + " " + month + " " + year
+    return retDate
 
 inputFileName = "proj02test.ged"
 inputFile = open(inputFileName,"r")
@@ -81,13 +89,13 @@ for line in inputFile:
             tmpObj.children.append(lineSplit[2])
         elif lineSplit[1] == "DATE" and dateType is not None and len(lineSplit) > 4:
             if (dateType == "BIRT"):
-                tmpObj.birthDate = lineSplit[2] + ' ' + lineSplit[3] + ' ' + lineSplit[4] #TODO write function to convert to date
+                tmpObj.birthDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
             elif dateType == "DEAT":
-                tmpObj.deathDate = lineSplit[2] + ' ' + lineSplit[3] + ' ' + lineSplit[4]
+                tmpObj.deathDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
             elif dateType == "MARR":
-                tmpObj.marriageDate = lineSplit[2] + ' ' + lineSplit[3] + ' ' + lineSplit[4]
+                tmpObj.marriageDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
             elif dateType == "DIV":
-                tmpObj.divorcedDate = lineSplit[2] + ' ' + lineSplit[3] + ' ' + lineSplit[4]
+                tmpObj.divorcedDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
             dateType = None
             
 if tmpObj is not None:
@@ -95,4 +103,10 @@ if tmpObj is not None:
         individualsDict[tmpObj.id] = tmpObj
     else:
         familiesDict[tmpObj.id] = tmpObj
+
 inputFile.close()
+
+for i in individualsDict:
+    individualsDict[i].toString()
+
+print outputtableI
