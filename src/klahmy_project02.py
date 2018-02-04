@@ -5,8 +5,8 @@ from prettytable import PrettyTable
 tags = {'INDI':'0','NAME':'1','SEX':'1','BIRT':'1','DEAT':'1','FAMC':'1','FAMS':'1','FAM':'0','MARR':'1','HUSB':'1','WIFE':'1','CHIL':'1','DIV':'1','DATE':'2','HEAD':'0','TRLR':'0','NOTE':'0'}
 individualsDict = {}
 familiesDict = {}
-outputtableI = PrettyTable()
-outputtableF = PrettyTable()
+outputtableI = PrettyTable(["ID","Name","Gender","Birthday","Age","Alive","Death","Children","Spouse"])
+outputtableF = PrettyTable(["ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children"])
 #
 class Individual:
     type = "I"
@@ -16,17 +16,25 @@ class Individual:
     birthDate = None
     deathDate = None
     children = []
-    Spouse = ""
+    spouse = []
     familyIdChild = None
     familyIdSpouse = None
     
     def toString(self):
-        outputtableI.add_row(self.id,self.name,self.gender,self.birthDate,self.calculateAge())
+        alive = (self.deathDate is None)
+        deathDateStr = "NA"
+        if self.deathDate is not None:
+            deathDateStr = self.deathDate.strftime('%d %b %Y')
+        childrenStr = "NA"
+        if len(self.children) > 0:
+            childrenStr = str(self.children)
+        spouseStr = "NA"
+        if len(self.children) > 0:
+            spouseStr = str(self.spouse)
+        outputtableI.add_row([self.id,self.name,self.gender,self.birthDate.strftime('%d %b %Y'),self.calculateAge(),alive,deathDateStr,childrenStr,spouseStr])
     
     def calculateAge(self):
-        #TODO parse birthdate from string to date object
         today = date.today()
-        
         return today.year - self.birthDate.year - ((today.month, today.day) < (self.birthDate.month, self.birthDate.day))
 
 class Family:
@@ -35,10 +43,19 @@ class Family:
     marriageDate = None
     divorcedDate = None
     husbandId = ""
-    husbandeName = ""
+    husbandName = ""
     wifeId = ""
     wifeName = ""
     children = []
+    
+    def toString(self):
+        marriageDateStr = "NA"
+        divorcedDateStr = "NA"
+        if self.marriageDate is not None:
+            marriageDateStr = self.marriageDate.strftime('%d %b %Y')
+        if self.divorcedDate is not None:
+            divorcedDateStr = self.divorcedDate.strftime('%d %b %Y')
+        outputtableF.add_row([self.id,marriageDateStr,divorcedDateStr,self.husbandId,self.husbandName,self.wifeId,self.wifeName,str(self.children)])
 
 def parseStringtoDate(day,month,year):
     retDate = None
@@ -70,7 +87,7 @@ for line in inputFile:
         else:
             tmpObj = Family()
         tmpObj.id = lineSplit[1]
-    elif lineSplit[1] in tags and (lineSplit[0] == "1" or lineSplit[0] == "2"):
+    elif lineSplit[1] in tags and (lineSplit[0] == "1" or lineSplit[0] == "2") and tags[lineSplit[1]] == lineSplit[0]:
         if lineSplit[1] == "NAME":
             tmpObj.name = ' '.join(lineSplit[2:])
         elif lineSplit[1] == "SEX":
@@ -106,7 +123,24 @@ if tmpObj is not None:
 
 inputFile.close()
 
+for i in familiesDict:
+    #TODO should we add try/catch or can we assume that each family has wife/husband?
+    indiObjHusband = individualsDict[familiesDict[i].husbandId]
+    indiObjWife = individualsDict[familiesDict[i].wifeId]
+    #update the names of husband and wife in the family object
+    familiesDict[i].husbandName = indiObjHusband.name
+    familiesDict[i].wifeName = indiObjWife.name
+    #update the children of wife and husband objects
+    individualsDict[familiesDict[i].husbandId].children = familiesDict[i].children
+    individualsDict[familiesDict[i].wifeId].children = familiesDict[i].children
+    #update the spouse id
+    individualsDict[familiesDict[i].husbandId].spouse.append(familiesDict[i].wifeId)
+    individualsDict[familiesDict[i].wifeId].spouse.append(familiesDict[i].husbandId)
+    
+    familiesDict[i].toString()
+
 for i in individualsDict:
     individualsDict[i].toString()
 
 print outputtableI
+print outputtableF

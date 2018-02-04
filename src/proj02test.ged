@@ -9,11 +9,18 @@
 2 DATE 31 DEC 2099
 1 FAMC f1
 1 FAMS f2
+0 ce INDI
+1 NAME Chris /Evertt/
+1 SEX F
+1 BIRT
+2 DATE 1 JAN 1955
+1 FAMC f3
+1 FAMS f2
 0 f2 FAM
 1 HUSB jc
 1 WIFE ce
 1 CHIL aa
-1 MARR 
+1 MARR
 2 DATE 1 JUN 1960
 1 DIV
 2 DATE 1 JUN 1961
@@ -35,7 +42,7 @@
 0 DATE invalid
 1 INDI invalid
 1 FAM invalid
-1 HEAD 
+1 HEAD
 1 TRLR
 1 DATE
 1 NOTE bad note
