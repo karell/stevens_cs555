@@ -23,6 +23,12 @@ class Individual:
     
     def toString(self):
         alive = (self.deathDate is None)
+        birthDateStr = "NA"
+        if self.birthDate is not None:
+            try:    
+                birthDateStr = self.birthDate.strftime('%d %b %Y')
+            except Exception,e:
+                print str(e)
         deathDateStr = "NA"
         if self.deathDate is not None:
             deathDateStr = self.deathDate.strftime('%d %b %Y')
@@ -32,11 +38,17 @@ class Individual:
         spouseStr = "NA"
         if len(self.children) > 0:
             spouseStr = str(self.spouse)
-        outputtableI.add_row([self.id,self.name,self.gender,self.birthDate.strftime('%d %b %Y'),self.calculateAge(),alive,deathDateStr,childrenStr,spouseStr])
+        try:
+            outputtableI.add_row([self.id,self.name,self.gender,birthDateStr,self.calculateAge(),alive,deathDateStr,childrenStr,spouseStr])
+        except Exception,e:
+            print str(e)
     
     def calculateAge(self):
         today = date.today()
-        return today.year - self.birthDate.year - ((today.month, today.day) < (self.birthDate.month, self.birthDate.day))
+        age = -1
+        if self.birthDate:
+            age = today.year - self.birthDate.year - ((today.month, today.day) < (self.birthDate.month, self.birthDate.day))
+        return age
 
 class Family:
     def __init__(self):
@@ -69,7 +81,7 @@ def parseStringtoDate(day,month,year):
         print "Wrong Date Format for " + day + " " + month + " " + year
     return retDate
 
-inputFileName = "proj02test.ged"
+inputFileName = "../familyAncestory.ged"
 inputFile = open(inputFileName,"r")
 
 tmpObj = None
@@ -125,7 +137,7 @@ if tmpObj is not None:
 
 inputFile.close()
 
-for i in familiesDict:
+for i in sorted(familiesDict.iterkeys()):
     #TODO should we add try/catch or can we assume that each family has wife/husband?
     indiObjHusband = individualsDict[familiesDict[i].husbandId]
     indiObjWife = individualsDict[familiesDict[i].wifeId]
@@ -141,7 +153,7 @@ for i in familiesDict:
     
     familiesDict[i].toString()
 
-for i in individualsDict:
+for i in sorted(individualsDict.iterkeys()):
     individualsDict[i].toString()
 
 print outputtableI
