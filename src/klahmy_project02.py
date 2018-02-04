@@ -9,16 +9,17 @@ outputtableI = PrettyTable(["ID","Name","Gender","Birthday","Age","Alive","Death
 outputtableF = PrettyTable(["ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children"])
 #
 class Individual:
-    type = "I"
-    id = ""
-    name = ""
-    gender = ""
-    birthDate = None
-    deathDate = None
-    children = []
-    spouse = []
-    familyIdChild = None
-    familyIdSpouse = None
+    def __init__(self):
+        self.type = "I"
+        self.id = ""
+        self.name = ""
+        self.gender = ""
+        self.birthDate = None
+        self.deathDate = None
+        self.children = []
+        self.spouse = []
+        self.familyIdChild = None
+        self.familyIdSpouse = None
     
     def toString(self):
         alive = (self.deathDate is None)
@@ -38,15 +39,16 @@ class Individual:
         return today.year - self.birthDate.year - ((today.month, today.day) < (self.birthDate.month, self.birthDate.day))
 
 class Family:
-    type = "F"
-    id = ""
-    marriageDate = None
-    divorcedDate = None
-    husbandId = ""
-    husbandName = ""
-    wifeId = ""
-    wifeName = ""
-    children = []
+    def __init__(self):
+        self.type = "F"
+        self.id = ""
+        self.marriageDate = None
+        self.divorcedDate = None
+        self.husbandId = ""
+        self.husbandName = ""
+        self.wifeId = ""
+        self.wifeName = ""
+        self.children = []
     
     def toString(self):
         marriageDateStr = "NA"
