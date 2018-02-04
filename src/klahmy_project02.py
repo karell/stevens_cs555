@@ -27,8 +27,8 @@ class Individual:
         if self.birthDate is not None:
             try:    
                 birthDateStr = self.birthDate.strftime('%d %b %Y')
-            except Exception,e:
-                print str(e)
+            except:
+                print "Unable to convert Birth Date"
         deathDateStr = "NA"
         if self.deathDate is not None:
             deathDateStr = self.deathDate.strftime('%d %b %Y')
@@ -40,8 +40,8 @@ class Individual:
             spouseStr = str(self.spouse)
         try:
             outputtableI.add_row([self.id,self.name,self.gender,birthDateStr,self.calculateAge(),alive,deathDateStr,childrenStr,spouseStr])
-        except Exception,e:
-            print str(e)
+        except:
+            print "Unable to add Individual to collection"
     
     def calculateAge(self):
         today = date.today()
@@ -81,8 +81,13 @@ def parseStringtoDate(day,month,year):
         print "Wrong Date Format for " + day + " " + month + " " + year
     return retDate
 
-inputFileName = "../familyAncestory.ged"
-inputFile = open(inputFileName,"r")
+inFileName = input("Enter the input file name: ")
+
+try:
+	inputFile = open(inFileName)
+except:
+	print("Unable to open that input file. Please try again.")
+	quit()
 
 tmpObj = None
 dateType = None
