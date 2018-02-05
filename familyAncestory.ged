@@ -1,13 +1,13 @@
-0 HEAD
-0 NOTE Esther Johnson
-0 NOTE SSW555 Project 01
+﻿0 HEAD
+0 NOTE Team Esther Johnson, Troy Koss, Karel Lahmy, Keith Roseberry
+0 NOTE GitHub Repository https://github.com/karell/stevens_cs555
 0 @I1@ INDI
 1 NAME Esther /Sullivan/
 2 GIVN Esther
 2 SURN Sullivan
 1 SEX F
 1 BIRT
-2 DATE 1975
+2 DATE 1 DEC 1975
 1 FAMS @F1@
 1 FAMC @F2@
 0 @I2@ INDI
@@ -16,7 +16,7 @@
 2 SURN Johnson
 1 SEX M
 1 BIRT
-2 DATE 7 JUN 1974
+2 DATE 17 JUN 1974
 2 PLAC Union, North Carolina
 1 FAMS @F1@
 0 @I3@ INDI
@@ -25,7 +25,7 @@
 2 SURN Johnson
 1 SEX F
 1 BIRT
-2 DATE 3 JUL 1997
+2 DATE 4 JUL 1997
 2 PLAC Eglin AFB, Okaloosa, Florida, USA
 1 FAMC @F1@
 0 @I4@ INDI
@@ -34,7 +34,7 @@
 2 SURN Johnson
 1 SEX M
 1 BIRT
-2 DATE 28 JUN 1999
+2 DATE 27 JUN 1999
 2 PLAC Eglin AFB, Okaloosa, Florida, USA
 1 FAMC @F1@
 0 @I5@ INDI
@@ -43,7 +43,7 @@
 2 SURN Johnson
 1 SEX F
 1 BIRT
-2 DATE 29 DEC 2016
+2 DATE 25 DEC 2016
 2 PLAC Melbourne, Brevard, Florida, USA
 1 FAMC @F1@
 0 @I6@ INDI
