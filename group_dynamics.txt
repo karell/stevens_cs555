@@ -1,6 +1,6 @@
 What programming language is your team using for the project?  Everyone on the team must use the same programming language and contribute code for the group's submission.
--Python
--MongoDB
+-Python 3.6.4
+-MongoDB 3.6.2
 
 How will the group communicate?  Skype? Google Hangouts?  Email?  Text messages? Something else?  It's your choice, but you must choose a technology.
 -Skype for Sprint/Weekly Meetings (Maybe Google Hangouts if we experience issues)
