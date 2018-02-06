@@ -1,4 +1,4 @@
-﻿0 HEAD
+0 HEAD
 0 NOTE Team Esther Johnson, Troy Koss, Karel Lahmy, Keith Roseberry
 0 NOTE GitHub Repository https://github.com/karell/stevens_cs555
 0 @I1@ INDI
@@ -171,7 +171,7 @@
 2 SURN Sullivan
 1 SEX M
 1 BIRT
-2 DATE 0031
+2 DATE 21 DEC 1889
 2 PLAC Iowa
 1 DEAT Y
 2 DATE 27 MAY 1967
@@ -204,7 +204,7 @@
 2 DATE 19 DEC 1891
 2 PLAC Pueblo, Pueblo, Colorado
 1 DEAT Y
-2 DATE 0005
+2 DATE 5 APR 1981
 2 PLAC Pueblo, Pueblo, Colorado
 1 RESI
 2 ADDR Pueblo city, Pueblo, Colorado
@@ -282,7 +282,7 @@
 2 SURN Cromeans
 1 SEX F
 1 BIRT
-2 DATE 0016
+2 DATE 16 FEB 1878
 2 PLAC Payson, Utah, Utah, United States
 1 DEAT Y
 2 DATE 21 MAY 1951
@@ -298,7 +298,7 @@
 2 SURN Hansen
 1 SEX M
 1 BIRT
-2 DATE 0022
+2 DATE 22 JUN 1872
 2 PLAC Hyrum, Cache, Utah, United States
 1 DEAT Y
 2 DATE 14 AUG 1950
@@ -331,7 +331,7 @@
 2 SURN Andersson
 1 SEX F
 1 BIRT
-2 DATE 1871
+2 DATE 12 MAR 1871
 2 PLAC TrollamÃÂ¥la, Kalmar, Sweden
 1 DEAT Y
 2 PLAC Logan, Cache, Utah, USA
@@ -344,9 +344,9 @@
 2 SURN Johnson
 1 SEX M
 1 BIRT
-2 DATE 1862
+2 DATE 24 AUG 1862
 1 DEAT Y
-2 DATE 1945
+2 DATE 1 AUG 1945
 1 FAMS @F11@
 0 @I30@ INDI
 1 NAME Delbert James /OLSEN/
@@ -369,7 +369,7 @@
 2 SURN Hansen
 1 SEX F
 1 BIRT
-2 DATE 1915
+2 DATE 16 JUN 1915
 2 PLAC Utah
 1 DEAT Y
 2 DATE 14 MAR 1966
@@ -384,7 +384,7 @@
 2 SURN OLSEN
 1 SEX M
 1 BIRT
-2 DATE 0004
+2 DATE 4 JAN 1955
 2 PLAC Logan, Cache, Utah
 1 FAMC @F10@
 0 @I33@ INDI
@@ -422,10 +422,10 @@
 2 GIVN Alice May
 2 SURN Hansen
 1 BIRT
-2 DATE 0016
+2 DATE 16 FEB 1902
 2 PLAC Logan, Cache County, Utah, USA
 1 DEAT Y
-2 DATE 0003
+2 DATE 3 AUG 1903
 2 PLAC Logan, Cache County, Utah, USA
 1 BURI
 2 PLAC Logan, Cache County, Utah, USA
@@ -435,10 +435,10 @@
 2 GIVN Martha Lavon
 2 SURN Hansen
 1 BIRT
-2 DATE 0016
+2 DATE 16 AUG 1899
 2 PLAC Logan, Cache County, Utah, USA
 1 DEAT Y
-2 DATE 0013
+2 DATE 13 AUG 1907
 2 PLAC Logan, Cache County, Utah, USA
 1 BURI
 2 PLAC Logan, Cache County, Utah, USA
@@ -485,7 +485,7 @@
 2 SURN Hansen
 1 SEX M
 1 BIRT
-2 DATE 1898
+2 DATE 21 DEC 1898
 2 PLAC Utah
 1 FAMC @F12@
 0 @I41@ INDI
@@ -494,7 +494,7 @@
 2 SURN Hansen
 1 SEX F
 1 BIRT
-2 DATE AUG 1847
+2 DATE 1 AUG 1847
 2 PLAC Denmark
 1 RESI
 2 ADDR Bennington, Bear Lake, Idaho
@@ -505,7 +505,7 @@
 2 SURN Hansen
 1 SEX M
 1 BIRT
-2 DATE APR 1825
+2 DATE 1 APR 1825
 2 PLAC Denmark
 1 RESI
 2 ADDR Bennington, Bear Lake, Idaho, United States
@@ -516,7 +516,7 @@
 2 SURN Hansen
 1 SEX M
 1 BIRT
-2 DATE 1908
+2 DATE 18 JAN 1907
 2 PLAC Utah
 1 DEAT Y
 2 DATE 7 SEP 1984
@@ -553,12 +553,12 @@
 2 ADDR Logan, Cache, Utah
 1 FAMC @F12@
 0 @I46@ INDI
-1 NAME Nancy Ann Cromeans /Hansen/
-2 GIVN Nancy Ann Cromeans
+1 NAME Anna Tate /Hansen/
+2 GIVN Anna Tate
 2 SURN Hansen
 1 SEX F
 1 BIRT
-2 DATE 0016
+2 DATE 16 FEB 1888
 2 PLAC Utah
 1 DEAT Y
 2 DATE 21 MAY 1951
@@ -569,35 +569,24 @@
 2 ADDR Logan Ward 5, Cache, Utah
 1 FAMS @F17@
 0 @I47@ INDI
-1 NAME James I /Hansen/
-2 GIVN James I
+1 NAME Anders I /Hansen/
+2 GIVN Anders I
 2 SURN Hansen
 1 SEX M
 1 BIRT
-2 DATE 1898
+2 DATE 17 SEP 1896
 2 PLAC Utah
 1 RESI
 2 ADDR Logan Ward 5, Cache, Utah
 1 FAMC @F12@
 0 @I48@ INDI
-1 NAME James I /Hansen/
-2 GIVN James I
+1 NAME Thomas J /Hansen/
+2 GIVN Thomas J
 2 SURN Hansen
 1 SEX M
 1 BIRT
-2 DATE 1898
-2 PLAC Utah
-1 RESI
-2 ADDR Logan Ward 5, Cache, Utah
-1 FAMC @F17@
-0 @I49@ INDI
-1 NAME Warren /Hansen/
-2 GIVN Warren
-2 SURN Hansen
-1 SEX M
-1 BIRT
-2 DATE 1907
-2 PLAC Utah
+2 DATE 1 DEC 1900
+2 PLAC Logan, Utah
 1 RESI
 2 ADDR Logan Ward 5, Cache, Utah
 1 FAMC @F17@
@@ -607,7 +596,7 @@
 2 SURN Hansen
 1 SEX F
 1 BIRT
-2 DATE 1909
+2 DATE 1 DEC 1909
 2 PLAC Utah
 1 RESI
 2 ADDR Logan Ward 5, Cache, Utah
@@ -618,7 +607,7 @@
 2 SURN Hansen
 1 SEX F
 1 BIRT
-2 DATE 1905
+2 DATE 14 JAN 1905
 2 PLAC Utah
 1 RESI
 2 ADDR Logan Ward 5, Cache, Utah
@@ -629,7 +618,7 @@
 2 SURN Hansen
 1 SEX M
 1 BIRT
-2 DATE 1872
+2 DATE 22 JUN 1872
 2 PLAC Utah
 1 RESI
 2 ADDR Logan Ward 5, Cache, Utah
