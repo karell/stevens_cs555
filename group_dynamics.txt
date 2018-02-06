@@ -31,7 +31,7 @@ Development Integrator
 Developer/Tester
 
 Roseberry, Keith:
-Scrum Master
+Scrum Master - Burn Down & Retrospective
 Developer/Tester
 
 Git Notes:
