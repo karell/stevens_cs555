@@ -81,7 +81,7 @@ def parseStringtoDate(day,month,year):
         print "Wrong Date Format for " + day + " " + month + " " + year
     return retDate
 
-inFileName = input("Enter the input file name: ")
+inFileName = raw_input("Enter the input file name: ")
 
 try:
 	inputFile = open(inFileName)
