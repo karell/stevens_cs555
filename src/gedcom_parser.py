@@ -204,7 +204,7 @@ print(outputtableF)
 # Output both tables to a text file.
 # ----------
 try:
-	outputFile = open("gedcom_tables.txt","w")
+	outputFile = open("output_gedcom_tables.txt","w")
 except:
 	print("Unable to open the output file.")
 	quit()
