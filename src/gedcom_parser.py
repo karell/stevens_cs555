@@ -3,16 +3,19 @@ from datetime import date
 from prettytable import PrettyTable
 from pymongo import MongoClient
 
-# DB Constant definition
-CLIENT = MongoClient()
-DB = CLIENT.GEDCOM
-INDVIDUALS = DB.individuals
-FAMILIES = DB.families
-
-# clear collections
-INDVIDUALS.drop()
-FAMILIES.drop()
-
+DB_INIT = None
+try:
+  # DB Constant definition
+  CLIENT = MongoClient(serverSelectionTimeoutMS=5)
+  DB = CLIENT.GEDCOM
+  INDVIDUALS = DB.individuals
+  FAMILIES = DB.families
+  # clear collections
+  INDVIDUALS.drop()
+  FAMILIES.drop()
+  DB_INIT = True
+except:
+  print("DB instance is not running")
 
 tags = {'INDI':'0','NAME':'1','SEX':'1','BIRT':'1','DEAT':'1','FAMC':'1','FAMS':'1','FAM':'0','MARR':'1','HUSB':'1','WIFE':'1','CHIL':'1','DIV':'1','DATE':'2','HEAD':'0','TRLR':'0','NOTE':'0'}
 individualsDict = {}
@@ -175,11 +178,14 @@ for i in sorted(familiesDict.keys()):
     
     familiesDict[i].toString()
     #save to db
-    FAMILIES.insert_one(familiesDict[i].__dict__)
+    if DB_INIT is not None:
+        FAMILIES.insert_one(familiesDict[i].__dict__)
 
 for i in sorted(individualsDict.keys()):
     individualsDict[i].toString()
-    INDVIDUALS.insert_one(individualsDict[i].__dict__)
+    #save to db
+    if DB_INIT is not None:
+        INDVIDUALS.insert_one(individualsDict[i].__dict__)
 
 print(outputtableI)
 print(outputtableF)
