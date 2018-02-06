@@ -28,7 +28,7 @@ class Individual:
             try:    
                 birthDateStr = self.birthDate.strftime('%d %b %Y')
             except:
-                print "Unable to convert Birth Date"
+                print("Unable to convert Birth Date")
         deathDateStr = "NA"
         if self.deathDate is not None:
             deathDateStr = self.deathDate.strftime('%d %b %Y')
@@ -41,13 +41,18 @@ class Individual:
         try:
             outputtableI.add_row([self.id,self.name,self.gender,birthDateStr,self.calculateAge(),alive,deathDateStr,childrenStr,spouseStr])
         except:
-            print "Unable to add Individual to collection"
+            print("Unable to add Individual to collection")
     
     def calculateAge(self):
         today = date.today()
         age = -1
-        if self.birthDate:
-            age = today.year - self.birthDate.year - ((today.month, today.day) < (self.birthDate.month, self.birthDate.day))
+        if self.birthDate and self.deathDate:
+            death = self.deathDate
+            birth = self.birthDate
+            age = death.year - birth.year - ((death.month, death.day) < (birth.month, birth.day))
+        elif self.birthDate and self.deathDate is None:
+            birth = self.birthDate
+            age = today.year - birth.year - ((today.month, today.day) < (birth.month, birth.day))
         return age
 
 class Family:
@@ -78,7 +83,7 @@ def parseStringtoDate(day,month,year):
     try:
         retDate = datetime.strptime(day + " " + month + " " + year,'%d %b %Y')
     except ValueError:
-        print "Wrong Date Format for " + day + " " + month + " " + year
+        print("Wrong Date Format for " + day + " " + month + " " + year)
     return retDate
 
 inFileName = input("Enter the input file name: ")
@@ -142,7 +147,7 @@ if tmpObj is not None:
 
 inputFile.close()
 
-for i in sorted(familiesDict.iterkeys()):
+for i in sorted(familiesDict.keys()):
     #TODO should we add try/catch or can we assume that each family has wife/husband?
     indiObjHusband = individualsDict[familiesDict[i].husbandId]
     indiObjWife = individualsDict[familiesDict[i].wifeId]
@@ -158,8 +163,8 @@ for i in sorted(familiesDict.iterkeys()):
     
     familiesDict[i].toString()
 
-for i in sorted(individualsDict.iterkeys()):
+for i in sorted(individualsDict.keys()):
     individualsDict[i].toString()
 
-print outputtableI
-print outputtableF
+print(outputtableI)
+print(outputtableF)
