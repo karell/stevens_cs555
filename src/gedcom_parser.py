@@ -199,3 +199,16 @@ for i in sorted(individualsDict.keys()):
 
 print(outputtableI)
 print(outputtableF)
+
+# ----------
+# Output both tables to a text file.
+# ----------
+try:
+	outputFile = open("gedcom_tables.txt","w")
+except:
+	print("Unable to open the output file.")
+	quit()
+
+outputFile.write(outputtableI.get_string())
+outputFile.write("\n")
+outputFile.write(outputtableF.get_string())
