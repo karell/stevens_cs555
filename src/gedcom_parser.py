@@ -115,7 +115,7 @@ if len(sys.argv) == 2:
 		print("Unable to open that input file. Please try again.")
 		quit()
 else:
-	pring("Error! Invalid arguments.")
+	print("Error! Invalid arguments.")
 	print("Specify the input file name on the command line.")
 	quit()
 
