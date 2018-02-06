@@ -1,3 +1,5 @@
+import sys # -- Used for command line arguments
+
 from datetime import datetime
 from datetime import date
 from prettytable import PrettyTable
@@ -101,12 +103,20 @@ def parseStringtoDate(day,month,year):
         print("Wrong Date Format for " + day + " " + month + " " + year)
     return retDate
 
-inFileName = input("Enter the input file name: ")
-
-try:
-	inputFile = open(inFileName)
-except:
-	print("Unable to open that input file. Please try again.")
+# ----------
+# Validate that there is only one argument on the command line. This means there
+# are two arguments total - the first is the name of the script.
+# ----------
+if len(sys.argv) == 2:
+	inFileName = sys.argv[1]
+	try:
+		inputFile = open(inFileName)
+	except:
+		print("Unable to open that input file. Please try again.")
+		quit()
+else:
+	pring("Error! Invalid arguments.")
+	print("Specify the input file name on the command line.")
 	quit()
 
 tmpObj = None
