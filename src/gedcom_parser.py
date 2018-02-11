@@ -1,4 +1,5 @@
 import sys # -- Used for command line arguments
+import individual
 import unittest
 
 from datetime import datetime
@@ -26,59 +27,6 @@ familiesDict = {}
 outputtableI = PrettyTable(["ID","First Name", "LastName","Gender","Birthday","Age","Alive","Death","Children","Spouse"])
 outputtableF = PrettyTable(["ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children"])
 #
-class Individual:
-    def __init__(self):
-        self.type = "I"
-        self.id = ""
-        self.name = ""
-        self.firstAndMiddleName = ""
-        self.lastname = ""
-        self.gender = ""
-        self.birthDate = None
-        self.deathDate = None
-        self.children = []
-        self.spouse = []
-        self.familyIdChild = None
-        self.familyIdSpouse = None
-
-    def toString(self):
-        alive = (self.deathDate is None)
-        birthDateStr = "NA"
-        if self.birthDate is not None:
-            try:
-                birthDateStr = self.birthDate.strftime('%d %b %Y')
-            except:
-                print("Unable to convert Birth Date")
-        deathDateStr = "NA"
-        if self.deathDate is not None:
-            deathDateStr = self.deathDate.strftime('%d %b %Y')
-        childrenStr = "NA"
-        if len(self.children) > 0:
-            childrenStr = str(self.children)
-        spouseStr = "NA"
-        ###US 16 get the child by id, then check gender, then last name   
-        if len(self.children) > 0:
-            spouseStr = str(self.spouse)
-            if self.gender == "M":
-                for i in self.children:
-                   checkMaleLastNames(i, self.lastname)
-              
-        try:
-            outputtableI.add_row([self.id,self.firstAndMiddleName,self.lastname,self.gender,birthDateStr,self.calculateAge(),alive,deathDateStr,childrenStr,spouseStr])
-        except:
-            print("Unable to add Individual to collection")
-
-    def calculateAge(self):
-        today = date.today()
-        age = -1
-        if self.birthDate and self.deathDate:
-            death = self.deathDate
-            birth = self.birthDate
-            age = death.year - birth.year - ((death.month, death.day) < (birth.month, birth.day))
-        elif self.birthDate and self.deathDate is None:
-            birth = self.birthDate
-            age = today.year - birth.year - ((today.month, today.day) < (birth.month, birth.day))
-        return age
 
 class Family:
     def __init__(self):
@@ -151,7 +99,7 @@ for line in inputFile:
                 familiesDict[tmpObj.id] = tmpObj
         tmpObj = None
         if lineSplit[2] == "INDI":
-            tmpObj = Individual()
+            tmpObj = individual.Individual()
         else:
             tmpObj = Family()
         tmpObj.id = lineSplit[1]
@@ -241,6 +189,11 @@ for i in sorted(familiesDict.keys()):
 
 for i in sorted(individualsDict.keys()):
     individualsDict[i].toString()
+    try:
+        ind = individualsDict[i]
+        outputtableI.add_row([ind.id,ind.firstAndMiddleName,ind.lastname,ind.gender,ind.birthDateStr,ind.calculateAge(),ind.alive,ind.deathDateStr,ind.childrenStr,ind.spouseStr])
+    except:
+        print("Unable to add Individual to collection")
     #save to db
     if DB_INIT is not None:
         INDVIDUALS.insert_one(individualsDict[i].__dict__)
