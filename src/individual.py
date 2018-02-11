@@ -10,6 +10,8 @@ class Individual:
     def __init__(self):
         self.type = "I"
         self.id = ""
+        self.firstAndMiddleName = ""
+        self.lastname = ""
         self.name = ""
         self.gender = ""
         self.birthDate = None

@@ -190,7 +190,7 @@ for i in sorted(individualsDict.keys()):
     individualsDict[i].toString()
     try:
         ind = individualsDict[i]
-        outputtableI.add_row([ind.id,ind.name,ind.gender,ind.birthDateStr,ind.calculateAge(),ind.alive,ind.deathDateStr,ind.childrenStr,ind.spouseStr])
+        outputtableI.add_row([ind.id,ind.firstAndMiddleName,ind.lastname,ind.gender,ind.birthDateStr,ind.calculateAge(),ind.alive,ind.deathDateStr,ind.childrenStr,ind.spouseStr])
     except:
         print("Unable to add Individual to collection")
     #save to db
