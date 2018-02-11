@@ -7,7 +7,7 @@ How will the group communicate?  Skype? Google Hangouts?  Email?  Text messages?
 -Text messages for frequent communication
 
 When will your team communicate?   I recommend that you adopt the concept of a Daily Standup meeting (we'll discuss this in the Week 3 lecture).  You may not need to talk every day, but you should talk together at least once per week.
--Every Saturday morning plus ongoing usage of group text messaging
+-Every Sunday morning @10a plus ongoing usage of group text messaging
 
 What is the URL of your team's GitHub repository?
 https://github.com/karell/stevens_cs555
