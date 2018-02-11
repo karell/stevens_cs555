@@ -159,18 +159,21 @@ for i in sorted(familiesDict.keys()):
             indiObjWife.birthDate = None
             familiesDict[i].marriageDate = None
 
+    # Build the output prettytable. Convert the internal format of variables to
+    # string format prior to adding a row to the output prettytable.
     familiesDict[i].toString()
     try:
         fam = familiesDict[i]
         outputtableF.add_row([fam.id,fam.marriageDateStr,fam.divorcedDateStr,fam.husbandId,fam.husbandName,fam.wifeId,fam.wifeName,str(fam.children)])
     except:
         print("Unable to add Family to collection")
-
     #save to db
     if DB_INIT is not None:
         FAMILIES.insert_one(familiesDict[i].__dict__)
 
 for i in sorted(individualsDict.keys()):
+    # Build the output prettytable. Convert the internal format of variables to
+    # string format prior to adding a row to the output prettytable.
     individualsDict[i].toString()
     try:
         ind = individualsDict[i]

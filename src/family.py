@@ -11,7 +11,7 @@ class Family:
         self.marriageDate = None
         self.marriageDateStr = "NA"
         self.divorcedDate = None
-        self.divorceDateStr = "NA"
+        self.divorcedDateStr = "NA"
         self.husbandId = ""
         self.husbandName = ""
         self.wifeId = ""
