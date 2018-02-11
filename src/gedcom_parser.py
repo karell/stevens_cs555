@@ -23,7 +23,7 @@ except:
 tags = {'INDI':'0','NAME':'1','SEX':'1','BIRT':'1','DEAT':'1','FAMC':'1','FAMS':'1','FAM':'0','MARR':'1','HUSB':'1','WIFE':'1','CHIL':'1','DIV':'1','DATE':'2','HEAD':'0','TRLR':'0','NOTE':'0'}
 individualsDict = {}
 familiesDict = {}
-outputtableI = PrettyTable(["ID","Name","Gender","Birthday","Age","Alive","Death","Children","Spouse"])
+outputtableI = PrettyTable(["ID","First Name", "LastName","Gender","Birthday","Age","Alive","Death","Children","Spouse"])
 outputtableF = PrettyTable(["ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children"])
 #
 
@@ -38,6 +38,9 @@ class Family:
         self.wifeId = ""
         self.wifeName = ""
         self.children = []
+        ##Adding Lastname and for US16
+        self.lastName = ""
+        self.gender = ""
 
     def toString(self):
         marriageDateStr = "NA"
@@ -58,6 +61,12 @@ def parseStringtoDate(day,month,year):
         print("Wrong Date Format for " + day + " " + month + " " + year)
     return retDate
 
+##US16 Check Male Lastnames
+def checkMaleLastNames(id, fatherLastName):
+    person = individualsDict.get(id)
+    if (person.lastname != fatherLastName):
+        print("Child " + person.firstAndMiddleName + person.lastname + " does not match fathers lastname of "  + fatherLastName)                
+    
 # ----------
 # Validate that there is only one argument on the command line. This means there
 # are two arguments total - the first is the name of the script.
@@ -96,8 +105,12 @@ for line in inputFile:
     elif lineSplit[1] in tags and (lineSplit[0] == "1" or lineSplit[0] == "2") and tags[lineSplit[1]] == lineSplit[0]:
         if lineSplit[1] == "NAME":
             tmpObj.name = ' '.join(lineSplit[2:])
+## FOR User Story 16, Need to separate last names
+            tmpObj.firstAndMiddleName = ' '.join(lineSplit[2:]).split(sep="/", maxsplit=2).__getitem__(0)
+            tmpObj.lastname =  ' '.join(lineSplit[2:]).split(sep="/", maxsplit=2).__getitem__(1)
+            
         elif lineSplit[1] == "SEX":
-            tmpObj.gender = lineSplit[2]
+            tmpObj.gender = lineSplit[2]            
         elif lineSplit[1] == "BIRT" or lineSplit[1] == "DEAT" or lineSplit[1] == "MARR" or lineSplit[1] == "DIV":
             dateType = lineSplit[1]
         elif lineSplit[1] == "FAMC":
@@ -134,8 +147,9 @@ for line in inputFile:
             dateType = None
 
 if tmpObj is not None:
-    if tmpObj.type == "I":
+    if tmpObj.type == "I":        
         individualsDict[tmpObj.id] = tmpObj
+
     else:
         familiesDict[tmpObj.id] = tmpObj
 
@@ -144,6 +158,7 @@ inputFile.close()
 for i in sorted(familiesDict.keys()):
     #TODO should we add try/catch or can we assume that each family has wife/husband?
     indiObjHusband = individualsDict[familiesDict[i].husbandId]
+     
     indiObjWife = individualsDict[familiesDict[i].wifeId]
     #update the names of husband and wife in the family object
     familiesDict[i].husbandName = indiObjHusband.name
