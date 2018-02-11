@@ -1,25 +1,25 @@
-+-------+-------------------+--------+-------------+-----+-------+-------------+-----------+--------------------+
-|   ID  |        Name       | Gender |   Birthday  | Age | Alive |    Death    |  Children |       Spouse       |
-+-------+-------------------+--------+-------------+-----+-------+-------------+-----------+--------------------+
-| @I10@ |  CRAIG /SCHMIDT/  |   M    | 01 Jan 1957 |  61 |  True |      NA     |  ['@I9@'] |     ['@I11@']      |
-| @I11@ |   GINA /KREIGER/  |   F    | 01 Jan 1965 |  53 |  True |      NA     | ['@I12@'] | ['@I10@', '@I13@'] |
-| @I12@ |   RON /SCHMIDT/   |   M    | 01 Jan 1982 |  36 |  True |      NA     |     NA    |         NA         |
-| @I13@ |    WILD /BILL/    |   M    | 01 Jan 1960 |  58 |  True |      NA     | ['@I12@'] |     ['@I11@']      |
-| @I14@ |   STEPHEN /KOSS/  |   M    | 01 Jan 1931 |  34 | False | 01 Jan 1965 |  ['@I1@'] |     ['@I15@']      |
-| @I15@ |    SARAH /DOE/    |   F    | 01 Jan 1930 |  88 |  True |      NA     |     NA    |         NA         |
-| @I16@ |   JOHN /JOHNSON/  |   M    | 01 Jan 1935 |  83 |  True |      NA     |     NA    |         NA         |
-| @I17@ |    HERALD /DOE/   |   M    | 01 Jan 1880 |  70 | False | 02 Jan 1950 | ['@I15@'] |     ['@I18@']      |
-| @I18@ |  HARAH /SAMPSON/  |   F    | 01 Jan 1890 |  70 | False | 05 Jan 1960 | ['@I15@'] |     ['@I17@']      |
-|  @I1@ |   THOMAS /KOSS/   |   M    | 01 Nov 1961 |  51 | False | 01 Mar 2013 |  ['@I3@'] |      ['@I2@']      |
-|  @I2@ |  CHERYL /GILLIG/  |   F    | 09 Sep 1957 |  60 |  True |      NA     |     NA    |         NA         |
-|  @I3@ |    TROY /KOSS/    |   M    | 06 Dec 1991 |  26 |  True |      NA     |     NA    |         NA         |
-|  @I4@ |   JOHN /PAGANO/   |   M    | 01 Jan 1950 |  67 | False | 01 Jan 2017 |  ['@I5@'] |  ['@I2@', '@I6@']  |
-|  @I5@ |  JOHNJR /PAGANO/  |   M    | 01 Jan 1982 |  36 |  True |      NA     |     NA    |         NA         |
-|  @I6@ |    SUE /SMITH/    |   F    | 01 Jan 1951 |  67 |  True |      NA     |  ['@I5@'] |      ['@I4@']      |
-|  @I7@ |  RAYMOND /GILLIG/ |   M    | 03 Jul 1930 |  87 | False | 01 Sep 2017 |  ['@I2@'] |      ['@I8@']      |
-|  @I8@ |    SUSAN /LANG/   |   F    | 01 Jan 1930 |  88 |  True |      NA     |  ['@I2@'] |      ['@I7@']      |
-|  @I9@ | MELANIE /SCHMIDT/ |   F    | 25 Oct 1994 |  23 |  True |      NA     |     NA    |         NA         |
-+-------+-------------------+--------+-------------+-----+-------+-------------+-----------+--------------------+
++-------+------------+----------+--------+-------------+-----+-------+-------------+-----------+--------------------+
+|   ID  | First Name | LastName | Gender |   Birthday  | Age | Alive |    Death    |  Children |       Spouse       |
++-------+------------+----------+--------+-------------+-----+-------+-------------+-----------+--------------------+
+| @I10@ |   CRAIG    | SCHMIDT  |   M    | 01 Jan 1957 |  61 |  True |      NA     |  ['@I9@'] |     ['@I11@']      |
+| @I11@ |   GINA     | KREIGER  |   F    | 01 Jan 1965 |  53 |  True |      NA     | ['@I12@'] | ['@I10@', '@I13@'] |
+| @I12@ |    RON     | SCHMIDT  |   M    | 01 Jan 1982 |  36 |  True |      NA     |     NA    |         NA         |
+| @I13@ |   WILD     |   BILL   |   M    | 01 Jan 1960 |  58 |  True |      NA     | ['@I12@'] |     ['@I11@']      |
+| @I14@ |  STEPHEN   |   KOSS   |   M    | 01 Jan 1931 |  34 | False | 01 Jan 1965 |  ['@I1@'] |     ['@I15@']      |
+| @I15@ |   SARAH    |   DOE    |   F    | 01 Jan 1930 |  88 |  True |      NA     |     NA    |         NA         |
+| @I16@ |   JOHN     | JOHNSON  |   M    | 01 Jan 1935 |  83 |  True |      NA     |     NA    |         NA         |
+| @I17@ |  HERALD    |   DOE    |   M    | 01 Jan 1880 |  70 | False | 02 Jan 1950 | ['@I15@'] |     ['@I18@']      |
+| @I18@ |   HARAH    | SAMPSON  |   F    | 01 Jan 1890 |  70 | False | 05 Jan 1960 | ['@I15@'] |     ['@I17@']      |
+|  @I1@ |  THOMAS    |   KOSS   |   M    | 01 Nov 1961 |  51 | False | 01 Mar 2013 |  ['@I3@'] |      ['@I2@']      |
+|  @I2@ |  CHERYL    |  GILLIG  |   F    | 09 Sep 1957 |  60 |  True |      NA     |     NA    |         NA         |
+|  @I3@ |   TROY     |   KOSS   |   M    | 06 Dec 1991 |  26 |  True |      NA     |     NA    |         NA         |
+|  @I4@ |   JOHN     |  PAGANO  |   M    | 01 Jan 1950 |  67 | False | 01 Jan 2017 |  ['@I5@'] |  ['@I2@', '@I6@']  |
+|  @I5@ |  JOHNJR    |  PAGANO  |   M    | 01 Jan 1982 |  36 |  True |      NA     |     NA    |         NA         |
+|  @I6@ |    SUE     |  SMITH   |   F    | 01 Jan 1951 |  67 |  True |      NA     |  ['@I5@'] |      ['@I4@']      |
+|  @I7@ |  RAYMOND   |  GILLIG  |   M    | 03 Jul 1930 |  87 | False | 01 Sep 2017 |  ['@I2@'] |      ['@I8@']      |
+|  @I8@ |   SUSAN    |   LANG   |   F    | 01 Jan 1930 |  88 |  True |      NA     |  ['@I2@'] |      ['@I7@']      |
+|  @I9@ |  MELANIE   | SCHMIDT  |   F    | 25 Oct 1994 |  23 |  True |      NA     |     NA    |         NA         |
++-------+------------+----------+--------+-------------+-----+-------+-------------+-----------+--------------------+
 +-------+-------------+-------------+------------+------------------+---------+-------------------+-----------+
 |   ID  |   Married   |   Divorced  | Husband ID |   Husband Name   | Wife ID |     Wife Name     |  Children |
 +-------+-------------+-------------+------------+------------------+---------+-------------------+-----------+
