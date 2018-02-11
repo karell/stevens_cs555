@@ -114,15 +114,12 @@ def parseStringtoDate(day,month,year):
     except ValueError:
         print("Wrong Date Format for " + day + " " + month + " " + year)
     return retDate
+
 ##US16 Check Male Lastnames
 def checkMaleLastNames(id, fatherLastName):
-   
-    self = individualsDict.get(id)
-    if (self.lastname != fatherLastName):
-        print ("Child " + self.firstAndMiddleName + self.lastname + " does not match fathers lastname of "  + fatherLastName)
-        
-    
-                      
+    person = individualsDict.get(id)
+    if (person.lastname != fatherLastName):
+        print("Child " + person.firstAndMiddleName + person.lastname + " does not match fathers lastname of "  + fatherLastName)                
     
 # ----------
 # Validate that there is only one argument on the command line. This means there
