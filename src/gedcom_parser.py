@@ -1,4 +1,5 @@
 import sys # -- Used for command line arguments
+import unittest
 
 from datetime import datetime
 from datetime import date
@@ -55,15 +56,13 @@ class Individual:
         if len(self.children) > 0:
             childrenStr = str(self.children)
         spouseStr = "NA"
-       
+        ###US 16 get the child by id, then check gender, then last name   
         if len(self.children) > 0:
             spouseStr = str(self.spouse)
             if self.gender == "M":
                 for i in self.children:
                    checkMaleLastNames(i, self.lastname)
-            ###US 16 todo figure out how to get the child by id, then check gender, then last name      
-                    
-
+              
         try:
             outputtableI.add_row([self.id,self.firstAndMiddleName,self.lastname,self.gender,birthDateStr,self.calculateAge(),alive,deathDateStr,childrenStr,spouseStr])
         except:
