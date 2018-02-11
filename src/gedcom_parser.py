@@ -1,5 +1,6 @@
 import sys # -- Used for command line arguments
 import individual
+import family
 import unittest
 
 from datetime import datetime
@@ -27,30 +28,6 @@ familiesDict = {}
 outputtableI = PrettyTable(["ID","First Name", "LastName","Gender","Birthday","Age","Alive","Death","Children","Spouse"])
 outputtableF = PrettyTable(["ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children"])
 #
-
-class Family:
-    def __init__(self):
-        self.type = "F"
-        self.id = ""
-        self.marriageDate = None
-        self.divorcedDate = None
-        self.husbandId = ""
-        self.husbandName = ""
-        self.wifeId = ""
-        self.wifeName = ""
-        self.children = []
-        ##Adding Lastname and for US16
-        self.lastName = ""
-        self.gender = ""
-
-    def toString(self):
-        marriageDateStr = "NA"
-        divorcedDateStr = "NA"
-        if self.marriageDate is not None:
-            marriageDateStr = self.marriageDate.strftime('%d %b %Y')
-        if self.divorcedDate is not None:
-            divorcedDateStr = self.divorcedDate.strftime('%d %b %Y')
-        outputtableF.add_row([self.id,marriageDateStr,divorcedDateStr,self.husbandId,self.husbandName,self.wifeId,self.wifeName,str(self.children)])
 
 def parseStringtoDate(day,month,year):
     retDate = None
@@ -101,7 +78,7 @@ for line in inputFile:
         if lineSplit[2] == "INDI":
             tmpObj = individual.Individual()
         else:
-            tmpObj = Family()
+            tmpObj = family.Family()
         tmpObj.id = lineSplit[1]
     elif lineSplit[1] in tags and (lineSplit[0] == "1" or lineSplit[0] == "2") and tags[lineSplit[1]] == lineSplit[0]:
         if lineSplit[1] == "NAME":
@@ -182,12 +159,21 @@ for i in sorted(familiesDict.keys()):
             indiObjWife.birthDate = None
             familiesDict[i].marriageDate = None
 
+    # Build the output prettytable. Convert the internal format of variables to
+    # string format prior to adding a row to the output prettytable.
     familiesDict[i].toString()
+    try:
+        fam = familiesDict[i]
+        outputtableF.add_row([fam.id,fam.marriageDateStr,fam.divorcedDateStr,fam.husbandId,fam.husbandName,fam.wifeId,fam.wifeName,str(fam.children)])
+    except:
+        print("Unable to add Family to collection")
     #save to db
     if DB_INIT is not None:
         FAMILIES.insert_one(familiesDict[i].__dict__)
 
 for i in sorted(individualsDict.keys()):
+    # Build the output prettytable. Convert the internal format of variables to
+    # string format prior to adding a row to the output prettytable.
     individualsDict[i].toString()
     try:
         ind = individualsDict[i]
