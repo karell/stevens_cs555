@@ -37,12 +37,12 @@ class Individual:
         self.spouse = []
         self.familyIdChild = None
         self.familyIdSpouse = None
-    
+
     def toString(self):
         alive = (self.deathDate is None)
         birthDateStr = "NA"
         if self.birthDate is not None:
-            try:    
+            try:
                 birthDateStr = self.birthDate.strftime('%d %b %Y')
             except:
                 print("Unable to convert Birth Date")
@@ -59,7 +59,7 @@ class Individual:
             outputtableI.add_row([self.id,self.name,self.gender,birthDateStr,self.calculateAge(),alive,deathDateStr,childrenStr,spouseStr])
         except:
             print("Unable to add Individual to collection")
-    
+
     def calculateAge(self):
         today = date.today()
         age = -1
@@ -83,7 +83,7 @@ class Family:
         self.wifeId = ""
         self.wifeName = ""
         self.children = []
-    
+
     def toString(self):
         marriageDateStr = "NA"
         divorcedDateStr = "NA"
@@ -122,6 +122,8 @@ else:
 tmpObj = None
 dateType = None
 
+CurrentDate = datetime.now()
+
 for line in inputFile:
     lineSplit = line.split()
     if lineSplit[0] == "0" and len(lineSplit) > 2 and (lineSplit[2] == "INDI" or lineSplit[2] == "FAM"):
@@ -156,14 +158,26 @@ for line in inputFile:
         elif lineSplit[1] == "DATE" and dateType is not None and len(lineSplit) > 4:
             if (dateType == "BIRT"):
                 tmpObj.birthDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
+                if tmpObj.birthDate > CurrentDate:
+                    print ("Invalid birth date for " + tmpObj.name)
+                    tmpObj.birthDate = None
             elif dateType == "DEAT":
                 tmpObj.deathDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
+                if tmpObj.deathDate > CurrentDate:
+                    print ("Invalid death date for " + tmpObj.name)
+                    tmpObj.deathDate = None
             elif dateType == "MARR":
                 tmpObj.marriageDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
+                if tmpObj.marriageDate > CurrentDate:
+                    print ("Invalid marriage date for " + tmpObj.name)
+                    tmpObj.marriageDate = None
             elif dateType == "DIV":
                 tmpObj.divorcedDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
+                if tmpObj.divorcedDate > CurrentDate:
+                    print ("Invalid divorced date for " + tmpObj.name)
+                    tmpObj.divorcedDate = None
             dateType = None
-            
+
 if tmpObj is not None:
     if tmpObj.type == "I":
         individualsDict[tmpObj.id] = tmpObj
@@ -186,6 +200,17 @@ for i in sorted(familiesDict.keys()):
     individualsDict[familiesDict[i].husbandId].spouse.append(familiesDict[i].wifeId)
     individualsDict[familiesDict[i].wifeId].spouse.append(familiesDict[i].husbandId)
     
+    #Check marraige date against birth
+    if familiesDict[i].marriageDate is not None: 
+        if indiObjHusband.birthDate is not None and familiesDict[i].marriageDate < indiObjHusband.birthDate:
+            print ("Invalid marriage and birth dates for " + indiObjHusband.name)
+            indiObjHusband.birthDate = None
+            familiesDict[i].marriageDate = None
+        if indiObjWife.birthDate is not None and familiesDict[i].marriageDate < indiObjWife.birthDate:
+            print ("Invalid marriage and birth dates for " + indiObjWife.name)
+            indiObjWife.birthDate = None
+            familiesDict[i].marriageDate = None
+
     familiesDict[i].toString()
     #save to db
     if DB_INIT is not None:
