@@ -50,4 +50,21 @@ class Individual:
         elif self.birthDate and self.deathDate is None:
             birth = self.birthDate
             self.age = today.year - birth.year - ((today.month, today.day) < (birth.month, birth.day))
-        return self.age
+        ##US7 call isAgeLessThan150
+        if (self.isAgeLessThan150()):
+            try:
+                return self.age
+            except:
+                print("Older Than 150")    
+                return False
+    
+    
+##US7 determine if age is less than 150
+    def isAgeLessThan150(self):
+        individualAge = self.age
+        if (individualAge < 150):
+            return True
+        else:
+            return False
+        
+        
