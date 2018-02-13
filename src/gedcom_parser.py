@@ -45,6 +45,13 @@ def checkMaleLastNames(id, fatherLastName):
     if (person.lastname != fatherLastName):
         print("Child " + person.firstAndMiddleName + person.lastname + " does not match fathers lastname of "  + fatherLastName)                
     
+##US22 All individual IDs should be unique and all family IDs should be unique
+def isUniqueRecordId(recordId,parentDictionary):
+    if recordId in parentDictionary:
+        return False
+    else:
+      return True
+
 # ----------
 # Validate that there is only one argument on the command line. This means there
 # are two arguments total - the first is the name of the script.
@@ -69,9 +76,15 @@ for line in inputFile:
     if lineSplit[0] == "0" and len(lineSplit) > 2 and (lineSplit[2] == "INDI" or lineSplit[2] == "FAM"):
         if tmpObj is not None:
             if tmpObj.type == "I":
-                individualsDict[tmpObj.id] = tmpObj
+                if isUniqueRecordId(tmpObj.id,individualsDict):
+                    individualsDict[tmpObj.id] = tmpObj
+                else:
+                    print("Duplicate individual found")
             else:
-                familiesDict[tmpObj.id] = tmpObj
+                if isUniqueRecordId(tmpObj.id,familiesDict):
+                    familiesDict[tmpObj.id] = tmpObj
+                else:
+                    print("Duplicate family found")
         tmpObj = None
         if lineSplit[2] == "INDI":
             tmpObj = individual.Individual()
