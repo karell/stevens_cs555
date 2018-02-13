@@ -64,8 +64,6 @@ else:
 tmpObj = None
 dateType = None
 
-CurrentDate = datetime.now()
-
 for line in inputFile:
     lineSplit = line.split()
     if lineSplit[0] == "0" and len(lineSplit) > 2 and (lineSplit[2] == "INDI" or lineSplit[2] == "FAM"):
@@ -104,22 +102,22 @@ for line in inputFile:
         elif lineSplit[1] == "DATE" and dateType is not None and len(lineSplit) > 4:
             if (dateType == "BIRT"):
                 tmpObj.birthDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
-                if tmpObj.birthDate > CurrentDate:
+                if individual.compareDates(tmpObj.birthDate):
                     print ("Invalid birth date for " + tmpObj.name)
                     tmpObj.birthDate = None
             elif dateType == "DEAT":
                 tmpObj.deathDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
-                if tmpObj.deathDate > CurrentDate:
+                if individual.compareDates(tmpObj.deathDate):
                     print ("Invalid death date for " + tmpObj.name)
                     tmpObj.deathDate = None
             elif dateType == "MARR":
                 tmpObj.marriageDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
-                if tmpObj.marriageDate > CurrentDate:
+                if individual.compareDates(tmpObj.marriageDate):
                     print ("Invalid marriage date for " + tmpObj.name)
                     tmpObj.marriageDate = None
             elif dateType == "DIV":
                 tmpObj.divorcedDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
-                if tmpObj.divorcedDate > CurrentDate:
+                if individual.compareDates(tmpObj.divorcedDate):
                     print ("Invalid divorced date for " + tmpObj.name)
                     tmpObj.divorcedDate = None
             dateType = None

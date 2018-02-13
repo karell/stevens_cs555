@@ -5,6 +5,7 @@
 # ---------------------------------------------------------------------------
 
 from datetime import date
+from datetime import datetime
 
 class Individual:
     def __init__(self):
@@ -66,5 +67,9 @@ class Individual:
             return True
         else:
             return False
+
+#For story 01 - generic function to compare input date with current date, return true if input date is bigger than current date
+def compareDates(tmpDate):
+    return tmpDate > datetime.now()
         
         
