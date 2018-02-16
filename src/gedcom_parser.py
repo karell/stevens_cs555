@@ -1,7 +1,7 @@
 import sys # -- Used for command line arguments
 import individual
 import family
-import unittest
+
 
 from datetime import datetime
 from datetime import date
@@ -40,11 +40,16 @@ def parseStringtoDate(day,month,year):
     return retDate
 
 ##US16 Check Male Lastnames
-def checkMaleLastNames(id, fatherLastName):
-    person = individualsDict.get(id)
-    if (person.lastname != fatherLastName):
-        print("Child " + person.firstAndMiddleName + person.lastname + " does not match fathers lastname of "  + fatherLastName)                
-    
+def checkMaleLastNames(childsID, fatherLastName):
+    child = individualsDict.get(childsID)
+    if child.gender == "M":
+        if (child.lastname != fatherLastName):
+            print("Child " + child.firstAndMiddleName + child.lastname + " does not match fathers lastname of "  + fatherLastName)                
+            return False
+        else:
+            return True
+    else:
+        return True
 ##US22 All individual IDs should be unique and all family IDs should be unique
 def isUniqueRecordId(recordId,parentDictionary):
     if recordId in parentDictionary:
@@ -153,7 +158,10 @@ for i in sorted(familiesDict.keys()):
     familiesDict[i].husbandName = indiObjHusband.name
     familiesDict[i].wifeName = indiObjWife.name
     #update the children of wife and husband objects
-    individualsDict[familiesDict[i].husbandId].children = familiesDict[i].children
+    ##US 16 Make sure Male children have husbands last name, if they don't, don't add them to father as a child
+    for j in familiesDict[i].children:
+        if checkMaleLastNames(j, indiObjHusband.lastname) == True:
+            individualsDict[familiesDict[i].husbandId].children = familiesDict[i].children
     individualsDict[familiesDict[i].wifeId].children = familiesDict[i].children
     #update the spouse id
     individualsDict[familiesDict[i].husbandId].spouse.append(familiesDict[i].wifeId)

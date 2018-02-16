@@ -39,7 +39,9 @@ class Individual:
             self.deathDateStr = self.deathDate.strftime('%d %b %Y')
         if len(self.children) > 0:
             self.childrenStr = str(self.children)
-        if len(self.children) > 0:
+            
+##2/15/18 testing found error if statement below should be checking for spouse, not children
+        if len(self.spouse) > 0:
             self.spouseStr = str(self.spouse)
 
     def calculateAge(self):
@@ -72,4 +74,4 @@ class Individual:
 def compareDates(tmpDate):
     return tmpDate > datetime.now()
         
-        
+
