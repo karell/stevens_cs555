@@ -29,7 +29,8 @@ plugins/android.json
 plugins/ios.json
 www/
 $RECYCLE.BIN/
-
+*__pycache__*
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+*.pyc

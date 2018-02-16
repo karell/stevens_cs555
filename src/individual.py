@@ -5,6 +5,7 @@
 # ---------------------------------------------------------------------------
 
 from datetime import date
+from datetime import datetime
 
 class Individual:
     def __init__(self):
@@ -38,7 +39,9 @@ class Individual:
             self.deathDateStr = self.deathDate.strftime('%d %b %Y')
         if len(self.children) > 0:
             self.childrenStr = str(self.children)
-        if len(self.children) > 0:
+            
+##2/15/18 testing found error if statement below should be checking for spouse, not children
+        if len(self.spouse) > 0:
             self.spouseStr = str(self.spouse)
 
     def calculateAge(self):
@@ -50,4 +53,25 @@ class Individual:
         elif self.birthDate and self.deathDate is None:
             birth = self.birthDate
             self.age = today.year - birth.year - ((today.month, today.day) < (birth.month, birth.day))
-        return self.age
+        ##US7 call isAgeLessThan150
+        if (self.isAgeLessThan150()):
+            try:
+                return self.age
+            except:
+                print("Older Than 150")    
+                return False
+    
+    
+##US7 determine if age is less than 150
+    def isAgeLessThan150(self):
+        individualAge = self.age
+        if (individualAge < 150):
+            return True
+        else:
+            return False
+
+#For story 01 - generic function to compare input date with current date, return true if input date is bigger than current date
+def compareDates(tmpDate):
+    return tmpDate > datetime.now()
+        
+

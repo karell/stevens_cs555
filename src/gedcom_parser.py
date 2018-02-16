@@ -1,6 +1,7 @@
 import sys # -- Used for command line arguments
 import individual
-import unittest
+import family
+
 
 from datetime import datetime
 from datetime import date
@@ -28,30 +29,6 @@ outputtableI = PrettyTable(["ID","First Name", "LastName","Gender","Birthday","A
 outputtableF = PrettyTable(["ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children"])
 #
 
-class Family:
-    def __init__(self):
-        self.type = "F"
-        self.id = ""
-        self.marriageDate = None
-        self.divorcedDate = None
-        self.husbandId = ""
-        self.husbandName = ""
-        self.wifeId = ""
-        self.wifeName = ""
-        self.children = []
-        ##Adding Lastname and for US16
-        self.lastName = ""
-        self.gender = ""
-
-    def toString(self):
-        marriageDateStr = "NA"
-        divorcedDateStr = "NA"
-        if self.marriageDate is not None:
-            marriageDateStr = self.marriageDate.strftime('%d %b %Y')
-        if self.divorcedDate is not None:
-            divorcedDateStr = self.divorcedDate.strftime('%d %b %Y')
-        outputtableF.add_row([self.id,marriageDateStr,divorcedDateStr,self.husbandId,self.husbandName,self.wifeId,self.wifeName,str(self.children)])
-
 def parseStringtoDate(day,month,year):
     retDate = None
     if (int(day) < 10):
@@ -63,11 +40,23 @@ def parseStringtoDate(day,month,year):
     return retDate
 
 ##US16 Check Male Lastnames
-def checkMaleLastNames(id, fatherLastName):
-    person = individualsDict.get(id)
-    if (person.lastname != fatherLastName):
-        print("Child " + person.firstAndMiddleName + person.lastname + " does not match fathers lastname of "  + fatherLastName)                
-    
+def checkMaleLastNames(childsID, fatherLastName):
+    child = individualsDict.get(childsID)
+    if child.gender == "M":
+        if (child.lastname != fatherLastName):
+            print("Child " + child.firstAndMiddleName + child.lastname + " does not match fathers lastname of "  + fatherLastName)                
+            return False
+        else:
+            return True
+    else:
+        return True
+##US22 All individual IDs should be unique and all family IDs should be unique
+def isUniqueRecordId(recordId,parentDictionary):
+    if recordId in parentDictionary:
+        return False
+    else:
+      return True
+
 # ----------
 # Validate that there is only one argument on the command line. This means there
 # are two arguments total - the first is the name of the script.
@@ -87,21 +76,25 @@ else:
 tmpObj = None
 dateType = None
 
-CurrentDate = datetime.now()
-
 for line in inputFile:
     lineSplit = line.split()
     if lineSplit[0] == "0" and len(lineSplit) > 2 and (lineSplit[2] == "INDI" or lineSplit[2] == "FAM"):
         if tmpObj is not None:
             if tmpObj.type == "I":
-                individualsDict[tmpObj.id] = tmpObj
+                if isUniqueRecordId(tmpObj.id,individualsDict):
+                    individualsDict[tmpObj.id] = tmpObj
+                else:
+                    print("Duplicate individual found")
             else:
-                familiesDict[tmpObj.id] = tmpObj
+                if isUniqueRecordId(tmpObj.id,familiesDict):
+                    familiesDict[tmpObj.id] = tmpObj
+                else:
+                    print("Duplicate family found")
         tmpObj = None
         if lineSplit[2] == "INDI":
             tmpObj = individual.Individual()
         else:
-            tmpObj = Family()
+            tmpObj = family.Family()
         tmpObj.id = lineSplit[1]
     elif lineSplit[1] in tags and (lineSplit[0] == "1" or lineSplit[0] == "2") and tags[lineSplit[1]] == lineSplit[0]:
         if lineSplit[1] == "NAME":
@@ -127,22 +120,22 @@ for line in inputFile:
         elif lineSplit[1] == "DATE" and dateType is not None and len(lineSplit) > 4:
             if (dateType == "BIRT"):
                 tmpObj.birthDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
-                if tmpObj.birthDate > CurrentDate:
+                if individual.compareDates(tmpObj.birthDate):
                     print ("Invalid birth date for " + tmpObj.name)
                     tmpObj.birthDate = None
             elif dateType == "DEAT":
                 tmpObj.deathDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
-                if tmpObj.deathDate > CurrentDate:
+                if individual.compareDates(tmpObj.deathDate):
                     print ("Invalid death date for " + tmpObj.name)
                     tmpObj.deathDate = None
             elif dateType == "MARR":
                 tmpObj.marriageDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
-                if tmpObj.marriageDate > CurrentDate:
+                if individual.compareDates(tmpObj.marriageDate):
                     print ("Invalid marriage date for " + tmpObj.name)
                     tmpObj.marriageDate = None
             elif dateType == "DIV":
                 tmpObj.divorcedDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
-                if tmpObj.divorcedDate > CurrentDate:
+                if individual.compareDates(tmpObj.divorcedDate):
                     print ("Invalid divorced date for " + tmpObj.name)
                     tmpObj.divorcedDate = None
             dateType = None
@@ -165,7 +158,10 @@ for i in sorted(familiesDict.keys()):
     familiesDict[i].husbandName = indiObjHusband.name
     familiesDict[i].wifeName = indiObjWife.name
     #update the children of wife and husband objects
-    individualsDict[familiesDict[i].husbandId].children = familiesDict[i].children
+    ##US 16 Make sure Male children have husbands last name, if they don't, don't add them to father as a child
+    for j in familiesDict[i].children:
+        if checkMaleLastNames(j, indiObjHusband.lastname) == True:
+            individualsDict[familiesDict[i].husbandId].children = familiesDict[i].children
     individualsDict[familiesDict[i].wifeId].children = familiesDict[i].children
     #update the spouse id
     individualsDict[familiesDict[i].husbandId].spouse.append(familiesDict[i].wifeId)
@@ -182,12 +178,21 @@ for i in sorted(familiesDict.keys()):
             indiObjWife.birthDate = None
             familiesDict[i].marriageDate = None
 
+    # Build the output prettytable. Convert the internal format of variables to
+    # string format prior to adding a row to the output prettytable.
     familiesDict[i].toString()
+    try:
+        fam = familiesDict[i]
+        outputtableF.add_row([fam.id,fam.marriageDateStr,fam.divorcedDateStr,fam.husbandId,fam.husbandName,fam.wifeId,fam.wifeName,str(fam.children)])
+    except:
+        print("Unable to add Family to collection")
     #save to db
     if DB_INIT is not None:
         FAMILIES.insert_one(familiesDict[i].__dict__)
 
 for i in sorted(individualsDict.keys()):
+    # Build the output prettytable. Convert the internal format of variables to
+    # string format prior to adding a row to the output prettytable.
     individualsDict[i].toString()
     try:
         ind = individualsDict[i]
