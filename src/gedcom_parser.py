@@ -6,7 +6,7 @@ from datetime import datetime
 from datetime import date
 from prettytable import PrettyTable
 from pymongo import MongoClient
-from unique_individuals import AreIndividualsUnique
+from unique_individuals import AreIndividualsUnique # US23
 
 DB_INIT = None
 try:
