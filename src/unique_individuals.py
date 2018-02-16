@@ -6,6 +6,19 @@ import individual
 # This file contains functionality to ensure that there is no more than one
 # individual with the same name and birth date in the collection (gedcom
 # file).
+#
+# Parameters
+# ----------
+# individuals: A Dictionary object that contains the individuals as compiled
+#              from the GEDCOM file.
+#
+# Returns
+# -------
+# ValueError: When there are no entries in the individuals dictionary
+# True:       When all individuals are unique
+# False:      When at least one individual is duplicated in the individuals
+#             dictionary (note that they ID values by necessity must be
+#             unique)
 # ---------------------------------------------------------------------------
 
 def AreIndividualsUnique(individuals):
@@ -48,7 +61,7 @@ def AreIndividualsUnique(individuals):
                         break
 
             if duplicateFound:
-                break;
+                break
 
         # Only set the result to True if no duplicates were found.
         if not duplicateFound:
