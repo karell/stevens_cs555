@@ -2,11 +2,11 @@ import sys # -- Used for command line arguments
 import individual
 import family
 
-
 from datetime import datetime
 from datetime import date
 from prettytable import PrettyTable
 from pymongo import MongoClient
+from unique_individuals import AreIndividualsUnique
 
 DB_INIT = None
 try:
@@ -202,6 +202,15 @@ for i in sorted(individualsDict.keys()):
     #save to db
     if DB_INIT is not None:
         INDVIDUALS.insert_one(individualsDict[i].__dict__)
+
+# ----------
+# US23 - Unique Individuals
+# Check the list of individuals for any that are not unique.
+# ----------
+if AreIndividualsUnique(individualsDict):
+    print("US23: All individuals in the GEDCOM file are unique.")
+else:
+    print("US23: Duplicate individuals were found in the GEDCOM file.")
 
 print(outputtableI)
 print(outputtableF)
