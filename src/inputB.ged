@@ -1,4 +1,4 @@
-0 HEAD
+﻿0 HEAD
 0 NOTE Team Esther Johnson, Troy Koss, Karel Lahmy, Keith Roseberry
 0 NOTE GitHub Repository https://github.com/karell/stevens_cs555
 0 @I1@ INDI
@@ -157,11 +157,13 @@
 1 FAMS @F8@
 1 FAMC @F9@
 0 @I15@ INDI
-1 NAME Harriet /Chatman/
+1 NAME Harriet /Pott/
 2 GIVN Harriet
 2 SURN Chatman
 2 _MARNM Sullivan
 1 SEX F
+1 BIRT
+2 DATE 26 APR 1920
 1 DEAT Y
 2 DATE 19 DEC 1985
 1 FAMS @F8@

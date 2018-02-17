@@ -41,10 +41,15 @@ def parseStringtoDate(day,month,year):
 
 ##US16 Check Male Lastnames
 def checkMaleLastNames(childsID, fatherLastName):
-    child = individualsDict.get(childsID)
-    if child.gender == "M":
-        if (child.lastname != fatherLastName):
-            print("Child " + child.firstAndMiddleName + child.lastname + " does not match fathers lastname of "  + fatherLastName)                
+##make sure child exists in dictionary before assigning, if child doesn't exist return false
+    if individualsDict.__contains__(childsID):
+        child = individualsDict.get(childsID)
+    else:
+        return False
+    
+    if  child.gender == "M":
+        if child.lastname != fatherLastName:
+            print("US16: Child " + child.firstAndMiddleName + child.lastname + " does not match fathers lastname of "  + fatherLastName)                
             return False
         else:
             return True

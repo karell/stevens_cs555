@@ -54,12 +54,11 @@ class Individual:
             birth = self.birthDate
             self.age = today.year - birth.year - ((today.month, today.day) < (birth.month, birth.day))
         ##US7 call isAgeLessThan150
-        if (self.isAgeLessThan150()):
-            try:
-                return self.age
-            except:
-                print("Older Than 150")    
-                return False
+        if self.isAgeLessThan150():
+            return self.age
+        else:
+            print("US7: " + self.firstAndMiddleName + " " + self.lastname + " is Older Than 150")    
+            
     
     
 ##US7 determine if age is less than 150
