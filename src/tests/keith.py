@@ -6,6 +6,7 @@ sys.path.append('../')
 
 import individual
 import unique_individuals
+import family
 
 def createIndividual1():
     # Individual 1: Charles Roseberry, 09/26/1941
@@ -33,6 +34,95 @@ def createIndividual3():
     ind.birthDate          = datetime.date(1966,8,16)
 
     return ind
+
+def createMaleHusband():
+    # Individual: Male Husband has male gender
+    ind                    = individual.Individual()
+    ind.gender             = 'M'
+    ind.firstAndMiddleNAme = 'Male'
+    ind.lastname           = 'Husband'
+
+    return ind
+
+def createFemaleHusband():
+    # Individual: Female Husband has female gender
+    ind                    = individual.Individual()
+    ind.gender             = 'F'
+    ind.firstAndMiddleNAme = 'Female'
+    ind.lastname           = 'Husband'
+
+    return ind
+
+def createFemaleWife():
+    # Individual: Female Wife has female gender
+    ind                    = individual.Individual()
+    ind.gender             = 'F'
+    ind.firstAndMiddleNAme = 'Female'
+    ind.lastname           = 'Wife'
+
+    return ind
+
+def createMaleWife():
+    # Individual: Male Wife has male gender
+    ind                    = individual.Individual()
+    ind.gender             = 'M'
+    ind.firstAndMiddleNAme = 'Male'
+    ind.lastname           = 'Wife'
+
+    return ind
+
+# Class "testUS21" contains all the tests for User Story #21, which is to
+# check that a husband's gender is male and a wife's gender is female.
+class testUS21(unittest.TestCase):
+
+    # Test that a Husband that is male passes the gender check.
+    def testMaleHusband(self):
+        individualsDict = {}
+
+        individualsDict['@I01@'] = createMaleHusband()
+
+        fam = family.Family()
+        fam.husbandId = '@I01@'
+
+        self.assertTrue(fam.ValidateRoleGender())
+
+    # Test that a Husband that is female fails the gender check.
+    def testFemaleHusband(self):
+        individualsDict = {}
+
+        individualsDict['@I01@'] = createFemaleHusband()
+
+        fam = family.Family()
+        fam.husbandId = '@I01@'
+
+        self.assertFalse(fam.ValidateRoleGender())
+
+    # Test that a Wife that is female passes the gender check.
+    def testFemaleWife(self):
+        individualsDict = {}
+
+        individualsDict['@I01@'] = createFemaleWife()
+
+        fam = family.Family()
+        fam.wifeId = '@I01@'
+
+        self.assertTrue(fam.ValidateRoleGender())
+
+    # Test that a Wife that is male fails the gender check.
+    def testMaleWife(self):
+        individualsDict = {}
+
+        individualsDict['@I01@'] = createMaleWife()
+
+        fam = family.Family()
+        fam.wifeId = '@I01@'
+
+        self.assertFalse(fam.ValidateRoleGender())
+
+    # Test that no husband/wife entries passes the gender check.
+    def testNoHusband(self):
+        fam = family.Family()
+        self.assertTrue(fam.ValidateRoleGender())
 
 class testUS23(unittest.TestCase):
 
