@@ -84,7 +84,7 @@ class testUS21(unittest.TestCase):
         fam = family.Family()
         fam.husbandId = '@I01@'
 
-        self.assertTrue(fam.ValidateRoleGender())
+        self.assertTrue(fam.ValidateRoleGender(individualsDict))
 
     # Test that a Husband that is female fails the gender check.
     def testFemaleHusband(self):
@@ -95,7 +95,7 @@ class testUS21(unittest.TestCase):
         fam = family.Family()
         fam.husbandId = '@I01@'
 
-        self.assertFalse(fam.ValidateRoleGender())
+        self.assertFalse(fam.ValidateRoleGender(individualsDict))
 
     # Test that a Wife that is female passes the gender check.
     def testFemaleWife(self):
@@ -106,7 +106,7 @@ class testUS21(unittest.TestCase):
         fam = family.Family()
         fam.wifeId = '@I01@'
 
-        self.assertTrue(fam.ValidateRoleGender())
+        self.assertTrue(fam.ValidateRoleGender(individualsDict))
 
     # Test that a Wife that is male fails the gender check.
     def testMaleWife(self):
@@ -117,12 +117,39 @@ class testUS21(unittest.TestCase):
         fam = family.Family()
         fam.wifeId = '@I01@'
 
-        self.assertFalse(fam.ValidateRoleGender())
+        self.assertFalse(fam.ValidateRoleGender(individualsDict))
 
     # Test that no husband/wife entries passes the gender check.
     def testNoHusband(self):
+        individualsDict = {}
+
+        individualsDict['@I01@'] = createIndividual1()
+
         fam = family.Family()
-        self.assertTrue(fam.ValidateRoleGender())
+
+        self.assertTrue(fam.ValidateRoleGender(individualsDict))
+
+    # Test husband with no gender set fails the gender check.
+    def testHusbandNoGender(self):
+        individualsDict = {}
+
+        individualsDict['@I01@'] = createIndividual1()
+
+        fam = family.Family()
+        fam.husbandId = '@I01@'
+
+        self.assertFalse(fam.ValidateRoleGender(individualsDict))
+
+    # Test wife with no gender set fails the gender check.
+    def testWifeNoGender(self):
+        individualsDict = {}
+
+        individualsDict['@I01@'] = createIndividual1()
+
+        fam = family.Family()
+        fam.wifeId = '@I01@'
+
+        self.assertFalse(fam.ValidateRoleGender(individualsDict))
 
 class testUS23(unittest.TestCase):
 
