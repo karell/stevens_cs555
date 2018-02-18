@@ -183,6 +183,9 @@ for i in sorted(familiesDict.keys()):
             indiObjWife.birthDate = None
             familiesDict[i].marriageDate = None
 
+    # User Story: US21: Check the genders of the husband and wife, if they exist.
+    familiesDict[i].ValidateRoleGender(individualsDict)
+    
     # Build the output prettytable. Convert the internal format of variables to
     # string format prior to adding a row to the output prettytable.
     familiesDict[i].toString()
