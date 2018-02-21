@@ -62,6 +62,13 @@ def isUniqueRecordId(recordId,parentDictionary):
     else:
       return True
 
+##US03 Birth before death
+def isBirthBeforeDeath(birthDate, deathDate):
+    if birthDate is None:
+        return False
+    if deathDate is None:
+        return True
+    return birthDate < deathDate
 # ----------
 # Validate that there is only one argument on the command line. This means there
 # are two arguments total - the first is the name of the script.
@@ -87,14 +94,17 @@ for line in inputFile:
         if tmpObj is not None:
             if tmpObj.type == "I":
                 if isUniqueRecordId(tmpObj.id,individualsDict):
+                    #check birth before death
+                    if isBirthBeforeDeath(tmpObj.birthDate,tmpObj.deathDate) != True:
+                        print("US03: Birth Before Death")
                     individualsDict[tmpObj.id] = tmpObj
                 else:
-                    print("Duplicate individual found")
+                    print("Duplicate individual found")  ## TODO: keep all records
             else:
                 if isUniqueRecordId(tmpObj.id,familiesDict):
                     familiesDict[tmpObj.id] = tmpObj
                 else:
-                    print("Duplicate family found")
+                    print("Duplicate family found") ## TODO: keep all records
         tmpObj = None
         if lineSplit[2] == "INDI":
             tmpObj = individual.Individual()
@@ -133,6 +143,8 @@ for line in inputFile:
                 if individual.compareDates(tmpObj.deathDate):
                     print ("Invalid death date for " + tmpObj.name)
                     tmpObj.deathDate = None
+                else:
+                    tmpObj.alive = (tmpObj.deathDate is None) #for US03 - collect alive data
             elif dateType == "MARR":
                 tmpObj.marriageDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
                 if individual.compareDates(tmpObj.marriageDate):
@@ -172,16 +184,16 @@ for i in sorted(familiesDict.keys()):
     individualsDict[familiesDict[i].husbandId].spouse.append(familiesDict[i].wifeId)
     individualsDict[familiesDict[i].wifeId].spouse.append(familiesDict[i].husbandId)
     
-    #Check marraige date against birth
+    #Check marraige date against birth  ## What User Story is this? 
     if familiesDict[i].marriageDate is not None: 
         if indiObjHusband.birthDate is not None and familiesDict[i].marriageDate < indiObjHusband.birthDate:
             print ("Invalid marriage and birth dates for " + indiObjHusband.name)
-            indiObjHusband.birthDate = None
-            familiesDict[i].marriageDate = None
+            ## indiObjHusband.birthDate = None ## need to keep all records even if there are errors/anomolies
+            ## familiesDict[i].marriageDate = None
         if indiObjWife.birthDate is not None and familiesDict[i].marriageDate < indiObjWife.birthDate:
             print ("Invalid marriage and birth dates for " + indiObjWife.name)
-            indiObjWife.birthDate = None
-            familiesDict[i].marriageDate = None
+            ## indiObjWife.birthDate = None ## need to keep all records even if there are errors/anomolies
+            ## familiesDict[i].marriageDate = None
 
     # User Story: US21: Check the genders of the husband and wife, if they exist.
     familiesDict[i].ValidateRoleGender(individualsDict)
