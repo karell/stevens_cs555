@@ -1,7 +1,7 @@
 import sys # -- Used for command line arguments
 import individual
 import family
-
+import parents_not_to_old
 from datetime import datetime
 from datetime import date
 from prettytable import PrettyTable
@@ -177,8 +177,19 @@ for i in sorted(familiesDict.keys()):
     #update the children of wife and husband objects
     ##US 16 Make sure Male children have husbands last name, if they don't, don't add them to father as a child
     for j in familiesDict[i].children:
-        if checkMaleLastNames(j, indiObjHusband.lastname) == True:
-            individualsDict[familiesDict[i].husbandId].children = familiesDict[i].children
+        checkMaleLastNames(j, indiObjHusband.lastname)
+    ##US 12 Check mothers age difference less than 60 and fathers less than 80 from child
+        if individualsDict.__contains__(j):
+            childAge = individualsDict.get(j).birthDate
+            if indiObjHusband.birthDate is not None and childAge is not None:
+                if parents_not_to_old.isValidFatherAge(childAge, indiObjHusband.birthDate) is False:
+                    print ("US12: Invalid Father Age: " + indiObjHusband.name + " is more than 80 years older than child: " + individualsDict.get(j).name)
+            if indiObjWife.birthDate is not None and childAge is not None:
+                if parents_not_to_old.isValidMotherAge(childAge, indiObjWife.birthDate) is False:
+                    print ("US12: Invalid Mother Age: " + indiObjWife.name + " is more than 60 years older than child: " + individualsDict.get(j).name)
+    
+    individualsDict[familiesDict[i].husbandId].children = familiesDict[i].children
+        
     individualsDict[familiesDict[i].wifeId].children = familiesDict[i].children
     #update the spouse id
     individualsDict[familiesDict[i].husbandId].spouse.append(familiesDict[i].wifeId)
