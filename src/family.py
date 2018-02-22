@@ -58,3 +58,13 @@ class Family:
                 print("US21: Family " + self.id + ", Wife " + self.wifeId + " not found as an individual.")
 
         return result
+
+    def marriageBeforeDeath(self,deathDateHusband,deathDateWife):
+        retValue = True
+        if self.marriageDate is not None:
+            if deathDateHusband is not None:
+                retValue = self.marriageDate < deathDateHusband
+            if deathDateWife is not None and retValue: #check this only if retalue is true so it won't get overwritten
+                retValue = self.marriageDate < deathDateWife
+                
+        return  retValue

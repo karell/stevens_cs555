@@ -1,9 +1,9 @@
 import unittest
 import individual
+import family
 import sys
-from datetime import date
-from datetime import datetime
-from datetime import timedelta
+
+import datetime
 
 ##US01 test cases HW04
 class TestDatesBeforeCurrent(unittest.TestCase):
@@ -47,11 +47,28 @@ class TestDatesBeforeCurrent(unittest.TestCase):
         result = individual.compareDates(testIndividual.deathDate)
         self.assertFalse(result, True)
 
+##US05
+class TestMarriageBeforeDeath(unittest.TestCase):
+    def test_marriageBeforeDeath(self):
+        husband = individual.Individual()
+        wife = individual.Individual()
+        myFamily = family.Family()
+        myFamily.marriageDate = datetime.date(2000,1,1)
+
+        husband.deathDate =  datetime.date(2000,2,1)
+        wife.deathDate =  datetime.date(2000,2,1)
+        self.assertTrue(myFamily.marriageBeforeDeath(husband.deathDate,wife.deathDate))
+    
+    def test_marriageAfterDeath(self):
+        husband = individual.Individual()
+        wife = individual.Individual()
+        myFamily = family.Family()
+        myFamily.marriageDate = datetime.date(2000,1,1)
+
+        husband.deathDate =  datetime.date(1999,2,1)
+        wife.deathDate =  datetime.date(2000,2,1)
+        self.assertFalse(myFamily.marriageBeforeDeath(husband.deathDate,wife.deathDate))
 
 if __name__ == "__main__":
-        if len(sys.argv) != 2:
-                sys.exit("ERROR need GEDCOM file on command line")
-        command_line = sys.argv[1]
-        del sys.argv[1:]
         unittest.main()
         
