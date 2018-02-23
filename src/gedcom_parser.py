@@ -84,7 +84,7 @@ else:
 	print("Error! Invalid arguments.")
 	print("Specify the input file name on the command line.")
 	quit()
-
+ 
 tmpObj = None
 dateType = None
 
