@@ -3,13 +3,45 @@ Created on Feb 11, 2018
 
 @author: esther
 '''
-import unittest
-import individual
 import sys
+import unittest
+import datetime
 from datetime import date
+
+sys.path.append('../')
+import individual
+import gedcom_parser
+import parents_not_to_old
+
+
 
 ##US 7 testcases HW04
 class TestAgeLessThan150(unittest.TestCase):
+#Mother should be less than 60 years older than her children and father should be less than 80 years older than his children
+    def test_motherAgeDiffToChildLessThan60(self):
+        motherBirthdate = datetime.date(1945, 1, 12)
+        childBirthdate = datetime.date(1975, 1, 12)
+        result = parents_not_to_old.isValidMotherAge(childBirthdate, motherBirthdate)
+        self.assertTrue(result, True)
+        
+    def test_fatherAgeDiffToChildLessThan80(self):
+        motherBirthdate = datetime.date(1945, 1, 12)
+        childBirthdate = datetime.date(1975, 1, 12)
+        result = parents_not_to_old.isValidFatherAge(childBirthdate, motherBirthdate)
+        self.assertTrue(result, True)
+     
+    def test_motherAgeDiffToChildMoreThan60(self):
+        motherBirthdate = datetime.date(1945, 1, 12)
+        childBirthdate = datetime.date(2006, 1, 12)
+        result = parents_not_to_old.isValidMotherAge(childBirthdate, motherBirthdate)
+        self.assertFalse(result)
+        
+    def test_fatherAgeDiffToChildMoreThan80(self):
+        motherBirthdate = datetime.date(1945, 1, 12)
+        childBirthdate = datetime.date(2026, 1, 12)
+        result = parents_not_to_old.isValidFatherAge(childBirthdate, motherBirthdate)
+        self.assertFalse(result)       
+        
 
     def test_Equals149(self):
         testPerson = individual.Individual()
