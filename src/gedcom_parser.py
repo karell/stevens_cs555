@@ -2,11 +2,16 @@ import sys # -- Used for command line arguments
 import individual
 import family
 import parents_not_to_old
+import ErrorLogger
+
+
 from datetime import datetime
 from datetime import date
 from prettytable import PrettyTable
 from pymongo import MongoClient
 from unique_individuals import AreIndividualsUnique # US23
+
+import log_error
 
 DB_INIT = None
 try:
@@ -15,19 +20,22 @@ try:
   DB = CLIENT.GEDCOM
   INDVIDUALS = DB.individuals
   FAMILIES = DB.families
+  ERRORS = DB.errors
   # clear collections
   INDVIDUALS.drop()
   FAMILIES.drop()
+  ERRORS.drop()
   DB_INIT = True
 except:
   print("DB instance is not running")
 
+errorlogger = ErrorLogger
+errorlogger.__initLogger__()
 tags = {'INDI':'0','NAME':'1','SEX':'1','BIRT':'1','DEAT':'1','FAMC':'1','FAMS':'1','FAM':'0','MARR':'1','HUSB':'1','WIFE':'1','CHIL':'1','DIV':'1','DATE':'2','HEAD':'0','TRLR':'0','NOTE':'0'}
 individualsDict = {}
 familiesDict = {}
 outputtableI = PrettyTable(["ID","First Name", "LastName","Gender","Birthday","Age","Alive","Death","Children","Spouse"])
 outputtableF = PrettyTable(["ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children"])
-#
 
 def parseStringtoDate(day,month,year):
     retDate = None
@@ -49,7 +57,7 @@ def checkMaleLastNames(childsID, fatherLastName):
     
     if  child.gender == "M":
         if child.lastname != fatherLastName:
-            print("US16: Child " + child.firstAndMiddleName + child.lastname + " does not match fathers lastname of "  + fatherLastName)                
+            errorlogger.__logAnomaly__("US16", child.id, "Last Name doesn't match Father's Last Name")             
             return False
         else:
             return True
@@ -93,18 +101,18 @@ for line in inputFile:
     if lineSplit[0] == "0" and len(lineSplit) > 2 and (lineSplit[2] == "INDI" or lineSplit[2] == "FAM"):
         if tmpObj is not None:
             if tmpObj.type == "I":
+                individualsDict[tmpObj.id] = tmpObj
                 if isUniqueRecordId(tmpObj.id,individualsDict):
                     #check birth before death
                     if isBirthBeforeDeath(tmpObj.birthDate,tmpObj.deathDate) != True:
-                        print("US03: Birth Before Death")
-                    individualsDict[tmpObj.id] = tmpObj
+                        errorlogger.__logError__("US03", tmpObj.id, "Birth Before Death")                      
                 else:
-                    print("Duplicate individual found")  ## TODO: keep all records
+                    errorlogger.__logError__("US22", tmpObj.id, "Duplicate individual found") 
             else:
                 if isUniqueRecordId(tmpObj.id,familiesDict):
                     familiesDict[tmpObj.id] = tmpObj
                 else:
-                    print("Duplicate family found") ## TODO: keep all records
+                    errorlogger.__logError__("US22", tmpObj.id, "Duplicate family found") ## TODO: keep all records
         tmpObj = None
         if lineSplit[2] == "INDI":
             tmpObj = individual.Individual()
@@ -137,11 +145,13 @@ for line in inputFile:
                 tmpObj.birthDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
                 if individual.compareDates(tmpObj.birthDate):
                     print ("Invalid birth date for " + tmpObj.name)
+                    errorlogger.__logError__("US03", tmpObj.id, "Invalid birth date")
                     tmpObj.birthDate = None
             elif dateType == "DEAT":
                 tmpObj.deathDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
                 if individual.compareDates(tmpObj.deathDate):
                     print ("Invalid death date for " + tmpObj.name)
+                    errorlogger.__logError__("US03", tmpObj.id, "Invalid death date")
                     tmpObj.deathDate = None
                 else:
                     tmpObj.alive = (tmpObj.deathDate is None) #for US03 - collect alive data
@@ -183,9 +193,11 @@ for i in sorted(familiesDict.keys()):
             childAge = individualsDict.get(j).birthDate
             if indiObjHusband.birthDate is not None and childAge is not None:
                 if parents_not_to_old.isValidFatherAge(childAge, indiObjHusband.birthDate) is False:
+                    errorlogger.__logError__("US12", tmpObj.id, "Invalid Father Age")
                     print ("US12: Invalid Father Age: " + indiObjHusband.name + " is more than 80 years older than child: " + individualsDict.get(j).name)
             if indiObjWife.birthDate is not None and childAge is not None:
                 if parents_not_to_old.isValidMotherAge(childAge, indiObjWife.birthDate) is False:
+                    errorlogger.__logError__("US12", tmpObj.id, "Invalid Mother Age")
                     print ("US12: Invalid Mother Age: " + indiObjWife.name + " is more than 60 years older than child: " + individualsDict.get(j).name)
     
     individualsDict[familiesDict[i].husbandId].children = familiesDict[i].children
@@ -245,6 +257,7 @@ else:
 
 print(outputtableI)
 print(outputtableF)
+
 
 # ----------
 # Output both tables to a text file.
