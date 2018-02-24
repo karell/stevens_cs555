@@ -68,3 +68,16 @@ class Family:
                 retValue = self.marriageDate < deathDateWife
                 
         return  retValue
+
+    def divorceBeforeDeath(self,deathDateHusband,deathDateWife):
+        retValue = True
+        if self.divorcedDate is not None:
+            if deathDateHusband is not None and deathDateWife is not None and (self.divorcedDate > deathDateHusband \
+                or self.divorcedDate > deathDateWife):
+                retValue = False
+            elif deathDateWife is not None and self.divorcedDate > deathDateWife:
+                retValue = False
+            elif deathDateHusband is not None and self.divorcedDate > deathDateHusband:
+                retValue = False
+                
+        return  retValue

@@ -182,6 +182,13 @@ for i in sorted(familiesDict.keys()):
             print ("Invalid marriage and birth dates for " + indiObjWife.name)
             indiObjWife.birthDate = None
             familiesDict[i].marriageDate = None
+        #story 05 - marriage before death
+        if not familiesDict[i].marriageBeforeDeath(indiObjHusband.deathDate,indiObjWife.deathDate):
+            print ("Invalid marriage date for family " + familiesDict[i].id)
+    #story 06 divorce before death
+    if familiesDict[i].divorcedDate is not None and \
+        not familiesDict[i].divorceBeforeDeath(indiObjHusband.deathDate,indiObjWife.deathDate):
+        print ("Invalid divorce date for family " + familiesDict[i].id)
 
     # User Story: US21: Check the genders of the husband and wife, if they exist.
     familiesDict[i].ValidateRoleGender(individualsDict)
