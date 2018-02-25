@@ -8,25 +8,15 @@ import logging.config
 
 from logging import FileHandler
 logger = logging.getLogger('gedcomLogger')
-fileHandler = logging.FileHandler('gedcomError.log')
-GEDCOM_LOGGER = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'loggers': {
-        'Anomaly': {
-            'level': 'INFO',
-        },
-        'Error_Handler': {
-            'level': 'ERROR',
-        },
-    }
-}
+fileHandler = logging.FileHandler('gedcomError.log', 'w')
+
 
 
 def __initLogger__():
 #        logger.config.dictConfig(GEDCOM_LOGGER)
         logger.addHandler(fileHandler)
         logger.setLevel("INFO")
+        
 
 
 def __logAnomaly__(userStory, id, messsage):

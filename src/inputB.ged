@@ -43,7 +43,7 @@
 2 SURN Johnson
 1 SEX F
 1 BIRT
-2 DATE 25 DEC 2016
+2 DATE 25 DEC 2216
 2 PLAC Melbourne, Brevard, Florida, USA
 1 FAMC @F1@
 0 @I6@ INDI
@@ -121,7 +121,7 @@
 1 BIRT
 2 DATE 9 OCT 1943
 1 DEAT Y
-2 DATE 12 DEC 2016
+2 DATE 12 DEC 1916
 1 FAMS @F5@
 0 @I13@ INDI
 1 NAME Lorraine Marie /Sullivan/
@@ -129,7 +129,7 @@
 2 SURN Sullivan
 1 SEX F
 1 BIRT
-2 DATE 24 FEB 1912
+2 DATE 24 FEB 2012
 2 PLAC Pueblo, Pueblo, Colorado, USA
 1 DEAT Y
 2 DATE 4 DEC 1961
@@ -389,6 +389,15 @@
 2 DATE 4 JAN 1955
 2 PLAC Logan, Cache, Utah
 1 FAMC @F10@
+0 @I3222@ INDI
+1 NAME Kim David /OLSEN/
+2 GIVN Kim David
+2 SURN OLSEN
+1 SEX M
+1 BIRT
+2 DATE 4 JAN 1955
+2 PLAC Logan, Cache, Utah
+1 FAMC @F10@
 0 @I33@ INDI
 1 NAME Stina Maria /Hansen/
 2 GIVN Stina Maria
@@ -494,7 +503,7 @@
 1 NAME Sina /Hansen/
 2 GIVN Sina
 2 SURN Hansen
-1 SEX F
+1 SEX P
 1 BIRT
 2 DATE 1 AUG 1847
 2 PLAC Denmark
@@ -505,7 +514,7 @@
 1 NAME Peter /Hansen/
 2 GIVN Peter
 2 SURN Hansen
-1 SEX M
+1 SEX Y
 1 BIRT
 2 DATE 1 APR 1825
 2 PLAC Denmark
@@ -614,6 +623,17 @@
 1 RESI
 2 ADDR Logan Ward 5, Cache, Utah
 1 FAMC @F17@
+0 @I51@ INDI
+1 NAME DuplicateID VeraL /Hansen/
+2 GIVN Vera L
+2 SURN Hansen
+1 SEX F
+1 BIRT
+2 DATE 14 JAN 1905
+2 PLAC Utah
+1 RESI
+2 ADDR Logan Ward 5, Cache, Utah
+1 FAMC @F17@
 0 @I52@ INDI
 1 NAME James P /Hansen/
 2 GIVN James P
@@ -665,10 +685,10 @@
 1 CHIL @I10@
 1 CHIL @I11@
 1 MARR
-2 DATE 6 JUL 1962
+2 DATE 6 JUL 1942
 2 PLAC Pueblo, CO
 1 DIV
-2 DATE 9 NOV 1972
+2 DATE 9 NOV 1872
 1 _CURRENT N
 0 @F6@ FAM
 1 HUSB @I14@

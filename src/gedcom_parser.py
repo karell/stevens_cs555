@@ -11,7 +11,6 @@ from prettytable import PrettyTable
 from pymongo import MongoClient
 from unique_individuals import AreIndividualsUnique # US23
 
-import log_error
 
 DB_INIT = None
 try:
@@ -57,7 +56,7 @@ def checkMaleLastNames(childsID, fatherLastName):
     
     if  child.gender == "M":
         if child.lastname != fatherLastName:
-            errorlogger.__logAnomaly__("US16", child.id, "Last Name doesn't match Father's Last Name")             
+            errorlogger.__logAnomaly__("US16", child.id, str("Father's Last Name of " + fatherLastName + " doesn't match childs's Last Name of " + child.lastname))             
             return False
         else:
             return True
@@ -65,10 +64,11 @@ def checkMaleLastNames(childsID, fatherLastName):
         return True
 ##US22 All individual IDs should be unique and all family IDs should be unique
 def isUniqueRecordId(recordId,parentDictionary):
-    if recordId in parentDictionary:
+    if recordId in parentDictionary:          
+  ##      errorlogger.__logError__("US22", recordId, "Record ID is not unique")
         return False
     else:
-      return True
+        return True
 
 ##US03 Birth before death
 def isBirthBeforeDeath(birthDate, deathDate):
@@ -102,12 +102,11 @@ for line in inputFile:
         if tmpObj is not None:
             if tmpObj.type == "I":
                 individualsDict[tmpObj.id] = tmpObj
-                if isUniqueRecordId(tmpObj.id,individualsDict):
+                isUniqueRecordId(tmpObj.id,individualsDict)
                     #check birth before death
-                    if isBirthBeforeDeath(tmpObj.birthDate,tmpObj.deathDate) != True:
+                if isBirthBeforeDeath(tmpObj.birthDate,tmpObj.deathDate) != True:
                         errorlogger.__logError__("US03", tmpObj.id, "Birth Before Death")                      
-                else:
-                    errorlogger.__logError__("US22", tmpObj.id, "Duplicate individual found") 
+                
             else:
                 if isUniqueRecordId(tmpObj.id,familiesDict):
                     familiesDict[tmpObj.id] = tmpObj
@@ -145,13 +144,13 @@ for line in inputFile:
                 tmpObj.birthDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
                 if individual.compareDates(tmpObj.birthDate):
                     print ("Invalid birth date for " + tmpObj.name)
-                    errorlogger.__logError__("US03", tmpObj.id, "Invalid birth date")
+                    errorlogger.__logError__("US01", tmpObj.id, "Invalid birth date")
                     tmpObj.birthDate = None
             elif dateType == "DEAT":
                 tmpObj.deathDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
                 if individual.compareDates(tmpObj.deathDate):
                     print ("Invalid death date for " + tmpObj.name)
-                    errorlogger.__logError__("US03", tmpObj.id, "Invalid death date")
+                    errorlogger.__logError__("US01", tmpObj.id, "Invalid death date")
                     tmpObj.deathDate = None
                 else:
                     tmpObj.alive = (tmpObj.deathDate is None) #for US03 - collect alive data
@@ -159,11 +158,13 @@ for line in inputFile:
                 tmpObj.marriageDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
                 if individual.compareDates(tmpObj.marriageDate):
                     print ("Invalid marriage date for " + tmpObj.name)
+                    errorlogger.__logError__("US02", tmpObj.id, "Invalid marriage date")
                     tmpObj.marriageDate = None
             elif dateType == "DIV":
                 tmpObj.divorcedDate = parseStringtoDate(lineSplit[2],lineSplit[3],lineSplit[4])
                 if individual.compareDates(tmpObj.divorcedDate):
                     print ("Invalid divorced date for " + tmpObj.name)
+                    errorlogger.__logError__("US??", tmpObj.id, "Invalid divorce date")
                     tmpObj.divorcedDate = None
             dateType = None
 
@@ -193,11 +194,11 @@ for i in sorted(familiesDict.keys()):
             childAge = individualsDict.get(j).birthDate
             if indiObjHusband.birthDate is not None and childAge is not None:
                 if parents_not_to_old.isValidFatherAge(childAge, indiObjHusband.birthDate) is False:
-                    errorlogger.__logError__("US12", tmpObj.id, "Invalid Father Age")
+                    errorlogger.__logError__("US12", individualsDict.get(j).id, str("Invalid Father Age: " + indiObjHusband.name + " is more than 80 years older than child: " + individualsDict.get(j).name))
                     print ("US12: Invalid Father Age: " + indiObjHusband.name + " is more than 80 years older than child: " + individualsDict.get(j).name)
             if indiObjWife.birthDate is not None and childAge is not None:
                 if parents_not_to_old.isValidMotherAge(childAge, indiObjWife.birthDate) is False:
-                    errorlogger.__logError__("US12", tmpObj.id, "Invalid Mother Age")
+                    errorlogger.__logError__("US12", individualsDict.get(j).id, str("Invalid Mother Age: " + indiObjWife.name + " is more than 60 years older than child: " + individualsDict.get(j).name))
                     print ("US12: Invalid Mother Age: " + indiObjWife.name + " is more than 60 years older than child: " + individualsDict.get(j).name)
     
     individualsDict[familiesDict[i].husbandId].children = familiesDict[i].children
@@ -211,19 +212,23 @@ for i in sorted(familiesDict.keys()):
     if familiesDict[i].marriageDate is not None: 
         if indiObjHusband.birthDate is not None and familiesDict[i].marriageDate < indiObjHusband.birthDate:
             print ("Invalid marriage and birth dates for " + indiObjHusband.name)
+            errorlogger.__logError__("US??", indiObjHusband.id, "Invalid marriage and birth dates")
             ## indiObjHusband.birthDate = None ## need to keep all records even if there are errors/anomolies
             ## familiesDict[i].marriageDate = None
         if indiObjWife.birthDate is not None and familiesDict[i].marriageDate < indiObjWife.birthDate:
             print ("Invalid marriage and birth dates for " + indiObjWife.name)
+            errorlogger.__logError__("US02", indiObjWife.id, "Invalid marriage and birth dates")
             ## indiObjWife.birthDate = None ## need to keep all records even if there are errors/anomolies
             ## familiesDict[i].marriageDate = None
         #story 05 - marriage before death
         if not familiesDict[i].marriageBeforeDeath(indiObjHusband.deathDate,indiObjWife.deathDate):
             print ("Invalid marriage date for family " + familiesDict[i].id)
+            errorlogger.__logError__("US05", familiesDict[i].id, "Invalid marriage date")
     #story 06 divorce before death
     if familiesDict[i].divorcedDate is not None and \
         not familiesDict[i].divorceBeforeDeath(indiObjHusband.deathDate,indiObjWife.deathDate):
         print ("Invalid divorce date for family " + familiesDict[i].id)
+        errorlogger.__logError__("US06", familiesDict[i].id, "Invalid divorce date")
 
     # User Story: US21: Check the genders of the husband and wife, if they exist.
     familiesDict[i].ValidateRoleGender(individualsDict)
@@ -261,6 +266,8 @@ if AreIndividualsUnique(individualsDict):
     print("US23: All individuals in the GEDCOM file are unique.")
 else:
     print("US23: Duplicate individuals were found in the GEDCOM file.")
+    errorlogger.__logError__("US23", " ", "Duplicate individuals were found in the GEDCOM file.")
+    
 
 print(outputtableI)
 print(outputtableF)

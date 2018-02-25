@@ -3,7 +3,7 @@
 # This class encapsulates an Individual definition from a GEDCOM file and
 # provides functionality and validation associated with an individual.
 # ---------------------------------------------------------------------------
-
+import ErrorLogger
 from datetime import date
 from datetime import datetime
 
@@ -57,7 +57,8 @@ class Individual:
         if self.isAgeLessThan150():
             return self.age
         else:
-            print("US7: " + self.firstAndMiddleName + " " + self.lastname + " is Older Than 150")    
+            print("US7: " + self.firstAndMiddleName + " " + self.lastname + " is Older Than 150")   
+            ErrorLogger.__logAnomaly__("US07", self.id, "Older than 150")
             
     
     
