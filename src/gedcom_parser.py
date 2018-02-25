@@ -262,16 +262,14 @@ for i in sorted(individualsDict.keys()):
 # US23 - Unique Individuals
 # Check the list of individuals for any that are not unique.
 # ----------
-if AreIndividualsUnique(individualsDict):
-    print("US23: All individuals in the GEDCOM file are unique.")
-else:
-    print("US23: Duplicate individuals were found in the GEDCOM file.")
-    errorlogger.__logError__("US23", " ", "Duplicate individuals were found in the GEDCOM file.")
-    
+if not AreIndividualsUnique(individualsDict):
+    errorlogger.__logError__("US23", "N/A", "Duplicate individuals were found in the GEDCOM file.")
 
+# ----------
+# Print out the Individuals and Families in table format.
+# ----------
 print(outputtableI)
 print(outputtableF)
-
 
 # ----------
 # Output both tables to a text file.
@@ -285,3 +283,8 @@ except:
 outputFile.write(outputtableI.get_string())
 outputFile.write("\n")
 outputFile.write(outputtableF.get_string())
+
+# ----------
+# Print out the errors and anomalies.
+# ----------
+errorlogger.__printLogMessages__()

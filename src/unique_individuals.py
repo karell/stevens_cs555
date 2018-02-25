@@ -54,7 +54,6 @@ def AreIndividualsUnique(individuals):
                     bDate2 = individuals[i2].birthDate
 
                     if fName1 == fName2 and lName1 == lName2 and bDate1 == bDate2:
-                        print("US23: Individuals " + i1 + " and " + i2 + " are the same person.")
                         ErrorLogger.__logError__("US23", str(i1 + " " + i2), str("Duplicate individuals. Individuals " + i1 + " and " + i2 + " are the same person."))
                         duplicateFound = True
                         break

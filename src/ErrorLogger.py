@@ -10,21 +10,25 @@ from logging import FileHandler
 logger = logging.getLogger('gedcomLogger')
 fileHandler = logging.FileHandler('gedcomError.log', 'w')
 
-
+_logMessages = []
+_ANOMALY     = "ANOMALY"
+_ERROR       = "ERROR"
 
 def __initLogger__():
 #        logger.config.dictConfig(GEDCOM_LOGGER)
         logger.addHandler(fileHandler)
-        logger.setLevel("INFO")
+        logger.setLevel(logging.DEBUG)
         
-
-
 def __logAnomaly__(userStory, id, messsage):
         msg = userStory + ": "+ str(id) + ": "+ messsage
-        logger.info(msg)
+        logger.info(_ANOMALY + ": " + msg)
+        _logMessages.append(_ANOMALY + ": " + msg)
                 
 def __logError__(userStory, id, messsage):
         msg = userStory + ": "+ str(id) + ": "+ messsage
-        logger.error(msg)
+        logger.error(_ERROR + ": " + msg)
+        _logMessages.append(_ERROR + ": " + msg)
 
-                
+def __printLogMessages__():
+        for message in _logMessages:
+                print(message)
