@@ -3,7 +3,7 @@ import individual
 import family
 import parents_not_to_old
 import ErrorLogger
-
+import random
 
 from datetime import datetime
 from datetime import date
@@ -26,7 +26,7 @@ try:
   ERRORS.drop()
   DB_INIT = True
 except:
-  ErrorLogger.__logError__(ErrorLogger._GENERAL,"N/A","N/A","Database instance is not running.")
+  print("Database instance is not running.")
 
 errorlogger = ErrorLogger
 errorlogger.__initLogger__()
@@ -66,7 +66,7 @@ def checkMaleLastNames(childsID, fatherLastName):
 ##US22 All individual IDs should be unique and all family IDs should be unique
 def isUniqueRecordId(recordId,parentDictionary):
     if recordId in parentDictionary:          
-  ##      errorlogger.__logError__("US22", recordId, "Record ID is not unique")
+        errorlogger.__logError__(ErrorLogger._INDIVIDUAL, "US22", recordId, "Record ID is not unique")
         return False
     else:
         return True
@@ -102,8 +102,9 @@ for line in inputFile:
     if lineSplit[0] == "0" and len(lineSplit) > 2 and (lineSplit[2] == "INDI" or lineSplit[2] == "FAM"):
         if tmpObj is not None:
             if tmpObj.type == "I":
+                if not isUniqueRecordId(tmpObj.id,individualsDict):
+                    tmpObj.id = tmpObj.id + str(random.randint(1,99999))
                 individualsDict[tmpObj.id] = tmpObj
-                isUniqueRecordId(tmpObj.id,individualsDict)
                     #check birth before death
                 if isBirthBeforeDeath(tmpObj.birthDate,tmpObj.deathDate) != True:
                         errorlogger.__logError__(ErrorLogger._INDIVIDUAL,"US03", tmpObj.id, "Birth Before Death")                      
