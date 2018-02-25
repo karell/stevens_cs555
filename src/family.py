@@ -45,16 +45,16 @@ class Family:
             try:
                 if individuals[self.husbandId].gender != 'M':
                     result = False
-                    ErrorLogger.__logError__("US21", self.husbandId, str("Family " + self.id + ", Husband " + self.husbandId + "  is not male."))
+                    ErrorLogger.__logError__(ErrorLogger._FAMILY,"US21", self.id, str("Husband " + self.husbandId + " is not male."))
             except:
-                ErrorLogger.__logError__("US21", self.husbandId, str("Family " + self.id + ", Husband " + self.husbandId + "  not found as an individual."))
+                ErrorLogger.__logError__(ErrorLogger._FAMILY,"US21", self.id, str("Husband " + self.husbandId + " not found as an individual."))
         if self.wifeId is not None and self.wifeId != "":
             try:
                 if individuals[self.wifeId].gender != 'F':
                     result = False
-                    ErrorLogger.__logError__("US21", self.wifeId, str("Family " + self.id + ", Wife " + self.wifeId + " is not female."))
+                    ErrorLogger.__logError__(ErrorLogger._FAMILY,"US21", self.id, str("Wife " + self.wifeId + " is not female."))
             except:
-                ErrorLogger.__logError__("US21", self.wifeId, str("Family " + self.id + ", Wife " + self.wifeId + "  not found as an individual."))
+                ErrorLogger.__logError__(ErrorLogger._FAMILY,"US21", self.id, str("Wife " + self.wifeId + " not found as an individual."))
 
         return result
 
