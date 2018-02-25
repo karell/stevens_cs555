@@ -3,7 +3,7 @@
 # This class encapsulates an Individual definition from a GEDCOM file and
 # provides functionality and validation associated with an individual.
 # ---------------------------------------------------------------------------
-
+import ErrorLogger
 from datetime import date
 from datetime import datetime
 
@@ -34,7 +34,7 @@ class Individual:
             try:
                 self.birthDateStr = self.birthDate.strftime('%d %b %Y')
             except:
-                print("Unable to convert Birth Date")
+                ErrorLogger.__logError__(ErrorLogger._INDIVIDUAL,"N/A", self.id, "Unrecognizable birth date.")
         if self.deathDate is not None:
             self.deathDateStr = self.deathDate.strftime('%d %b %Y')
         if len(self.children) > 0:
@@ -57,9 +57,7 @@ class Individual:
         if self.isAgeLessThan150():
             return self.age
         else:
-            print("US7: " + self.firstAndMiddleName + " " + self.lastname + " is Older Than 150")    
-            
-    
+            ErrorLogger.__logAnomaly__(ErrorLogger._INDIVIDUAL,"US07", self.id, "Older than 150")
     
 ##US7 determine if age is less than 150
     def isAgeLessThan150(self):
