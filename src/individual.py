@@ -4,6 +4,7 @@
 # provides functionality and validation associated with an individual.
 # ---------------------------------------------------------------------------
 import ErrorLogger
+import date_diff_calculator
 from datetime import date
 from datetime import datetime
 
@@ -46,29 +47,27 @@ class Individual:
 
     def calculateAge(self):
         today = date.today()
-        if self.birthDate and self.deathDate:
-            death = self.deathDate
-            birth = self.birthDate
-            self.age = death.year - birth.year - ((death.month, death.day) < (birth.month, birth.day))
-        elif self.birthDate and self.deathDate is None:
-            birth = self.birthDate
-            self.age = today.year - birth.year - ((today.month, today.day) < (birth.month, birth.day))
-        ##US7 call isAgeLessThan150
-        if self.isAgeLessThan150():
-            return self.age
+        calculatedAge = date_diff_calculator.calculateDateDifference(self.birthDate, self.deathDate, "years")
+        if calculatedAge is not None:
+            self.age = str(calculatedAge)
         else:
-            ErrorLogger.__logAnomaly__(ErrorLogger._INDIVIDUAL,"US07", self.id, "Older than 150")
+            self.age = -1
+        ##US7 call isAgeLessThan150
+        self.isAgeLessThan150()
+        return self.age    
     
 ##US7 determine if age is less than 150
     def isAgeLessThan150(self):
         individualAge = self.age
-        if (individualAge < 150):
-            return True
-        else:
+        if not date_diff_calculator.isSecondNumberBigger(int(individualAge), 150):
+            ErrorLogger.__logAnomaly__(ErrorLogger._INDIVIDUAL,"US07", self.id, "Older than 150")
             return False
-
+        else:
+            return True
 #For story 01 - generic function to compare input date with current date, return true if input date is bigger than current date
 def compareDates(tmpDate):
     return tmpDate > datetime.now()
+
+
         
 

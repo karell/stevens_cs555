@@ -42,15 +42,15 @@ class TestAgeLessThan150(unittest.TestCase):
         testPerson = individual.Individual()
         testPerson.birthDate = date(1736, 12, 1)
         testPerson.deathDate = date(1936, 12, 1)
-        result = individual.Individual.calculateAge(testPerson)
+        testPerson.age = individual.Individual.calculateAge(testPerson)
+        result = individual.Individual.isAgeLessThan150(testPerson)
         self.assertFalse(result)
                 
     def test_SeventyFive(self):
         testPerson = individual.Individual()
-        testPerson.birthDate = date(1900, 12, 1)
-        testPerson.deathDate = date(1975, 12, 1)
-        result = individual.Individual.calculateAge(testPerson)
-        self.assertTrue(result)
+        testPerson.age = 75
+        result = individual.Individual.isAgeLessThan150(testPerson)
+        self.assertTrue(result, True)
         
 
 if __name__ == "__main__":
