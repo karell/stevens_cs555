@@ -20,9 +20,9 @@ class isUniqueRecordIdTest(unittest.TestCase):
         self.assertFalse(gedcom_parser.isUniqueRecordId(newPerson2.id, individualDic))
     
     def test_FamilyIdExists(self):
-        newFamily = individual.Individual()
+        newFamily = family.Family()
         newFamily.id = "123"
-        newFamily2 = individual.Individual()
+        newFamily2 = family.Family()
         newFamily2.id = "123"
         familyDic = {}
         familyDic[newFamily.id] = newFamily
@@ -35,7 +35,7 @@ class isUniqueRecordIdTest(unittest.TestCase):
         self.assertTrue(gedcom_parser.isUniqueRecordId(newPerson.id, individualDic))
 
     def test_FamilyIdAvailable(self):
-        newFamily = individual.Individual()
+        newFamily = family.Family()
         newFamily.id = "123"
         familyDic = {}
         self.assertTrue(gedcom_parser.isUniqueRecordId(newFamily.id, familyDic))
@@ -49,7 +49,7 @@ class isUniqueRecordIdTest(unittest.TestCase):
         self.assertTrue(gedcom_parser.isUniqueRecordId(newPerson.id, individualDic))
 
     def test_FamilyAddedAndRemoved(self):
-        newFamily = individual.Individual()
+        newFamily = family.Family()
         newFamily.id = "123"
         familyDic = {}
         familyDic[newFamily.id] = newFamily
