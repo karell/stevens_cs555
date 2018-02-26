@@ -6,7 +6,7 @@ ERROR: INDIVIDUAL: US22: @I51@: Record ID is not unique
 ERROR: FAMILY: US12: @I32@: Invalid Mother Age: Blanche /Johnson/ is more than 60 years older than child: Kim David /OLSEN/
 ERROR: FAMILY: US21: @F16@: Husband @I42@ is not male.
 ERROR: FAMILY: US21: @F16@: Wife @I41@ is not female.
-ERROR: FAMILY: US??: @I52@: Invalid marriage and birth dates
+ERROR: FAMILY: US02: @I52@: Invalid marriage and birth dates
 ERROR: FAMILY: US02: @I46@: Invalid marriage and birth dates
 ANOMALY: INDIVIDUAL: US16: @I21@: Father's Last Name of Prince doesn't match childs's Last Name of Prince Sullivan
 ERROR: FAMILY: US12: @I6@: Invalid Father Age: Warren /Hansen/ is more than 80 years older than child: Marilyn /Hansen/
@@ -16,7 +16,8 @@ ERROR: FAMILY: US12: @I26@: Invalid Mother Age: Blanche /Johnson/ is more than 6
 ERROR: FAMILY: US12: @I27@: Invalid Father Age: Warren /Hansen/ is more than 80 years older than child: Brent /Hansen/
 ERROR: FAMILY: US12: @I27@: Invalid Mother Age: Blanche /Johnson/ is more than 60 years older than child: Brent /Hansen/
 ERROR: FAMILY: US02: @I12@: Invalid marriage and birth dates
-ERROR: FAMILY: US05: @F5@: Invalid marriage date
+ERROR: FAMILY: US05: @F5@: Invalid marriage date. Marriage before death.
+ERROR: FAMILY: US04: @F5@: Marriage before divorce date
 ERROR: FAMILY: US02: @I13@: Invalid marriage and birth dates
 ERROR: FAMILY: US12: @I13@: Invalid Father Age: Paul Hubert /Abell/ is more than 80 years older than child: Lorraine Marie /Sullivan/
 ERROR: FAMILY: US12: @I13@: Invalid Mother Age: Ethel Winefred /Carr/ is more than 60 years older than child: Lorraine Marie /Sullivan/

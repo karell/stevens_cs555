@@ -204,10 +204,10 @@ for i in sorted(familiesDict.keys()):
     individualsDict[familiesDict[i].husbandId].spouse.append(familiesDict[i].wifeId)
     individualsDict[familiesDict[i].wifeId].spouse.append(familiesDict[i].husbandId)
     
-    #Check marraige date against birth  ## What User Story is this? 
+    #Check marraige date against birth US02
     if familiesDict[i].marriageDate is not None: 
         if indiObjHusband.birthDate is not None and familiesDict[i].marriageDate < indiObjHusband.birthDate:
-            errorlogger.__logError__(ErrorLogger._FAMILY,"US??", indiObjHusband.id, "Invalid marriage and birth dates")
+            errorlogger.__logError__(ErrorLogger._FAMILY,"US02", indiObjHusband.id, "Invalid marriage and birth dates")
             ## indiObjHusband.birthDate = None ## need to keep all records even if there are errors/anomolies
             ## familiesDict[i].marriageDate = None
         if indiObjWife.birthDate is not None and familiesDict[i].marriageDate < indiObjWife.birthDate:
@@ -216,7 +216,7 @@ for i in sorted(familiesDict.keys()):
             ## familiesDict[i].marriageDate = None
         #story 05 - marriage before death
         if not familiesDict[i].marriageBeforeDeath(indiObjHusband.deathDate,indiObjWife.deathDate):
-            errorlogger.__logError__(ErrorLogger._FAMILY,"US05", familiesDict[i].id, "Invalid marriage date")
+            errorlogger.__logError__(ErrorLogger._FAMILY,"US05", familiesDict[i].id, "Invalid marriage date. Marriage before death.")
     #story 06 divorce before death
     if familiesDict[i].divorcedDate is not None and \
         not familiesDict[i].divorceBeforeDeath(indiObjHusband.deathDate,indiObjWife.deathDate):
@@ -224,7 +224,11 @@ for i in sorted(familiesDict.keys()):
 
     # User Story: US21: Check the genders of the husband and wife, if they exist.
     familiesDict[i].ValidateRoleGender(individualsDict)
-    
+  
+    # US04
+    if not familiesDict[i].marriageBeforeDivorce():
+        errorlogger.__logError__(ErrorLogger._FAMILY,'US04', familiesDict[i].id, "Marriage before divorce date")
+
     # Build the output prettytable. Convert the internal format of variables to
     # string format prior to adding a row to the output prettytable.
     familiesDict[i].toString()
@@ -275,7 +279,10 @@ except:
 outputFile.write(outputtableI.get_string())
 outputFile.write("\n")
 outputFile.write(outputtableF.get_string())
-
+outputFile.write("\n\n")
+for i in sorted(errorlogger._logMessages):
+    outputFile.write("\n")
+    outputFile.write(i)
 # ----------
 # Print out the errors and anomalies.
 # ----------
