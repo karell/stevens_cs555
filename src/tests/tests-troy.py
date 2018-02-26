@@ -4,6 +4,7 @@ import datetime
 
 sys.path.append('../')
 import individual
+import family
 import gedcom_parser
 
 ##US 22 testcases
@@ -54,7 +55,17 @@ class isUniqueRecordIdTest(unittest.TestCase):
         familyDic[newFamily.id] = newFamily
         familyDic.clear()
         self.assertTrue(gedcom_parser.isUniqueRecordId(newFamily.id, familyDic))
-        
+
+##US 04 testcases
+class isMarriedBeforeDivorceTest(unittest.TestCase):
+
+    def test_MarriedBeforeDivorced(self):
+        fam = family.Family()
+        fam.marriageDate = datetime.date(2000,1,1)
+        fam.divorcedDate = datetime.date(2005,1,1)
+        self.assertTrue(fam.marriageBeforeDivorce())
+
+
 if __name__ == "__main__":
         if len(sys.argv) != 2:
                 sys.exit("Need GEDCOM Argument")
