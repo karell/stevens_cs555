@@ -47,7 +47,7 @@
 |    @I4@    |      Avery S       |     Johnson     |   M    | 27 Jun 1999 |  18  |  True |      NA     |                                                  NA                                                 |         NA         |
 |   @I50@    |     Vendla A       |      Hansen     |   F    | 01 Dec 1909 | 108  |  True |      NA     |                                                  NA                                                 |         NA         |
 |   @I51@    |      Vera L        |      Hansen     |   F    | 14 Jan 1905 | 113  |  True |      NA     |                                                  NA                                                 |         NA         |
-| @I51@75152 | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113  |  True |      NA     |                                                  NA                                                 |         NA         |
+| @I51@50517 | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113  |  True |      NA     |                                                  NA                                                 |         NA         |
 |   @I52@    |      James P       |      Hansen     |   M    | 22 Jun 1872 | 145  |  True |      NA     |                                 ['@I48@', '@I49@', '@I50@', '@I51@']                                |     ['@I46@']      |
 |    @I5@    |   Delaney Grace    |     Johnson     |   F    |      NA     |  -1  |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I6@    |      Marilyn       |      Hansen     |   F    | 26 Dec 1944 |  61  | False | 30 Jul 2006 |                                              ['@I21@']                                              | ['@I7@', '@I20@']  |
@@ -71,10 +71,10 @@
 |  @F3@ | 10 Mar 1967 |      NA     |   @I20@    |      Richard /Prince/      |   @I6@  |      Marilyn /Hansen/     |                                              ['@I21@']                                              |
 |  @F4@ | 01 Dec 1939 |      NA     |   @I23@    |      Warren /Hansen/       |  @I22@  |     Blanche /Johnson/     |                                      ['@I6@', '@I26@', '@I27@']                                     |
 |  @F5@ | 06 Jul 1942 | 09 Nov 1872 |    @I7@    | Orville Phillip /Sullivan/ |  @I12@  |      Audrey /Ruddick/     |                                      ['@I9@', '@I10@', '@I11@']                                     |
-|  @F6@ |      NA     |      NA     |   @I14@    | Orville Phillip /Sullivan/ |  @I13@  | Lorraine Marie /Sullivan/ |                                               ['@I7@']                                              |
-|  @F7@ |      NA     |      NA     |   @I19@    |    Paul Hubert /Abell/     |  @I18@  |   Ethel Winefred /Carr/   |                                              ['@I13@']                                              |
-|  @F8@ |      NA     |      NA     |   @I14@    | Orville Phillip /Sullivan/ |  @I15@  |       Harriet /Pott/      |                                                  []                                                 |
-|  @F9@ |      NA     |      NA     |   @I16@    |     Philip /Sullivan/      |  @I17@  |    Harriet V /Chapman/    |                                              ['@I14@']                                              |
+|  @F6@ | 01 Dec 1930 |      NA     |   @I14@    | Orville Phillip /Sullivan/ |  @I13@  | Lorraine Marie /Sullivan/ |                                               ['@I7@']                                              |
+|  @F7@ | 01 Dec 1909 |      NA     |   @I19@    |    Paul Hubert /Abell/     |  @I18@  |   Ethel Winefred /Carr/   |                                              ['@I13@']                                              |
+|  @F8@ | 01 Dec 1970 |      NA     |   @I14@    | Orville Phillip /Sullivan/ |  @I15@  |       Harriet /Pott/      |                                                  []                                                 |
+|  @F9@ | 01 Sep 1905 |      NA     |   @I16@    |     Philip /Sullivan/      |  @I17@  |    Harriet V /Chapman/    |                                              ['@I14@']                                              |
 +-------+-------------+-------------+------------+----------------------------+---------+---------------------------+-----------------------------------------------------------------------------------------------------+
 
 
@@ -82,6 +82,9 @@ ANOMALY: INDIVIDUAL: US07: @I41@: Older than 150
 ANOMALY: INDIVIDUAL: US07: @I42@: Older than 150
 ANOMALY: INDIVIDUAL: US16: @I21@: Father's Last Name of Prince doesn't match childs's Last Name of Prince Sullivan
 ERROR: FAMILY: US02: @I12@: Invalid marriage and birth dates
+ERROR: FAMILY: US02: @I13@: Invalid marriage and birth dates
+ERROR: FAMILY: US02: @I46@: Invalid marriage and birth dates
+ERROR: FAMILY: US02: @I52@: Invalid marriage and birth dates
 ERROR: FAMILY: US04: @F5@: Marriage before divorce date
 ERROR: FAMILY: US05: @F5@: Invalid marriage date. Marriage before death.
 ERROR: FAMILY: US12: @I13@: Invalid Father Age: Paul Hubert /Abell/ is more than 80 years older than child: Lorraine Marie /Sullivan/
