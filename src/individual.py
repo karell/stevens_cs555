@@ -36,6 +36,7 @@ class Individual:
                 self.birthDateStr = self.birthDate.strftime('%d %b %Y')
             except:
                 ErrorLogger.__logError__(ErrorLogger._INDIVIDUAL,"N/A", self.id, "Unrecognizable birth date.")
+        self.calculateAge()
         if self.deathDate is not None:
             self.deathDateStr = self.deathDate.strftime('%d %b %Y')
         if len(self.children) > 0:
@@ -46,21 +47,24 @@ class Individual:
             self.spouseStr = str(self.spouse)
 
     def calculateAge(self):
-        today = date.today()
-        calculatedAge = date_diff_calculator.calculateDateDifference(self.birthDate, self.deathDate, "years")
-        if calculatedAge is not None:
-            self.age = str(calculatedAge)
+        if self.birthDate is not None:
+            calculatedAge = date_diff_calculator.calculateDateDifference(self.birthDate, self.deathDate, "years")
+            if calculatedAge is not None:
+                self.age = str(calculatedAge)
         else:
-            self.age = -1
+            ErrorLogger.__logError__(ErrorLogger._INDIVIDUAL,"US27", self.id, "Can not determine age, individual has no Birth Date")
+        if not self.alive and self.deathDate is None:
+            ErrorLogger.__logError__(ErrorLogger._INDIVIDUAL,"US27", self.id, "Age Calculation may be off, individual is not alive, but no Death Date was available")
+        if date_diff_calculator.isSecondNumberBigger(int(self.age), 0):
+            ErrorLogger.__logError__(ErrorLogger._INDIVIDUAL,"US27", self.id, "Age Calculation may be off, individual age is less than 0")
         ##US7 call isAgeLessThan150
-        self.isAgeLessThan150()
-        return self.age    
+        if not self.isAgeLessThan150():
+            ErrorLogger.__logAnomaly__(ErrorLogger._INDIVIDUAL,"US07", self.id, "Older than 150")
+        
     
 ##US7 determine if age is less than 150
     def isAgeLessThan150(self):
-        individualAge = self.age
-        if not date_diff_calculator.isSecondNumberBigger(int(individualAge), 150):
-            ErrorLogger.__logAnomaly__(ErrorLogger._INDIVIDUAL,"US07", self.id, "Older than 150")
+        if not date_diff_calculator.isSecondNumberBigger(int(self.age), 150):
             return False
         else:
             return True
