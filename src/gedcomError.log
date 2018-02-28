@@ -21,7 +21,11 @@ ERROR: FAMILY: US04: @F5@: Marriage before divorce date
 ERROR: FAMILY: US02: @I13@: Invalid marriage and birth dates
 ERROR: FAMILY: US12: @I13@: Invalid Father Age: Paul Hubert /Abell/ is more than 80 years older than child: Lorraine Marie /Sullivan/
 ERROR: FAMILY: US12: @I13@: Invalid Mother Age: Ethel Winefred /Carr/ is more than 60 years older than child: Lorraine Marie /Sullivan/
+ERROR: INDIVIDUAL: US27: @I12@: Age Calculation may be off, individual age is less than 0
+ERROR: INDIVIDUAL: US27: @I13@: Age Calculation may be off, individual age is less than 0
 ANOMALY: INDIVIDUAL: US07: @I41@: Older than 150
 ANOMALY: INDIVIDUAL: US07: @I42@: Older than 150
+ERROR: INDIVIDUAL: US27: @I5@: Can not determine age, individual has no Birth Date
+ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: GENERAL: US23: N/A: Duplicate individuals were found in the GEDCOM file.
