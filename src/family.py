@@ -3,7 +3,7 @@
 # This class encapsulates a Family definition from a GEDCOM file and
 # provides functionality and validation associated with a Family.
 # ---------------------------------------------------------------------------
-import ErrorLogger
+
 import individual
 
 class Family:
@@ -45,46 +45,31 @@ class Family:
             try:
                 if individuals[self.husbandId].gender != 'M':
                     result = False
-                    ErrorLogger.__logError__(ErrorLogger._FAMILY,"US21", self.id, str("Husband " + self.husbandId + " is not male."))
+                    print ("US21: Family " + self.id + ", Husband " + self.husbandId + " is not male.")
             except:
-                ErrorLogger.__logError__(ErrorLogger._FAMILY,"US21", self.id, str("Husband " + self.husbandId + " not found as an individual."))
+                print("US21: Family " + self.id + ", Husband " + self.husbandId + " not found as an individual.")
+
         if self.wifeId is not None and self.wifeId != "":
             try:
                 if individuals[self.wifeId].gender != 'F':
                     result = False
-                    ErrorLogger.__logError__(ErrorLogger._FAMILY,"US21", self.id, str("Wife " + self.wifeId + " is not female."))
+                    print ("US21: Family " + self.id + ", Wife " + self.wifeId + " is not female.")
             except:
-                ErrorLogger.__logError__(ErrorLogger._FAMILY,"US21", self.id, str("Wife " + self.wifeId + " not found as an individual."))
+                print("US21: Family " + self.id + ", Wife " + self.wifeId + " not found as an individual.")
 
         return result
 
+    #story 05
     def marriageBeforeDeath(self,deathDateHusband,deathDateWife):
-        retValue = True
-        if self.marriageDate is not None:
-            if deathDateHusband is not None:
-                retValue = self.marriageDate < deathDateHusband
-            if deathDateWife is not None and retValue: #check this only if retalue is true so it won't get overwritten
-                retValue = self.marriageDate < deathDateWife
-                
-        return  retValue
-        
-    # US04: Marriage before divorce
-    def marriageBeforeDivorce(self):
-        if (self.marriageDate and self.divorcedDate is None) or (self.divorcedDate is None and self.marriageDate is None):
-            return True
-        if self.marriageDate is None:
-            return False
-        return self.marriageDate < self.divorcedDate
-
+        return self.compareDates(self.marriageDate,deathDateHusband,deathDateWife)
+    #story 06
     def divorceBeforeDeath(self,deathDateHusband,deathDateWife):
+        return self.compareDates(self.divorcedDate,deathDateHusband,deathDateWife)
+    #for both story 05 and 06
+    def compareDates(self,date1,date2,date3):
         retValue = True
-        if self.divorcedDate is not None:
-            if deathDateHusband is not None and deathDateWife is not None and (self.divorcedDate > deathDateHusband \
-                or self.divorcedDate > deathDateWife):
-                retValue = False
-            elif deathDateWife is not None and self.divorcedDate > deathDateWife:
-                retValue = False
-            elif deathDateHusband is not None and self.divorcedDate > deathDateHusband:
-                retValue = False
-                
-        return  retValue
+        if date1 is not None:
+            retValue = True if date2 is None else date1 < date2
+            if retValue: 
+                retValue = True if date3 is None else date1 < date3
+        return retValue
