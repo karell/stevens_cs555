@@ -4,6 +4,7 @@
 # provides functionality and validation associated with an individual.
 # ---------------------------------------------------------------------------
 import ErrorLogger
+import date_diff_calculator
 from datetime import date
 from datetime import datetime
 
@@ -35,6 +36,7 @@ class Individual:
                 self.birthDateStr = self.birthDate.strftime('%d %b %Y')
             except:
                 ErrorLogger.__logError__(ErrorLogger._INDIVIDUAL,"N/A", self.id, "Unrecognizable birth date.")
+        self.calculateAge()
         if self.deathDate is not None:
             self.deathDateStr = self.deathDate.strftime('%d %b %Y')
         if len(self.children) > 0:
@@ -45,30 +47,31 @@ class Individual:
             self.spouseStr = str(self.spouse)
 
     def calculateAge(self):
-        today = date.today()
-        if self.birthDate and self.deathDate:
-            death = self.deathDate
-            birth = self.birthDate
-            self.age = death.year - birth.year - ((death.month, death.day) < (birth.month, birth.day))
-        elif self.birthDate and self.deathDate is None:
-            birth = self.birthDate
-            self.age = today.year - birth.year - ((today.month, today.day) < (birth.month, birth.day))
-        ##US7 call isAgeLessThan150
-        if self.isAgeLessThan150():
-            return self.age
+        if self.birthDate is not None:
+            calculatedAge = date_diff_calculator.calculateDateDifference(self.birthDate, self.deathDate, "years")
+            if calculatedAge is not None:
+                self.age = str(calculatedAge)
         else:
+            ErrorLogger.__logError__(ErrorLogger._INDIVIDUAL,"US27", self.id, "Can not determine age, individual has no Birth Date")
+        if not self.alive and self.deathDate is None:
+            ErrorLogger.__logError__(ErrorLogger._INDIVIDUAL,"US27", self.id, "Age Calculation may be off, individual is not alive, but no Death Date was available")
+        if date_diff_calculator.isSecondNumberBigger(int(self.age), 0):
+            ErrorLogger.__logError__(ErrorLogger._INDIVIDUAL,"US27", self.id, "Age Calculation may be off, individual age is less than 0")
+        ##US7 call isAgeLessThan150
+        if not self.isAgeLessThan150():
             ErrorLogger.__logAnomaly__(ErrorLogger._INDIVIDUAL,"US07", self.id, "Older than 150")
+        
     
 ##US7 determine if age is less than 150
     def isAgeLessThan150(self):
-        individualAge = self.age
-        if (individualAge < 150):
-            return True
-        else:
+        if not date_diff_calculator.isSecondNumberBigger(int(self.age), 150):
             return False
-
+        else:
+            return True
 #For story 01 - generic function to compare input date with current date, return true if input date is bigger than current date
 def compareDates(tmpDate):
     return tmpDate > datetime.now()
+
+
         
 

@@ -5,13 +5,11 @@ Created on Feb 11, 2018
 '''
 import sys
 import unittest
-import datetime
-from datetime import date
+
 
 sys.path.append('../')
 import individual
-import gedcom_parser
-import parents_not_to_old
+
 
 
 
@@ -34,23 +32,21 @@ class TestAgeLessThan150(unittest.TestCase):
         
     def test_BornToday(self):
         testPerson = individual.Individual()
-        testPerson.birthDate = date.today()
-        result = individual.Individual.calculateAge(testPerson)
-        self.assertLess(result, True)
+        testPerson.age = 0
+        result = individual.Individual.isAgeLessThan150(testPerson)
+        self.assertTrue(result, True)
         
     def test_TwoHundred(self):
         testPerson = individual.Individual()
-        testPerson.birthDate = date(1736, 12, 1)
-        testPerson.deathDate = date(1936, 12, 1)
-        result = individual.Individual.calculateAge(testPerson)
+        testPerson.age = 200
+        result = individual.Individual.isAgeLessThan150(testPerson)
         self.assertFalse(result)
                 
     def test_SeventyFive(self):
         testPerson = individual.Individual()
-        testPerson.birthDate = date(1900, 12, 1)
-        testPerson.deathDate = date(1975, 12, 1)
-        result = individual.Individual.calculateAge(testPerson)
-        self.assertTrue(result)
+        testPerson.age = 75
+        result = individual.Individual.isAgeLessThan150(testPerson)
+        self.assertTrue(result, True)
         
 
 if __name__ == "__main__":
