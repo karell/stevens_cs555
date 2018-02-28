@@ -65,6 +65,21 @@ class isMarriedBeforeDivorceTest(unittest.TestCase):
         fam.divorcedDate = datetime.date(2005,1,1)
         self.assertTrue(fam.marriageBeforeDivorce())
 
+    def test_DivorceDateNoMarriage(self):
+        fam = family.Family()
+        fam.divorcedDate = datetime.date(2005,1,1)
+        self.assertFalse(fam.marriageBeforeDivorce())
+
+    def test_NoDivorceDate(self):
+        fam = family.Family()
+        fam.marriageDate = datetime.date(2000,1,1)
+        self.assertTrue(fam.marriageBeforeDivorce())
+
+    def test_MarriedAfterDivorced(self):
+        fam = family.Family()
+        fam.marriageDate = datetime.date(2005,1,1)
+        fam.divorcedDate = datetime.date(2000,1,1)
+        self.assertFalse(fam.marriageBeforeDivorce())
 
 if __name__ == "__main__":
         if len(sys.argv) != 2:

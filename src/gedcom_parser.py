@@ -63,10 +63,10 @@ def checkMaleLastNames(childsID, fatherLastName):
             return True
     else:
         return True
+
 ##US22 All individual IDs should be unique and all family IDs should be unique
 def isUniqueRecordId(recordId,parentDictionary):
     if recordId in parentDictionary:          
-        errorlogger.__logError__(ErrorLogger._INDIVIDUAL, "US22", recordId, "Record ID is not unique")
         return False
     else:
         return True
@@ -103,6 +103,7 @@ for line in inputFile:
         if tmpObj is not None:
             if tmpObj.type == "I":
                 if not isUniqueRecordId(tmpObj.id,individualsDict):
+                    errorlogger.__logError__(ErrorLogger._INDIVIDUAL, "US22", tmpObj.id, "Record ID is not unique")
                     tmpObj.id = tmpObj.id + str(random.randint(1,99999))
                 individualsDict[tmpObj.id] = tmpObj
                     #check birth before death
@@ -110,10 +111,11 @@ for line in inputFile:
                         errorlogger.__logError__(ErrorLogger._INDIVIDUAL,"US03", tmpObj.id, "Birth Before Death")                      
                 
             else:
-                if isUniqueRecordId(tmpObj.id,familiesDict):
-                    familiesDict[tmpObj.id] = tmpObj
-                else:
-                    errorlogger.__logError__(ErrorLogger._FAMILY,"US22", tmpObj.id, "Duplicate family found") ## TODO: keep all records
+                if not isUniqueRecordId(tmpObj.id,familiesDict):
+                    errorlogger.__logError__(ErrorLogger._FAMILY, "US22", tmpObj.id, "Record ID is not unique")
+                    tmpObj.id = tmpObj.id + str(random.randint(1,99999))
+                familiesDict[tmpObj.id] = tmpObj
+
         tmpObj = None
         if lineSplit[2] == "INDI":
             tmpObj = individual.Individual()
@@ -264,8 +266,8 @@ if not AreIndividualsUnique(individualsDict):
 # ----------
 # Print out the Individuals and Families in table format.
 # ----------
-print(outputtableI)
-print(outputtableF)
+# print(outputtableI)
+# print(outputtableF)
 
 # ----------
 # Output both tables to a text file.
@@ -286,4 +288,4 @@ for i in sorted(errorlogger._logMessages):
 # ----------
 # Print out the errors and anomalies.
 # ----------
-errorlogger.__printLogMessages__()
+# errorlogger.__printLogMessages__()
