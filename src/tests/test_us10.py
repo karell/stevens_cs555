@@ -49,7 +49,7 @@ class Test_MarriageAfter14(unittest.TestCase):
         individualsDict[husband.id] = husband
         individualsDict[wife.id]    = wife
 
-        self.assertTrue(theFamily.IsMarriageAfter14())
+        self.assertTrue(theFamily.IsMarriageAfter14(individualsDict))
 
     def test_MarriageIsNotAfter14Husband(self):
         husband   = CreateHusband(datetime.date(2001,1,1))
@@ -60,7 +60,7 @@ class Test_MarriageAfter14(unittest.TestCase):
         individualsDict[husband.id] = husband
         individualsDict[wife.id]    = wife
 
-        self.assertFalse(theFamily.IsMarriageAfter14())
+        self.assertFalse(theFamily.IsMarriageAfter14(individualsDict))
 
     def test_MarriageIsNotAfter14Wife(self):
         husband   = CreateHusband(datetime.date(2000,1,1))
@@ -71,7 +71,7 @@ class Test_MarriageAfter14(unittest.TestCase):
         individualsDict[husband.id] = husband
         individualsDict[wife.id]    = wife
 
-        self.assertFalse(theFamily.IsMarriageAfter14())
+        self.assertFalse(theFamily.IsMarriageAfter14(individualsDict))
 
     def test_BirthDateNotSetHusband(self):
         husband   = CreateHusband(None)
@@ -82,7 +82,7 @@ class Test_MarriageAfter14(unittest.TestCase):
         individualsDict[husband.id] = husband
         individualsDict[wife.id]    = wife
 
-        self.assertEqual(theFamily.IsMarriageAfter14(),"error")
+        self.assertEqual(theFamily.IsMarriageAfter14(individualsDict),"error")
 
     def test_BirthDateNotSetWife(self):
         husband   = CreateHusband(datetime.date(2000,1,1))
@@ -93,7 +93,7 @@ class Test_MarriageAfter14(unittest.TestCase):
         individualsDict[husband.id] = husband
         individualsDict[wife.id]    = wife
 
-        self.assertEqual(theFamily.IsMarriageAfter14(),"error")
+        self.assertEqual(theFamily.IsMarriageAfter14(individualsDict),"error")
 
     def test_MarriageDateNotSet(self):
         husband   = CreateHusband(datetime.date(2000,1,1))
@@ -104,7 +104,7 @@ class Test_MarriageAfter14(unittest.TestCase):
         individualsDict[husband.id] = husband
         individualsDict[wife.id]    = wife
 
-        self.assertEqual(theFamily.IsMarriageAfter14(),"error")
+        self.assertEqual(theFamily.IsMarriageAfter14(individualsDict),"error")
     
 if __name__ == '__main__':
     unittest.main()
