@@ -5,6 +5,7 @@
 # ---------------------------------------------------------------------------
 
 import individual
+import dateutil.relativedelta
 
 class Family:
     def __init__(self):
@@ -57,6 +58,28 @@ class Family:
             except:
                 print("US21: Family " + self.id + ", Wife " + self.wifeId + " not found as an individual.")
 
+        return result
+
+    # US10: Marriage at least 14 years after birth of husband and wife
+    def IsMarriageAfter14(self,individuals):
+        result = False
+        husband = None
+        wife = None
+        if self.husbandId is not None:
+            husband = individuals[self.husbandId]
+        if self.wifeId is not None:
+            wife = individuals[self.wifeId]
+        if husband is not None and \
+           wife    is not None and \
+           self.marriageDate is not None and \
+           husband.birthDate is not None and \
+           wife.birthDate is not None:
+            if dateutil.relativedelta.relativedelta(self.marriageDate,husband.birthDate).years >= 14 and \
+               dateutil.relativedelta.relativedelta(self.marriageDate,wife.birthDate).years    >= 14:
+                result = True
+        else:
+            result = "error"
+        
         return result
 
     # US04: Marriage before divorce
