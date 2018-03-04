@@ -9,6 +9,7 @@ import unittest
 from datetime import date
 
 sys.path.append('../')
+sys.argv.append("../inputA.ged")
 import individual
 
 
