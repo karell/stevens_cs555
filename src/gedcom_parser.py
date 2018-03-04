@@ -4,6 +4,7 @@ import family
 import parents_not_to_old
 import ErrorLogger
 import random
+import unique_record_id
 
 from datetime import datetime
 from datetime import date
@@ -64,12 +65,7 @@ def checkMaleLastNames(childsID, fatherLastName):
     else:
         return True
 
-##US22 All individual IDs should be unique and all family IDs should be unique
-def isUniqueRecordId(recordId,parentDictionary):
-    if recordId in parentDictionary:          
-        return False
-    else:
-        return True
+
 
 ##US03 Birth before death
 def isBirthBeforeDeath(birthDate, deathDate):
@@ -102,7 +98,7 @@ for line in inputFile:
     if lineSplit[0] == "0" and len(lineSplit) > 2 and (lineSplit[2] == "INDI" or lineSplit[2] == "FAM"):
         if tmpObj is not None:
             if tmpObj.type == "I":
-                if not isUniqueRecordId(tmpObj.id,individualsDict):
+                if not unique_record_id.isUniqueRecordId(tmpObj.id,individualsDict):
                     errorlogger.__logError__(ErrorLogger._INDIVIDUAL, "US22", tmpObj.id, "Record ID is not unique")
                     tmpObj.id = tmpObj.id + str(random.randint(1,99999))
                 individualsDict[tmpObj.id] = tmpObj
@@ -111,7 +107,7 @@ for line in inputFile:
                         errorlogger.__logError__(ErrorLogger._INDIVIDUAL,"US03", tmpObj.id, "Birth Before Death")                      
                 
             else:
-                if not isUniqueRecordId(tmpObj.id,familiesDict):
+                if not unique_record_id.isUniqueRecordId(tmpObj.id,familiesDict):
                     errorlogger.__logError__(ErrorLogger._FAMILY, "US22", tmpObj.id, "Record ID is not unique")
                     tmpObj.id = tmpObj.id + str(random.randint(1,99999))
                 familiesDict[tmpObj.id] = tmpObj

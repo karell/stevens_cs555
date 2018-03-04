@@ -59,6 +59,14 @@ class Family:
 
         return result
 
+    # US04: Marriage before divorce
+    def marriageBeforeDivorce(self):
+        if (self.marriageDate and self.divorcedDate is None) or (self.divorcedDate is None and self.marriageDate is None):
+            return True
+        if self.marriageDate is None:
+            return False
+        return self.marriageDate < self.divorcedDate
+    
     #story 05
     def marriageBeforeDeath(self,deathDateHusband,deathDateWife):
         return self.compareDates(self.marriageDate,deathDateHusband,deathDateWife)

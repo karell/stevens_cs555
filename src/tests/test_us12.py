@@ -9,10 +9,11 @@ import datetime
 
 
 sys.path.append('../')
+sys.argv.append("../inputA.ged")
 import parents_not_to_old
 
 
-class Test(unittest.TestCase):
+class Test_AreParentsTooOld(unittest.TestCase):
 
 
     def test_motherAgeDiffToChildLessThan60(self):

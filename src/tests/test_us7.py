@@ -8,6 +8,7 @@ import unittest
 
 
 sys.path.append('../')
+sys.argv.append("../inputA.ged")
 import individual
 
 
