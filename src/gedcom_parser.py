@@ -227,6 +227,14 @@ for i in sorted(familiesDict.keys()):
     if not familiesDict[i].marriageBeforeDivorce():
         errorlogger.__logError__(ErrorLogger._FAMILY,'US04', familiesDict[i].id, "Marriage before divorce date")
 
+    # US10
+    validMarriageDate = familiesDict[i].IsMarriageAfter14(individualsDict)
+    if validMarriageDate == "error":
+        errorlogger.__logError__(ErrorLogger._FAMILY, "US10", familiesDict[i].id, "Unable to validate marriage date")
+    else:
+        if not validMarriageDate:
+            errorlogger.__logError__(ErrorLogger._FAMILY, "US10", familiesDict[i].id, "Marriage is less than 14 years after birth of husband and/or wife")
+
     # Build the output prettytable. Convert the internal format of variables to
     # string format prior to adding a row to the output prettytable.
     familiesDict[i].toString()
