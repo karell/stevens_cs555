@@ -82,6 +82,27 @@ class Family:
         
         return result
 
+    # US09: Birth of child must occur at least 9 months after the death
+    #       of the father and after the death of the mother.
+    def IsBirthAfterDeath(self,individuals,child):
+        result = False
+        mother = None
+        father = None
+        if self.wifeId is not None:
+            mother = individuals[self.wifeId]
+        if self.husbandId is not None:
+            father = individuals[self.husbandId]
+        if mother is not None and father is not None and \
+           mother.deathDate is not None and father.deathDate is not None and \
+           child.birthDate is not None:
+            if dateutil.relativedelta.relativedelta(child.birthDate,father.deathDate).months >= 9 and \
+               child.birthDate <= mother.deathDate:
+                result = True
+        else:
+            result = "error"
+
+        return result
+
     # US04: Marriage before divorce
     def marriageBeforeDivorce(self):
         if (self.marriageDate and self.divorcedDate is None) or (self.divorcedDate is None and self.marriageDate is None):

@@ -50,9 +50,9 @@ def CreateFamily(mother,father):
 class Test_BirthAfterDeath(unittest.TestCase):
 
     def test_BirthIsAfterDeath(self):
-        mother    = CreateMother(datetime.date(2000,9,2))
+        mother    = CreateMother(datetime.date(2000,10,2))
         father    = CreateFather(datetime.date(2000,1,1))
-        child     = CreateChild("C1",datetime.date(2000,9,1),"Jimmy John")
+        child     = CreateChild("C1",datetime.date(2000,10,1),"Jimmy John")
         theFamily = CreateFamily(mother,father)
         theFamily.children.append(child)
 
@@ -64,9 +64,9 @@ class Test_BirthAfterDeath(unittest.TestCase):
         self.assertTrue(theFamily.IsBirthAfterDeath(individualsDict,child))
     
     def test_BirthIsNotAfterDeathOfMother(self):
-        mother    = CreateMother(datetime.date(2000,8,31))
+        mother    = CreateMother(datetime.date(2000,9,30))
         father    = CreateFather(datetime.date(2000,1,1))
-        child     = CreateChild("C1",datetime.date(2000,9,1),"Jimmy John")
+        child     = CreateChild("C1",datetime.date(2000,10,1),"Jimmy John")
         theFamily = CreateFamily(mother,father)
         theFamily.children.append(child)
 
@@ -78,9 +78,9 @@ class Test_BirthAfterDeath(unittest.TestCase):
         self.assertFalse(theFamily.IsBirthAfterDeath(individualsDict,child))
     
     def test_BirthIsNotAfterDeathOfFather(self):
-        mother    = CreateMother(datetime.date(2000,9,1))
+        mother    = CreateMother(datetime.date(2000,10,2))
         father    = CreateFather(datetime.date(2000,1,2))
-        child     = CreateChild("C1",datetime.date(2000,9,1),"Jimmy John")
+        child     = CreateChild("C1",datetime.date(2000,10,1),"Jimmy John")
         theFamily = CreateFamily(mother,father)
         theFamily.children.append(child)
 
