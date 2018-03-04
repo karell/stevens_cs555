@@ -26,7 +26,7 @@ class TestDatesBeforeCurrent(unittest.TestCase):
 
     def test_BornToday(self):
         testIndividual = individual.Individual()
-        tmpDate = datetime.datetime.today()
+        tmpDate = datetime.datetime.now()
         testIndividual.birthDate =  tmpDate
         result = individual.compareDates(testIndividual.birthDate)
         self.assertFalse(result)
