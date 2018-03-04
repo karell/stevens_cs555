@@ -1,0 +1,6 @@
+to run all tests
+if in the test dir run:
+	python -m unittest
+
+If in the src dir run: 
+	python -m unittest discover ./tests
