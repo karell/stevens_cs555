@@ -73,7 +73,52 @@ def isBirthBeforeDeath(birthDate, deathDate):
         return False
     if deathDate is None:
         return True
-    return birthDate < deathDate
+    return birthDate < deathDate     
+
+
+def isIndividualInFamily(individualId, family):
+    if family.husbandId == individualId:
+        return True
+    if family.wifeId == individualId:
+        return True
+    for childId in family.children:
+        if childId == individualId:
+            return True
+    return False
+
+def familyMembersExist(family, individualDict): 
+    if family.husbandId not in individualDict:
+        return False
+    if family.wifeId not in individualDict:
+        return False
+    for childId in family.children:
+        if individualDict.get(childId) is None:
+            return False
+    return True
+
+#US26 
+def validateCorrespondingRecords(individualDict, familyDict):
+    missingIndividuals = []
+    for i in sorted(individualDict.keys()):
+        individ = individualDict[i]
+        individExists = False
+        for j in sorted(familyDict.keys()):
+            if isIndividualInFamily(individ.id,familyDict[j]):
+                individExists = True
+        if individExists == False:
+            errorlogger.__logError__(ErrorLogger._INDIVIDUAL,"US26",individ.id,"Individual does not exist in family")
+            missingIndividuals.append(individ.id)
+    missedFamilies = []
+    for i in sorted(familyDict.keys()):
+        fam = familyDict[i]
+        if not familyMembersExist(fam,individualsDict):
+            errorlogger.__logError__(ErrorLogger._FAMILY, "US26", fam.id, "Family members don't exist in individuals")
+            missedFamilies.append(fam.id)
+    if len(missingIndividuals) < 1 and len(missedFamilies) < 1:
+      return True
+    else:
+      return False
+
 # ----------
 # Validate that there is only one argument on the command line. This means there
 # are two arguments total - the first is the name of the script.
@@ -267,6 +312,12 @@ for i in sorted(individualsDict.keys()):
 # ----------
 if not AreIndividualsUnique(individualsDict):
     errorlogger.__logError__(ErrorLogger._GENERAL,"US23", "N/A", "Duplicate individuals were found in the GEDCOM file.")
+
+# ----------
+# US26 - Corresponding record
+# Record existing in family and indiv. dictionary.
+# ----------
+validateCorrespondingRecords(individualsDict, familiesDict)
 
 # ----------
 # Print out the Individuals and Families in table format.
