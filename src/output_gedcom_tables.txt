@@ -47,7 +47,7 @@
 |    @I4@    |      Avery S       |     Johnson     |   M    | 27 Jun 1999 |  18 |  True |      NA     |                                                  NA                                                 |         NA         |
 |   @I50@    |     Vendla A       |      Hansen     |   F    | 01 Dec 1909 | 108 |  True |      NA     |                                                  NA                                                 |         NA         |
 |   @I51@    |      Vera L        |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
-| @I51@42388 | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
+| @I51@24079 | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
 |   @I52@    |      James P       |      Hansen     |   M    | 22 Jun 1872 | 145 |  True |      NA     |                                 ['@I48@', '@I49@', '@I50@', '@I51@']                                |     ['@I46@']      |
 |    @I5@    |   Delaney Grace    |     Johnson     |   F    |      NA     |  -1 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I6@    |      Marilyn       |      Hansen     |   F    | 26 Dec 1944 |  61 | False | 30 Jul 2006 |                                              ['@I21@']                                              | ['@I7@', '@I20@']  |
@@ -102,6 +102,7 @@ ERROR: FAMILY: US12: @I27@: Invalid Mother Age: Blanche /Johnson/ is more than 6
 ERROR: FAMILY: US12: @I32@: Invalid Mother Age: Blanche /Johnson/ is more than 60 years older than child: Kim David /OLSEN/
 ERROR: FAMILY: US12: @I6@: Invalid Father Age: Warren /Hansen/ is more than 80 years older than child: Marilyn /Hansen/
 ERROR: FAMILY: US12: @I6@: Invalid Mother Age: Blanche /Johnson/ is more than 60 years older than child: Marilyn /Hansen/
+ERROR: FAMILY: US21: @F16@: Invalid parent genders
 ERROR: GENERAL: US23: N/A: Duplicate individuals were found in the GEDCOM file.
 ERROR: INDIVIDUAL: US01: @I5@: Invalid birth date
 ERROR: INDIVIDUAL: US03: @I12@: Birth Before Death

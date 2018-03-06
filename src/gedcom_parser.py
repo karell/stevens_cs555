@@ -221,7 +221,8 @@ for i in sorted(familiesDict.keys()):
         errorlogger.__logError__(ErrorLogger._FAMILY,"US06", familiesDict[i].id, "Invalid divorce date")
 
     # User Story: US21: Check the genders of the husband and wife, if they exist.
-    familiesDict[i].ValidateRoleGender(individualsDict)
+    if familiesDict[i].ValidateRoleGender(individualsDict) is False:
+        errorlogger.__logError__(ErrorLogger._FAMILY, "US21", familiesDict[i].id, "Invalid parent genders")
   
     # US04
     if not familiesDict[i].marriageBeforeDivorce():

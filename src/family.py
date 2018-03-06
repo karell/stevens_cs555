@@ -6,6 +6,7 @@
 
 import individual
 import dateutil.relativedelta
+import ErrorLogger
 
 class Family:
     def __init__(self):
@@ -46,7 +47,7 @@ class Family:
             try:
                 if individuals[self.husbandId].gender != 'M':
                     result = False
-                    print ("US21: Family " + self.id + ", Husband " + self.husbandId + " is not male.")
+                    #print ("US21: Family " + self.id + ", Husband " + self.husbandId + " is not male.")
             except:
                 print("US21: Family " + self.id + ", Husband " + self.husbandId + " not found as an individual.")
 
@@ -54,7 +55,7 @@ class Family:
             try:
                 if individuals[self.wifeId].gender != 'F':
                     result = False
-                    print ("US21: Family " + self.id + ", Wife " + self.wifeId + " is not female.")
+                    #print ("US21: Family " + self.id + ", Wife " + self.wifeId + " is not female.")
             except:
                 print("US21: Family " + self.id + ", Wife " + self.wifeId + " not found as an individual.")
 
