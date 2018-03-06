@@ -5,6 +5,7 @@ import parents_not_to_old
 import ErrorLogger
 import random
 import unique_record_id
+import corresponding_records
 
 from datetime import datetime
 from datetime import date
@@ -73,7 +74,8 @@ def isBirthBeforeDeath(birthDate, deathDate):
         return False
     if deathDate is None:
         return True
-    return birthDate < deathDate
+    return birthDate < deathDate     
+
 # ----------
 # Validate that there is only one argument on the command line. This means there
 # are two arguments total - the first is the name of the script.
@@ -267,6 +269,12 @@ for i in sorted(individualsDict.keys()):
 # ----------
 if not AreIndividualsUnique(individualsDict):
     errorlogger.__logError__(ErrorLogger._GENERAL,"US23", "N/A", "Duplicate individuals were found in the GEDCOM file.")
+
+# ----------
+# US26 - Corresponding record
+# Record existing in family and indiv. dictionary.
+# ----------
+corresponding_records.validateCorrespondingRecords(individualsDict, familiesDict)
 
 # ----------
 # Print out the Individuals and Families in table format.
