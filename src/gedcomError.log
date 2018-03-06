@@ -35,6 +35,6 @@ ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is les
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: GENERAL: US23: N/A: Duplicate individuals were found in the GEDCOM file.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@15250: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@26216: Individual does not exist in family
 ERROR: FAMILY: US26: @F17@: Family members don't exist in individuals
 ERROR: FAMILY: US26: @F5@: Family members don't exist in individuals

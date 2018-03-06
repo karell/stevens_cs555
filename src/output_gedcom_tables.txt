@@ -47,7 +47,7 @@
 |    @I4@    |      Avery S       |     Johnson     |   M    | 27 Jun 1999 |  18 |  True |      NA     |                                                  NA                                                 |         NA         |
 |   @I50@    |     Vendla A       |      Hansen     |   F    | 01 Dec 1909 | 108 |  True |      NA     |                                                  NA                                                 |         NA         |
 |   @I51@    |      Vera L        |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
-| @I51@15250 | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
+| @I51@26216 | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
 |   @I52@    |      James P       |      Hansen     |   M    | 22 Jun 1872 | 145 |  True |      NA     |                                 ['@I48@', '@I49@', '@I50@', '@I51@']                                |     ['@I46@']      |
 |    @I5@    |   Delaney Grace    |     Johnson     |   F    |      NA     |  -1 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I6@    |      Marilyn       |      Hansen     |   F    | 26 Dec 1944 |  61 | False | 30 Jul 2006 |                                              ['@I21@']                                              | ['@I7@', '@I20@']  |
@@ -113,7 +113,7 @@ ERROR: INDIVIDUAL: US03: @I5@: Birth Before Death
 ERROR: INDIVIDUAL: US22: @I51@: Record ID is not unique
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@15250: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@26216: Individual does not exist in family
 ERROR: INDIVIDUAL: US27: @I12@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I13@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is less than 0
