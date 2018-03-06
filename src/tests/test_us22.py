@@ -2,6 +2,8 @@ import unittest
 import sys
 
 
+sys.path.append('../')
+sys.argv.append("../inputA.ged")
 import unique_record_id
 
 import individual

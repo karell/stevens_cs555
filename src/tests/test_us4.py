@@ -1,8 +1,3 @@
-'''
-Created on Feb 11, 2018
-
-@author: esther
-'''
 import sys
 import unittest
 import datetime
