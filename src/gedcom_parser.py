@@ -111,7 +111,7 @@ def validateCorrespondingRecords(individualDict, familyDict):
     missedFamilies = []
     for i in sorted(familyDict.keys()):
         fam = familyDict[i]
-        if not familyMembersExist(fam,individualsDict):
+        if not familyMembersExist(fam,individualDict):
             errorlogger.__logError__(ErrorLogger._FAMILY, "US26", fam.id, "Family members don't exist in individuals")
             missedFamilies.append(fam.id)
     if len(missingIndividuals) < 1 and len(missedFamilies) < 1:
