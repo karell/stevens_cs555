@@ -3,7 +3,8 @@ import datetime
 import sys
 
 sys.path.append('../')
-
+sys.argv.append("../inputA.ged")
+import corresponding_records
 import individual
 import family
 
@@ -17,8 +18,38 @@ import family
 
 class Test_CorrespondingEntries(unittest.TestCase):
 
-    def test_IndividualIdExists(self):
-        self.assertFalse(False)
+    def test_FamilyChildDoesNotExist(self):
+        fam = family.Family()
+        fam.id = "@FAM"
+        fam.children.append("@testchild")
+        famDict = {}
+        famDict[fam.id] = fam
+        individualDict = {}
+        self.assertFalse(corresponding_records.validateCorrespondingRecords(individualDict,famDict))
+    def test_IndividualNotInFamily(self):
+        fam = family.Family()
+        fam.id = "@FAM"
+        fam.children.append("@testchild")
+        famDict = {}
+        famDict[fam.id] = fam
+        individualDict = {}
+        indiv = individual.Individual()
+        indiv.id = "@INDV"
+        individualDict[indiv.id] = indiv
+        self.assertFalse(corresponding_records.validateCorrespondingRecords(individualDict,famDict))
+    def test_ChildNotInFamilyRecord(self):
+        fam = family.Family()
+        fam.id = "@FAM"
+        fam.husbandId = "@INDV"
+        fam.children.append("@testchild")
+        famDict = {}
+        famDict[fam.id] = fam
+        individualDict = {}
+        indiv = individual.Individual()
+        indiv.id = "@INDV"
+        indiv.children = ["@CHILD"]
+        individualDict[indiv.id] = indiv
+        self.assertFalse(corresponding_records.validateCorrespondingRecords(individualDict,famDict))
 
 if __name__ == "__main__":
         if len(sys.argv) != 2:

@@ -6,7 +6,6 @@
 
 import individual
 import dateutil.relativedelta
-import ErrorLogger
 
 class Family:
     def __init__(self):
@@ -32,7 +31,7 @@ class Family:
             self.divorcedDateStr = self.divorcedDate.strftime('%d %b %Y')
 
     # ----------
-    # UserStory: US23
+    # UserStory: US21
     # Function:  ValidateRoleGender
     # Purpose:   To check the genders of the Husband and Wife of the family.
     # Returns:   True  = Husband (if exists) is male and
