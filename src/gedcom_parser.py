@@ -74,7 +74,31 @@ def isBirthBeforeDeath(birthDate, deathDate):
         return False
     if deathDate is None:
         return True
-    return birthDate < deathDate     
+    return birthDate < deathDate   
+
+#US14 no more than 5 siblings born the same day
+def verifySiblingsDates(allDates):
+    retValue = True
+    datesDict = {}
+    for d in allDates:
+        if d in datesDict:
+            datesDict[d] = datesDict.get(d) + 1
+            if datesDict[d] > 5:
+                return False
+        else:#if we did not find this date, we first check if we have date within day of already found dates
+            found = False
+            for d2 in datesDict:
+                delta = d2 - d
+                if (abs(delta.days) < 2):
+                    datesDict[d2] = datesDict.get(d2) + 1
+                    found = True
+                    if datesDict[d2] > 5:
+                        retValue = False
+                        break    
+            if not found:
+                datesDict[d] = 1
+                
+    return retValue  
 
 # ----------
 # Validate that there is only one argument on the command line. This means there
@@ -227,17 +251,27 @@ for i in sorted(familiesDict.keys()):
         errorlogger.__logError__(ErrorLogger._FAMILY, "US21", familiesDict[i].id, "Invalid parent genders")
   
     # US04
-    if not familiesDict[i].marriageBeforeDivorce():
-        errorlogger.__logError__(ErrorLogger._FAMILY,'US04', familiesDict[i].id, "Marriage before divorce date")
+    #if not familiesDict[i].marriageBeforeDivorce():
+    #    errorlogger.__logError__(ErrorLogger._FAMILY,'US04', familiesDict[i].id, "Marriage before divorce date")
 
     # US10
-    validMarriageDate = familiesDict[i].IsMarriageAfter14(individualsDict)
-    if validMarriageDate == "error":
-        errorlogger.__logError__(ErrorLogger._FAMILY, "US10", familiesDict[i].id, "Unable to validate marriage date")
-    else:
-        if not validMarriageDate:
-            errorlogger.__logError__(ErrorLogger._FAMILY, "US10", familiesDict[i].id, "Marriage is less than 14 years after birth of husband and/or wife")
+    #validMarriageDate = familiesDict[i].IsMarriageAfter14(individualsDict)
+    #if validMarriageDate == "error":
+    #    errorlogger.__logError__(ErrorLogger._FAMILY, "US10", familiesDict[i].id, "Unable to validate marriage date")
+    #else:
+    #    if not validMarriageDate:
+    #        errorlogger.__logError__(ErrorLogger._FAMILY, "US10", familiesDict[i].id, "Marriage is less than 14 years after birth of husband and/or wife")
 
+    #User Story 14: check siblings birth dates
+    if len(familiesDict[i].children) > 5:
+        counter = 0
+        testDates = []
+        for child in familiesDict[i].children:
+            testDates[counter] = individualsDict[child].birthDate
+            counter = counter + 1
+        if not verifySiblingsDates(testDates):
+            print ("Invalid birh dates for family " + familiesDict[i].id)
+    
     # Build the output prettytable. Convert the internal format of variables to
     # string format prior to adding a row to the output prettytable.
     familiesDict[i].toString()
