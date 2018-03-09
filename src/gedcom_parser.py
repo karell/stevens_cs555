@@ -99,6 +99,27 @@ def verifySiblingsDates(allDates):
                 datesDict[d] = 1
                 
     return retValue  
+#US13 Siblings need to be more than 8 months apart or less than 2 days
+def verifySiblingsSpace(allDates):
+    retValue = True
+    datesSet = set()
+    for d in allDates:
+        if d in datesSet:
+            retValue = False
+            break
+        else:
+            found = False
+            for d2 in datesSet:
+                delta = d2 - d
+                if abs(delta.days) > 1 and abs(delta.days) < 280:
+                    retValue = False
+                    break 
+            if retValue:
+                datesSet.add(d)
+            else:
+                break
+                
+    return retValue
 
 # ----------
 # Validate that there is only one argument on the command line. This means there
@@ -264,13 +285,27 @@ for i in sorted(familiesDict.keys()):
 
     #User Story 14: check siblings birth dates
     if len(familiesDict[i].children) > 5:
-        counter = 0
         testDates = []
         for child in familiesDict[i].children:
-            testDates[counter] = individualsDict[child].birthDate
-            counter = counter + 1
+            try:
+                if individualsDict[child].birthDate is not None:
+                    testDates.append(individualsDict[child].birthDate)
+            except:
+                print("Child does id does not exist in individual dictionary")
         if not verifySiblingsDates(testDates):
             print ("Invalid birh dates for family " + familiesDict[i].id)
+    
+    #User Story 13: check siblings spacing
+    if len(familiesDict[i].children) > 1:
+        testDates = []
+        for child in familiesDict[i].children:
+            try:
+                if individualsDict[child].birthDate is not None:
+                    testDates.append(individualsDict[child].birthDate)
+            except:
+                print("Child does id does not exist in individual dictionary")
+        if not verifySiblingsSpace(testDates):
+            print ("Invalid siblings space for family " + familiesDict[i].id)
     
     # Build the output prettytable. Convert the internal format of variables to
     # string format prior to adding a row to the output prettytable.
