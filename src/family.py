@@ -6,6 +6,7 @@
 
 import individual
 import dateutil.relativedelta
+import ErrorLogger
 
 class Family:
     def __init__(self):
@@ -80,6 +81,48 @@ class Family:
         else:
             result = "error"
         
+        return result
+
+    # US09: Birth of child must occur at least 9 months after the death
+    #       of the father and after the death of the mother.
+    def IsBirthAfterDeath(self,individuals,child):
+        result          = True
+        motherDeathDate = None
+        fatherDeathDate = None
+
+        # Validate the mother record
+        if self.wifeId is not None:
+            mother = individuals[self.wifeId]
+            if mother is not None:
+                motherDeathDate = mother.deathDate
+            else:
+                ErrorLogger.__logError__(ErrorLogger._FAMILY,"US09", self.id, str("Wife " + self.wifeId + " is not found as an Individual."))
+                result = "error"
+
+        # Validate the father record
+        if self.husbandId is not None:
+            father = individuals[self.husbandId]
+            if father is not None:
+                fatherDeathDate = father.deathDate
+            else:
+                ErrorLogger.__logError__(ErrorLogger._FAMILY,"US09", self.id, str("Husband " + self.husbandId + " is not found as an Individual."))
+                result = "error"
+
+        # Validate the child record and compare dates
+        if child.birthDate is not None:
+            if motherDeathDate is not None:
+                if child.birthDate > mother.deathDate:
+                    ErrorLogger.__logError__(ErrorLogger._FAMILY,"US09", self.id, str("Child " + child.id + " born on " + str(child.birthDate) + " is after mother's death date of " + str(motherDeathDate)))
+                    result = False
+            if fatherDeathDate is not None:
+                deltaFather = dateutil.relativedelta.relativedelta(fatherDeathDate,child.birthDate)
+                if deltaFather.years < 0 or (deltaFather.years == 0 and deltaFather.months > -9):
+                    ErrorLogger.__logError__(ErrorLogger._FAMILY,"US09", self.id, str("Child " + child.id + " born on " + str(child.birthDate) + " is less than 9 months after father's death date of " + str(fatherDeathDate)))
+                    result = False
+        else:
+            ErrorLogger.__logError__(ErrorLogger._FAMILY,"US09", self.id, str("Child " + child.id + " has no birth date."))
+            result = "error"
+
         return result
 
     # US04: Marriage before divorce
