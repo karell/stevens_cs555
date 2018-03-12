@@ -272,16 +272,16 @@ for i in sorted(familiesDict.keys()):
         errorlogger.__logError__(ErrorLogger._FAMILY, "US21", familiesDict[i].id, "Invalid parent genders")
   
     # US04
-    #if not familiesDict[i].marriageBeforeDivorce():
-    #    errorlogger.__logError__(ErrorLogger._FAMILY,'US04', familiesDict[i].id, "Marriage before divorce date")
+    if not familiesDict[i].marriageBeforeDivorce():
+        errorlogger.__logError__(ErrorLogger._FAMILY,'US04', familiesDict[i].id, "Marriage before divorce date")
 
     # US10
-    #validMarriageDate = familiesDict[i].IsMarriageAfter14(individualsDict)
-    #if validMarriageDate == "error":
-    #    errorlogger.__logError__(ErrorLogger._FAMILY, "US10", familiesDict[i].id, "Unable to validate marriage date")
-    #else:
-    #    if not validMarriageDate:
-    #        errorlogger.__logError__(ErrorLogger._FAMILY, "US10", familiesDict[i].id, "Marriage is less than 14 years after birth of husband and/or wife")
+    validMarriageDate = familiesDict[i].IsMarriageAfter14(individualsDict)
+    if validMarriageDate == "error":
+        errorlogger.__logError__(ErrorLogger._FAMILY, "US10", familiesDict[i].id, "Unable to validate marriage date")
+    else:
+        if not validMarriageDate:
+            errorlogger.__logError__(ErrorLogger._FAMILY, "US10", familiesDict[i].id, "Marriage is less than 14 years after birth of husband and/or wife")
 
     #User Story 14: check siblings birth dates
     if len(familiesDict[i].children) > 5:
@@ -291,10 +291,12 @@ for i in sorted(familiesDict.keys()):
                 if individualsDict[child].birthDate is not None:
                     testDates.append(individualsDict[child].birthDate)
             except:
-                print("Child does id does not exist in individual dictionary")
+                #print("Child does id does not exist in individual dictionary")
+                errorlogger.__logError__(ErrorLogger._INDIVIDUAL, "US14", child.id, "Child does id does not exist in individual dictionary")
         if not verifySiblingsDates(testDates):
-            print ("Invalid birh dates for family " + familiesDict[i].id)
-    
+            #print ("Invalid birth dates for family " + familiesDict[i].id)
+            errorlogger.__logError__(ErrorLogger._FAMILY, "US14", familiesDict[i].id, "Invalid Birth Dates for Family")
+
     #User Story 13: check siblings spacing
     if len(familiesDict[i].children) > 1:
         testDates = []
@@ -303,10 +305,12 @@ for i in sorted(familiesDict.keys()):
                 if individualsDict[child].birthDate is not None:
                     testDates.append(individualsDict[child].birthDate)
             except:
-                print("Child does id does not exist in individual dictionary")
+                #print("Child does id does not exist in individual dictionary")
+                errorlogger.__logError__(ErrorLogger._INDIVIDUAL, "US13", child.id, "Child does id does not exist in individual dictionary")
         if not verifySiblingsSpace(testDates):
-            print ("Invalid siblings space for family " + familiesDict[i].id)
-    
+            #print ("Invalid siblings space for family " + familiesDict[i].id)
+            errorlogger.__logError__(ErrorLogger._FAMILY, "US13", familiesDict[i].id, "Invalid Sibling Spacing in Family")
+
     # Build the output prettytable. Convert the internal format of variables to
     # string format prior to adding a row to the output prettytable.
     familiesDict[i].toString()
