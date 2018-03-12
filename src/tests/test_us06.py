@@ -4,7 +4,7 @@ sys.path.append('../')
 import individual
 import family
 import datetime
-import gedcom_parser
+
 
 class TestDivorceBeforeDeath(unittest.TestCase):
     def test_divorceNone(self):
