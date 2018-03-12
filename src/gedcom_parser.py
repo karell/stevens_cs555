@@ -74,7 +74,52 @@ def isBirthBeforeDeath(birthDate, deathDate):
         return False
     if deathDate is None:
         return True
-    return birthDate < deathDate     
+    return birthDate < deathDate   
+
+#US14 no more than 5 siblings born the same day
+def verifySiblingsDates(allDates):
+    retValue = True
+    datesDict = {}
+    for d in allDates:
+        if d in datesDict:
+            datesDict[d] = datesDict.get(d) + 1
+            if datesDict[d] > 5:
+                return False
+        else:#if we did not find this date, we first check if we have date within day of already found dates
+            found = False
+            for d2 in datesDict:
+                delta = d2 - d
+                if (abs(delta.days) < 2):
+                    datesDict[d2] = datesDict.get(d2) + 1
+                    found = True
+                    if datesDict[d2] > 5:
+                        retValue = False
+                        break    
+            if not found:
+                datesDict[d] = 1
+                
+    return retValue  
+#US13 Siblings need to be more than 8 months apart or less than 2 days
+def verifySiblingsSpace(allDates):
+    retValue = True
+    datesSet = set()
+    for d in allDates:
+        if d in datesSet:
+            retValue = False
+            break
+        else:
+            found = False
+            for d2 in datesSet:
+                delta = d2 - d
+                if abs(delta.days) > 1 and abs(delta.days) < 280:
+                    retValue = False
+                    break 
+            if retValue:
+                datesSet.add(d)
+            else:
+                break
+                
+    return retValue
 
 # ----------
 # Validate that there is only one argument on the command line. This means there
@@ -239,6 +284,34 @@ for i in sorted(familiesDict.keys()):
     else:
         if not validMarriageDate:
             errorlogger.__logError__(ErrorLogger._FAMILY, "US10", familiesDict[i].id, "Marriage is less than 14 years after birth of husband and/or wife")
+
+    #User Story 14: check siblings birth dates
+    if len(familiesDict[i].children) > 5:
+        testDates = []
+        for child in familiesDict[i].children:
+            try:
+                if individualsDict[child].birthDate is not None:
+                    testDates.append(individualsDict[child].birthDate)
+            except:
+                #print("Child does id does not exist in individual dictionary")
+                errorlogger.__logError__(ErrorLogger._INDIVIDUAL, "US14", child.id, "Child does id does not exist in individual dictionary")
+        if not verifySiblingsDates(testDates):
+            #print ("Invalid birth dates for family " + familiesDict[i].id)
+            errorlogger.__logError__(ErrorLogger._FAMILY, "US14", familiesDict[i].id, "Invalid Birth Dates for Family")
+
+    #User Story 13: check siblings spacing
+    if len(familiesDict[i].children) > 1:
+        testDates = []
+        for child in familiesDict[i].children:
+            try:
+                if individualsDict[child].birthDate is not None:
+                    testDates.append(individualsDict[child].birthDate)
+            except:
+                #print("Child does id does not exist in individual dictionary")
+                errorlogger.__logError__(ErrorLogger._INDIVIDUAL, "US13", child.id, "Child does id does not exist in individual dictionary")
+        if not verifySiblingsSpace(testDates):
+            #print ("Invalid siblings space for family " + familiesDict[i].id)
+            errorlogger.__logError__(ErrorLogger._FAMILY, "US13", familiesDict[i].id, "Invalid Sibling Spacing in Family")
 
     # Build the output prettytable. Convert the internal format of variables to
     # string format prior to adding a row to the output prettytable.
