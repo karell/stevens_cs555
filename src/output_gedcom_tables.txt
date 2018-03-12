@@ -20,7 +20,7 @@
 |    @I25@     |    James Peter     |      Hansen     |   M    | 22 Jun 1872 |  78 | False | 14 Aug 1950 | ['@I23@', '@I31@', '@I35@', '@I36@', '@I37@', '@I39@', '@I40@', '@I43@', '@I44@', '@I45@', '@I47@'] |     ['@I24@']      |
 |    @I26@     |      Leeland       |      Hansen     |   M    | 05 Feb 1942 |  0  | False | 08 Feb 1942 |                                                  NA                                                 |         NA         |
 |    @I27@     |       Brent        |      Hansen     |   M    | 02 Nov 1947 |  70 |  True |      NA     |                                                  NA                                                 |         NA         |
-|    @I28@     |    Emily Sofi      |    Andersson    |   F    | 12 Mar 1871 | 146 |  True |      NA     |                                              ['@I22@']                                              |     ['@I29@']      |
+|    @I28@     |    Emily Sofi      |    Andersson    |   F    | 12 Mar 1871 | 147 |  True |      NA     |                                              ['@I22@']                                              |     ['@I29@']      |
 |    @I29@     |      Anders        |     Johnson     |   M    | 24 Aug 1862 |  82 | False | 01 Aug 1945 |                                              ['@I22@']                                              |     ['@I28@']      |
 |     @I2@     |  Kelley Russell    |     Johnson     |   M    | 17 Jun 1974 |  43 |  True |      NA     |                                       ['@I3@', '@I4@', '@I5@']                                      |      ['@I1@']      |
 |    @I30@     |   Delbert James    |      OLSEN      |   M    | 15 Dec 1910 |  84 | False | 15 Oct 1995 |                                                  NA                                                 | ['@I22@', '@I31@'] |
@@ -47,7 +47,7 @@
 |     @I4@     |      Avery S       |     Johnson     |   M    | 27 Jun 1999 |  18 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I50@     |     Vendla A       |      Hansen     |   F    | 01 Dec 1909 | 108 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I51@     |      Vera L        |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
-|  @I51@64322  | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
+|  @I51@88102  | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I52@     |      James P       |      Hansen     |   M    | 22 Jun 1872 | 145 |  True |      NA     |                                     ['@I48@', '@I50@', '@I51@']                                     |     ['@I46@']      |
 |    @I53@     |       Jimmy        |     Connors     |   M    | 01 Jan 1970 |  48 |  True |      NA     |                                     ['@I55@', '@I56@', '@I57@']                                     |     ['@I54@']      |
 |    @I54@     |       Chris        |      Evertt     |   F    | 01 Jan 1971 |  47 |  True |      NA     |                                     ['@I55@', '@I56@', '@I57@']                                     |     ['@I53@']      |
@@ -63,13 +63,16 @@
 |    @I63@     |      Johnny        |       Marr      |   M    | 02 Jan 1991 |  27 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I64@     |       Mike         |      Joyce      |   M    | 02 Jan 1991 |  27 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I65@     |      Martin        |       Gore      |   M    | 02 Jan 1991 |  27 |  True |      NA     |                                                  NA                                                 |         NA         |
+|    @I66@     |       John         |     Jamison     |   M    | 12 Mar 1960 |  58 |  True |      NA     |                                          ['@I68@', '@I69@']                                         |     ['@I67@']      |
+|    @I67@     |       Jane         |     Jamison     |   F    | 15 Dec 1961 |  56 |  True |      NA     |                                          ['@I68@', '@I69@']                                         |     ['@I66@']      |
+|    @I68@     |       Jack         |     Jamison     |   M    | 20 May 1985 |  32 |  True |      NA     |                                                  NA                                                 |     ['@I69@']      |
+|    @I69@     |       July         |     Jamison     |   F    | 18 Sep 1986 |  31 |  True |      NA     |                                                  NA                                                 |     ['@I68@']      |
 |     @I6@     |      Marilyn       |      Hansen     |   F    | 26 Dec 1944 |  61 | False | 30 Jul 2006 |                                              ['@I21@']                                              | ['@I7@', '@I20@']  |
 |     @I7@     |  Orville Phillip   |     Sullivan    |   M    | 19 Aug 1937 |  75 | False | 13 Jul 2013 |                              ['@I9@', '@I10@', '@I11@', '@IFAKECHILD@']                             | ['@I6@', '@I12@']  |
 |     @I8@     |     Lorraine       |     Sullivan    |   F    | 10 Feb 1981 |  37 |  True |      NA     |                                                  NA                                                 |         NA         |
 |     @I9@     |   Grant Steven     |     Sullivan    |   M    | 19 Jul 1964 |  53 |  True |      NA     |                                                  NA                                                 |         NA         |
 | @IFAKECHILD@ |    FAKE CHILD      |      CHILD      |   F    | 04 Jul 1944 |  73 |  True |      NA     |                                                  NA                                                 |         NA         |
 +--------------+--------------------+-----------------+--------+-------------+-----+-------+-------------+-----------------------------------------------------------------------------------------------------+--------------------+
-
 +-------+-------------+-------------+------------+----------------------------+---------+---------------------------+-----------------------------------------------------------------------------------------------------+
 |   ID  |   Married   |   Divorced  | Husband ID |        Husband Name        | Wife ID |         Wife Name         |                                               Children                                              |
 +-------+-------------+-------------+------------+----------------------------+---------+---------------------------+-----------------------------------------------------------------------------------------------------+
@@ -84,6 +87,8 @@
 | @F18@ | 01 Dec 1989 |      NA     |   @I53@    |      Jimmy /Connors/       |  @I54@  |       Chris /Evertt/      |                                     ['@I55@', '@I56@', '@I57@']                                     |
 | @F19@ | 01 Dec 1989 |      NA     |   @I58@    |        Dave /Gahan/        |  @I59@  |       Terry /Evertt/      |                        ['@I60@', '@I61@', '@I62@', '@I63@', '@I64@', '@I65@']                       |
 |  @F1@ | 08 Nov 1995 |      NA     |    @I2@    |  Kelley Russell /Johnson/  |   @I1@  |     Esther /Sullivan/     |                                       ['@I3@', '@I4@', '@I5@']                                      |
+| @F20@ | 31 Dec 1981 |      NA     |   @I66@    |       John /Jamison/       |  @I67@  |       Jane /Jamison/      |                                          ['@I68@', '@I69@']                                         |
+| @F21@ | 04 Jul 2005 |      NA     |   @I68@    |       Jack /Jamison/       |  @I69@  |       July /Jamison/      |                                                  []                                                 |
 |  @F2@ | 01 Dec 1972 |      NA     |    @I7@    | Orville Phillip /Sullivan/ |   @I6@  |      Marilyn /Hansen/     |                                           ['@I1@', '@I8@']                                          |
 |  @F3@ | 10 Mar 1967 | 09 Nov 2010 |   @I20@    |      Richard /Prince/      |   @I6@  |      Marilyn /Hansen/     |                                              ['@I21@']                                              |
 |  @F4@ | 01 Dec 1939 |      NA     |   @I23@    |      Warren /Hansen/       |  @I22@  |     Blanche /Johnson/     |                                      ['@I6@', '@I26@', '@I27@']                                     |
@@ -116,6 +121,7 @@ ERROR: FAMILY: US09: @F1@: Child @I5@ has no birth date.
 ERROR: FAMILY: US09: @F5@: Child @I10@ born on 1962-12-23 00:00:00 is after mother's death date of 1916-12-12 00:00:00
 ERROR: FAMILY: US09: @F5@: Child @I11@ born on 1961-10-03 00:00:00 is after mother's death date of 1916-12-12 00:00:00
 ERROR: FAMILY: US09: @F5@: Child @I9@ born on 1964-07-19 00:00:00 is after mother's death date of 1916-12-12 00:00:00
+ERROR: FAMILY: US09: @F5@: Child @IFAKECHILD@ born on 1944-07-04 00:00:00 is after mother's death date of 1916-12-12 00:00:00
 ERROR: FAMILY: US09: @F7@: Child @I13@ born on 2012-02-24 00:00:00 is after mother's death date of 1981-04-05 00:00:00
 ERROR: FAMILY: US09: @F7@: Child @I13@ born on 2012-02-24 00:00:00 is less than 9 months after father's death date of 1966-06-09 00:00:00
 ERROR: FAMILY: US10: @F11@: Marriage is less than 14 years after birth of husband and/or wife
@@ -137,6 +143,7 @@ ERROR: FAMILY: US13: @F12@: Invalid Sibling Spacing in Family
 ERROR: FAMILY: US13: @F18@: Invalid Sibling Spacing in Family
 ERROR: FAMILY: US13: @F19@: Invalid Sibling Spacing in Family
 ERROR: FAMILY: US14: @F19@: Invalid Birth Dates for Family
+ERROR: FAMILY: US18: @F21@: Marriage is of siblings of family @F20@
 ERROR: FAMILY: US21: @F16@: Invalid parent genders
 ERROR: GENERAL: US23: N/A: Duplicate individuals were found in the GEDCOM file.
 ERROR: INDIVIDUAL: US01: @I5@: Invalid birth date
@@ -146,7 +153,7 @@ ERROR: INDIVIDUAL: US03: @I5@: Birth Before Death
 ERROR: INDIVIDUAL: US22: @I51@: Record ID is not unique
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@64322: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@88102: Individual does not exist in family
 ERROR: INDIVIDUAL: US27: @I12@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I13@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is less than 0
