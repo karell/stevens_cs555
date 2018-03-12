@@ -12,7 +12,7 @@ from datetime import date
 from prettytable import PrettyTable
 from pymongo import MongoClient
 from unique_individuals import AreIndividualsUnique # US23
-
+from siblings_married import is_marriage_of_siblings # US18
 
 DB_INIT = None
 try:
@@ -313,6 +313,9 @@ for i in sorted(familiesDict.keys()):
             #print ("Invalid siblings space for family " + familiesDict[i].id)
             errorlogger.__logError__(ErrorLogger._FAMILY, "US13", familiesDict[i].id, "Invalid Sibling Spacing in Family")
 
+    # User Store 18: Check for married siblings
+    is_marriage_of_siblings(familiesDict[i], familiesDict)
+    
     # Build the output prettytable. Convert the internal format of variables to
     # string format prior to adding a row to the output prettytable.
     familiesDict[i].toString()

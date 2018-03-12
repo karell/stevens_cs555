@@ -38,9 +38,9 @@ def is_marriage_of_siblings(family, families):
             husband_found = False
             wife_found = False
             for sibling in families[f_idx].children:
-                if sibling.id == family.husbandId:
+                if sibling == family.husbandId:
                     husband_found = True
-                if sibling.id == family.wifeId:
+                if sibling == family.wifeId:
                     wife_found = True
             if husband_found and wife_found:
                 ErrorLogger.__logError__(ErrorLogger._FAMILY, "US18", family.id, \

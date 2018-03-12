@@ -41,8 +41,8 @@ class TestUS18SiblingsMarried(unittest.TestCase):
 
         family_with_children = family.Family()
         family_with_children.id = "F1"
-        family_with_children.children.append(husband)
-        family_with_children.children.append(wife)
+        family_with_children.children.append(husband.id)
+        family_with_children.children.append(wife.id)
 
         family_siblings_married = family.Family()
         family_siblings_married.id = "F2"
