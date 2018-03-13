@@ -4,11 +4,32 @@ Tests whether a marriage is of first cousins (US19).
 """
 import ErrorLogger
 
+def is_same_family(family_1, family_2):
+    """
+    ---------------------------------------------------------------------------
+    is_same_family
+    --------------
+    This function checks if the families supplied have the same identifiers.
+
+    Parameters
+    ----------
+    family_1, family_2: The family objects to compare. Can be None.
+
+    Returns
+    -------
+    True:  When both family objects have the same identifier.
+    False: When both family objects do not have the same identiifer or one or
+           both of the family objects are None.
+    ---------------------------------------------------------------------------
+    """
+    return family_1 is not None and family_2 is not None and \
+           family_1.id == family_2.id
+
 def is_marriage_of_cousins(family, families):
     """
     ---------------------------------------------------------------------------
     is_marriage_of_cousins
-    ----------------
+    ----------------------
     This function checks whether first cousins have married. This is determined
     by checking whether the husband and wife of a Family object can be traced
     back to the same grandparents.
@@ -84,23 +105,19 @@ def is_marriage_of_cousins(family, families):
 
         # Compare if any of the found families in the second generation up are
         # the same. If yes, then the marriage is of cousins.
-        if gen_2_up_husband_father is not None and gen_2_up_wife_father is not None \
-            and gen_2_up_husband_father.id == gen_2_up_wife_father.id:
+        if is_same_family(gen_2_up_husband_father, gen_2_up_wife_father):
             ErrorLogger.__logError__(ErrorLogger._FAMILY, "US19", family.id, \
                 "Marriage is of cousins of family " + gen_2_up_husband_father.id)
             return True
-        if gen_2_up_husband_father is not None and gen_2_up_wife_mother is not None \
-            and gen_2_up_husband_father.id == gen_2_up_wife_father.id:
+        if is_same_family(gen_2_up_husband_father, gen_2_up_wife_mother):
             ErrorLogger.__logError__(ErrorLogger._FAMILY, "US19", family.id, \
                 "Marriage is of cousins of family " + gen_2_up_husband_father.id)
             return True
-        if gen_2_up_husband_mother is not None and gen_2_up_wife_father is not None \
-            and gen_2_up_husband_mother.id == gen_2_up_wife_father.id:
+        if is_same_family(gen_2_up_husband_mother, gen_2_up_wife_father):
             ErrorLogger.__logError__(ErrorLogger._FAMILY, "US19", family.id, \
                 "Marriage is of cousins of family " + gen_2_up_husband_mother.id)
             return True
-        if gen_2_up_husband_mother is not None and gen_2_up_wife_mother is not None \
-            and gen_2_up_husband_mother.id == gen_2_up_wife_mother.id:
+        if is_same_family(gen_2_up_husband_mother, gen_2_up_wife_mother):
             ErrorLogger.__logError__(ErrorLogger._FAMILY, "US19", family.id, \
                 "Marriage is of cousins of family " + gen_2_up_husband_mother.id)
             return True
