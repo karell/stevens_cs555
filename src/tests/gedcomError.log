@@ -1,0 +1,16 @@
+ERROR: FAMILY: US10: @F4@: Marriage is less than 14 years after birth of husband and/or wife
+ERROR: FAMILY: US10: @F5@: Unable to validate marriage date
+ANOMALY: INDIVIDUAL: US16: @I12@: Father's Last Name of BILL doesn't match childs's Last Name of SCHMIDT
+ERROR: INDIVIDUAL: US23: @I01@ @I02@: Duplicate individuals. Individuals @I01@ and @I02@ are the same person.
+ERROR: FAMILY: US09: F1: Child C1 born on 2000-10-01 is less than 9 months after father's death date of 2000-01-02
+ERROR: FAMILY: US09: F1: Child C1 born on 2000-10-01 is after mother's death date of 2000-09-30
+ERROR: FAMILY: US18: F2: Marriage is of siblings of family F1
+ERROR: FAMILY: US19: G3F1: Marriage is of cousins of family G1F1
+ERROR: FAMILY: US26: @INDV: Family records do not contain children
+ERROR: FAMILY: US26: @FAM: Family members don't exist in individuals
+ERROR: FAMILY: US26: @FAM: Family members don't exist in individuals
+ERROR: INDIVIDUAL: US26: @INDV: Individual does not exist in family
+ERROR: FAMILY: US26: @FAM: Family members don't exist in individuals
+ERROR: INDIVIDUAL: US27: : Age Calculation may be off, individual is not alive, but no Death Date was available
+ERROR: INDIVIDUAL: US27: : Age Calculation may be off, individual is not alive, but no Death Date was available
+ANOMALY: INDIVIDUAL: US07: : Older than 150

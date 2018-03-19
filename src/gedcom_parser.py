@@ -1,4 +1,4 @@
-import sys # -- Used for command line arguments
+import sys   # -- Used for command line arguments
 import individual
 import family
 import parents_not_to_old
@@ -8,28 +8,29 @@ import unique_record_id
 import corresponding_records
 
 from datetime import datetime
-from datetime import date
 from prettytable import PrettyTable
 from pymongo import MongoClient
-from unique_individuals import AreIndividualsUnique # US23
-from siblings_married import is_marriage_of_siblings # US18
-from cousins_married import is_marriage_of_cousins # US19
+from unique_individuals import AreIndividualsUnique   # US23
+from siblings_married import is_marriage_of_siblings   # US18
+from cousins_married import is_marriage_of_cousins   # US19
+from family_relationships import validParentDecendantMarriages
+from family_relationships import validUncleAuntMarriages
 
 DB_INIT = None
 try:
-  # DB Constant definition
-  CLIENT = MongoClient(serverSelectionTimeoutMS=5)
-  DB = CLIENT.GEDCOM
-  INDVIDUALS = DB.individuals
-  FAMILIES = DB.families
-  ERRORS = DB.errors
-  # clear collections
-  INDVIDUALS.drop()
-  FAMILIES.drop()
-  ERRORS.drop()
-  DB_INIT = True
+    # DB Constant definition
+    CLIENT = MongoClient(serverSelectionTimeoutMS=5)
+    DB = CLIENT.GEDCOM
+    INDVIDUALS = DB.individuals
+    FAMILIES = DB.families
+    ERRORS = DB.errors
+    # clear collections
+    INDVIDUALS.drop()
+    FAMILIES.drop()
+    ERRORS.drop()
+    DB_INIT = True
 except:
-  print("Database instance is not running.")
+    print("Database instance is not running.")
 
 errorlogger = ErrorLogger
 errorlogger.__initLogger__()
@@ -272,7 +273,7 @@ for i in sorted(familiesDict.keys()):
 
     # User Story: US21: Check the genders of the husband and wife, if they exist.
     if familiesDict[i].ValidateRoleGender(individualsDict) is False:
-        errorlogger.__logError__(ErrorLogger._FAMILY, "US21", familiesDict[i].id, "Invalid parent genders")
+        errorlogger.__logAnomaly__(ErrorLogger._FAMILY, "US21", familiesDict[i].id, "Invalid parent genders")
   
     # US04
     if not familiesDict[i].marriageBeforeDivorce():
@@ -358,6 +359,17 @@ if not AreIndividualsUnique(individualsDict):
 # ----------
 corresponding_records.validateCorrespondingRecords(individualsDict, familiesDict)
 
+# ----------
+# US17 - 
+# No marriages to descendants	Parents should not marry any of their descendants
+# ----------
+validParentDecendantMarriages(familiesDict,individualsDict)
+
+# ----------
+# US20 - 
+# Aunts and uncles	Aunts and uncles should not marry their nieces or nephews
+# ----------
+validUncleAuntMarriages(familiesDict,individualsDict)
 # ----------
 # Print out the Individuals and Families in table format.
 # ----------

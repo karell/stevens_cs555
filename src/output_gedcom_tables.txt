@@ -13,13 +13,13 @@
 |    @I19@     |    Paul Hubert     |      Abell      |   M    | 07 Jan 1888 |  78 | False | 09 Jun 1966 |                                              ['@I13@']                                              |     ['@I18@']      |
 |     @I1@     |      Esther        |     Sullivan    |   F    | 01 Dec 1975 |  42 |  True |      NA     |                                       ['@I3@', '@I4@', '@I5@']                                      |      ['@I2@']      |
 |    @I20@     |      Richard       |      Prince     |   M    | 21 Sep 1941 |  28 | False | 09 Jan 1970 |                                              ['@I21@']                                              |      ['@I6@']      |
-|    @I21@     |  Michael William   | Prince Sullivan |   M    | 09 Jan 1969 |  49 |  True |      NA     |                                                  NA                                                 |         NA         |
+|    @I21@     |  Michael William   | Prince Sullivan |   M    | 09 Jan 1969 |  49 |  True |      NA     |                                                  NA                                                 |     ['@I27@']      |
 |    @I22@     |      Blanche       |     Johnson     |   F    | 12 Dec 1850 | 144 | False | 28 Dec 1994 |                                      ['@I6@', '@I26@', '@I27@']                                     | ['@I30@', '@I23@'] |
 |    @I23@     |      Warren        |      Hansen     |   M    | 18 Jan 1862 | 121 | False | 06 Dec 1983 |                                      ['@I6@', '@I26@', '@I27@']                                     |     ['@I22@']      |
-|    @I24@     |     Nancy Ann      |     Cromeans    |   F    | 16 Feb 1878 |  73 | False | 21 May 1951 | ['@I23@', '@I31@', '@I35@', '@I36@', '@I37@', '@I39@', '@I40@', '@I43@', '@I44@', '@I45@', '@I47@'] |     ['@I25@']      |
+|    @I24@     |     Nancy Ann      |     Cromeans    |   F    | 16 Feb 1878 |  73 | False | 21 May 1951 |                                                  NA                                                 | ['@I25@', '@I40@'] |
 |    @I25@     |    James Peter     |      Hansen     |   M    | 22 Jun 1872 |  78 | False | 14 Aug 1950 | ['@I23@', '@I31@', '@I35@', '@I36@', '@I37@', '@I39@', '@I40@', '@I43@', '@I44@', '@I45@', '@I47@'] |     ['@I24@']      |
 |    @I26@     |      Leeland       |      Hansen     |   M    | 05 Feb 1942 |  0  | False | 08 Feb 1942 |                                                  NA                                                 |         NA         |
-|    @I27@     |       Brent        |      Hansen     |   M    | 02 Nov 1947 |  70 |  True |      NA     |                                                  NA                                                 |         NA         |
+|    @I27@     |       Brent        |      Hansen     |   M    | 02 Nov 1947 |  70 |  True |      NA     |                                                  NA                                                 |     ['@I21@']      |
 |    @I28@     |    Emily Sofi      |    Andersson    |   F    | 12 Mar 1871 | 147 |  True |      NA     |                                              ['@I22@']                                              |     ['@I29@']      |
 |    @I29@     |      Anders        |     Johnson     |   M    | 24 Aug 1862 |  82 | False | 01 Aug 1945 |                                              ['@I22@']                                              |     ['@I28@']      |
 |     @I2@     |  Kelley Russell    |     Johnson     |   M    | 17 Jun 1974 |  43 |  True |      NA     |                                       ['@I3@', '@I4@', '@I5@']                                      |      ['@I1@']      |
@@ -35,7 +35,7 @@
 |    @I38@     |  Charles Lathair   |       Kent      |   M    | 30 Jan 1904 |  78 | False | 10 Feb 1982 |                                                  NA                                                 |     ['@I37@']      |
 |    @I39@     |    Vera Leona      |      Hansen     |   F    | 04 Jul 1904 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
 |     @I3@     |    Jessalyn N      |     Johnson     |   F    | 04 Jul 1997 |  20 |  True |      NA     |                                                  NA                                                 |         NA         |
-|    @I40@     |      James I       |      Hansen     |   M    | 21 Dec 1898 | 119 |  True |      NA     |                                                  NA                                                 |         NA         |
+|    @I40@     |      James I       |      Hansen     |   M    | 21 Dec 1898 | 119 |  True |      NA     |                                                  NA                                                 |     ['@I24@']      |
 |    @I41@     |       Sina         |      Hansen     |   P    | 01 Aug 1847 | 170 |  True |      NA     |                                                  NA                                                 |     ['@I42@']      |
 |    @I42@     |       Peter        |      Hansen     |   Y    | 01 Apr 1825 | 192 |  True |      NA     |                                                  NA                                                 |     ['@I41@']      |
 |    @I43@     |      Warren        |      Hansen     |   M    | 18 Jan 1907 |  77 | False | 07 Sep 1984 |                                                  NA                                                 |         NA         |
@@ -47,7 +47,7 @@
 |     @I4@     |      Avery S       |     Johnson     |   M    | 27 Jun 1999 |  18 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I50@     |     Vendla A       |      Hansen     |   F    | 01 Dec 1909 | 108 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I51@     |      Vera L        |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
-|  @I51@29434  | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
+|  @I51@19530  | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I52@     |      James P       |      Hansen     |   M    | 22 Jun 1872 | 145 |  True |      NA     |                                     ['@I48@', '@I50@', '@I51@']                                     |     ['@I46@']      |
 |    @I53@     |       Jimmy        |     Connors     |   M    | 01 Jan 1970 |  48 |  True |      NA     |                                     ['@I55@', '@I56@', '@I57@']                                     |     ['@I54@']      |
 |    @I54@     |       Chris        |      Evertt     |   F    | 01 Jan 1971 |  47 |  True |      NA     |                                     ['@I55@', '@I56@', '@I57@']                                     |     ['@I53@']      |
@@ -81,37 +81,45 @@
 |     @I9@     |   Grant Steven     |     Sullivan    |   M    | 19 Jul 1964 |  53 |  True |      NA     |                                                  NA                                                 |         NA         |
 | @IFAKECHILD@ |    FAKE CHILD      |      CHILD      |   F    | 04 Jul 1944 |  73 |  True |      NA     |                                                  NA                                                 |         NA         |
 +--------------+--------------------+-----------------+--------+-------------+-----+-------+-------------+-----------------------------------------------------------------------------------------------------+--------------------+
-+-------+-------------+-------------+------------+----------------------------+---------+---------------------------+-----------------------------------------------------------------------------------------------------+
-|   ID  |   Married   |   Divorced  | Husband ID |        Husband Name        | Wife ID |         Wife Name         |                                               Children                                              |
-+-------+-------------+-------------+------------+----------------------------+---------+---------------------------+-----------------------------------------------------------------------------------------------------+
-| @F10@ | 01 Dec 1960 |      NA     |   @I30@    |   Delbert James /OLSEN/    |  @I22@  |     Blanche /Johnson/     |                                              ['@I32@']                                              |
-| @F11@ | 01 Dec 1884 |      NA     |   @I29@    |      Anders /Johnson/      |  @I28@  |   Emily Sofi /Andersson/  |                                              ['@I22@']                                              |
-| @F12@ | 01 Dec 1887 |      NA     |   @I25@    |    James Peter /Hansen/    |  @I24@  |    Nancy Ann /Cromeans/   | ['@I23@', '@I31@', '@I35@', '@I36@', '@I37@', '@I39@', '@I40@', '@I43@', '@I44@', '@I45@', '@I47@'] |
-| @F13@ | 01 Dec 1861 |      NA     |   @I34@    |    Peter Olsen /Hansen/    |  @I33@  |    Stina Maria /Hansen/   |                                              ['@I25@']                                              |
-| @F14@ | 01 Dec 1930 |      NA     |   @I30@    |   Delbert James /OLSEN/    |  @I31@  |      Deloras /Hansen/     |                                                  []                                                 |
-| @F15@ | 01 Dec 1935 |      NA     |   @I38@    |   Charles Lathair /Kent/   |  @I37@  |  Vendla Arletta /Hansen/  |                                                  []                                                 |
-| @F16@ | 01 Dec 1869 |      NA     |   @I42@    |       Peter /Hansen/       |  @I41@  |       Sina /Hansen/       |                                                  []                                                 |
-| @F17@ | 01 Dec 1869 |      NA     |   @I52@    |      James P /Hansen/      |  @I46@  |     Anna Tate /Hansen/    |                                     ['@I48@', '@I50@', '@I51@']                                     |
-| @F18@ | 01 Dec 1989 |      NA     |   @I53@    |      Jimmy /Connors/       |  @I54@  |       Chris /Evertt/      |                                     ['@I55@', '@I56@', '@I57@']                                     |
-| @F19@ | 01 Dec 1989 |      NA     |   @I58@    |        Dave /Gahan/        |  @I59@  |       Terry /Evertt/      |                        ['@I60@', '@I61@', '@I62@', '@I63@', '@I64@', '@I65@']                       |
-|  @F1@ | 08 Nov 1995 |      NA     |    @I2@    |  Kelley Russell /Johnson/  |   @I1@  |     Esther /Sullivan/     |                                       ['@I3@', '@I4@', '@I5@']                                      |
-| @F20@ | 31 Dec 1981 |      NA     |   @I66@    |       John /Jamison/       |  @I67@  |       Jane /Jamison/      |                                          ['@I68@', '@I69@']                                         |
-| @F21@ | 04 Jul 2005 |      NA     |   @I68@    |       Jack /Jamison/       |  @I69@  |       Judy /Jamison/      |                                                  []                                                 |
-| @F22@ | 31 Dec 1955 |      NA     |   @I70@    |      John /Jeffries/       |  @I71@  |      Jane /Jeffries/      |                                          ['@I72@', '@I74@']                                         |
-| @F23@ | 31 Dec 1985 |      NA     |   @I72@    |      James /Jeffries/      |  @I73@  |      Janet /Jeffries/     |                                              ['@I76@']                                              |
-| @F24@ | 31 Dec 1985 |      NA     |   @I74@    |      Jack /Jeffries/       |  @I75@  |    Jennifer /Jeffries/    |                                              ['@I77@']                                              |
-| @F25@ | 31 Dec 2015 |      NA     |   @I76@    |      Jacob /Jeffries/      |  @I77@  |     Jessica /Jeffries/    |                                                  []                                                 |
-|  @F2@ | 01 Dec 1972 |      NA     |    @I7@    | Orville Phillip /Sullivan/ |   @I6@  |      Marilyn /Hansen/     |                                           ['@I1@', '@I8@']                                          |
-|  @F3@ | 10 Mar 1967 | 09 Nov 2010 |   @I20@    |      Richard /Prince/      |   @I6@  |      Marilyn /Hansen/     |                                              ['@I21@']                                              |
-|  @F4@ | 01 Dec 1939 |      NA     |   @I23@    |      Warren /Hansen/       |  @I22@  |     Blanche /Johnson/     |                                      ['@I6@', '@I26@', '@I27@']                                     |
-|  @F5@ | 06 Jul 1942 | 09 Nov 1872 |    @I7@    | Orville Phillip /Sullivan/ |  @I12@  |      Audrey /Ruddick/     |                              ['@I9@', '@I10@', '@I11@', '@IFAKECHILD@']                             |
-|  @F6@ | 01 Dec 1930 |      NA     |   @I14@    | Orville Phillip /Sullivan/ |  @I13@  | Lorraine Marie /Sullivan/ |                                               ['@I7@']                                              |
-|  @F7@ | 01 Dec 1909 |      NA     |   @I19@    |    Paul Hubert /Abell/     |  @I18@  |   Ethel Winefred /Carr/   |                                              ['@I13@']                                              |
-|  @F8@ | 01 Dec 1970 |      NA     |   @I14@    | Orville Phillip /Sullivan/ |  @I15@  |       Harriet /Pott/      |                                                  []                                                 |
-|  @F9@ | 01 Sep 1905 |      NA     |   @I16@    |     Philip /Sullivan/      |  @I17@  |    Harriet V /Chapman/    |                                              ['@I14@']                                              |
-+-------+-------------+-------------+------------+----------------------------+---------+---------------------------+-----------------------------------------------------------------------------------------------------+
++-------+-------------+-------------+------------+----------------------------+---------+-----------------------------------+-----------------------------------------------------------------------------------------------------+
+|   ID  |   Married   |   Divorced  | Husband ID |        Husband Name        | Wife ID |             Wife Name             |                                               Children                                              |
++-------+-------------+-------------+------------+----------------------------+---------+-----------------------------------+-----------------------------------------------------------------------------------------------------+
+| @F10@ | 01 Dec 1960 |      NA     |   @I30@    |   Delbert James /OLSEN/    |  @I22@  |         Blanche /Johnson/         |                                              ['@I32@']                                              |
+| @F11@ | 01 Dec 1884 |      NA     |   @I29@    |      Anders /Johnson/      |  @I28@  |       Emily Sofi /Andersson/      |                                              ['@I22@']                                              |
+| @F12@ | 01 Dec 1887 |      NA     |   @I25@    |    James Peter /Hansen/    |  @I24@  |        Nancy Ann /Cromeans/       | ['@I23@', '@I31@', '@I35@', '@I36@', '@I37@', '@I39@', '@I40@', '@I43@', '@I44@', '@I45@', '@I47@'] |
+| @F13@ | 01 Dec 1861 |      NA     |   @I34@    |    Peter Olsen /Hansen/    |  @I33@  |        Stina Maria /Hansen/       |                                              ['@I25@']                                              |
+| @F14@ | 01 Dec 1930 |      NA     |   @I30@    |   Delbert James /OLSEN/    |  @I31@  |          Deloras /Hansen/         |                                                  []                                                 |
+| @F15@ | 01 Dec 1935 |      NA     |   @I38@    |   Charles Lathair /Kent/   |  @I37@  |      Vendla Arletta /Hansen/      |                                                  []                                                 |
+| @F16@ | 01 Dec 1869 |      NA     |   @I42@    |       Peter /Hansen/       |  @I41@  |           Sina /Hansen/           |                                                  []                                                 |
+| @F17@ | 01 Dec 1869 |      NA     |   @I52@    |      James P /Hansen/      |  @I46@  |         Anna Tate /Hansen/        |                                     ['@I48@', '@I50@', '@I51@']                                     |
+| @F18@ | 01 Dec 1989 |      NA     |   @I53@    |      Jimmy /Connors/       |  @I54@  |           Chris /Evertt/          |                                     ['@I55@', '@I56@', '@I57@']                                     |
+| @F19@ | 01 Dec 1989 |      NA     |   @I58@    |        Dave /Gahan/        |  @I59@  |           Terry /Evertt/          |                        ['@I60@', '@I61@', '@I62@', '@I63@', '@I64@', '@I65@']                       |
+|  @F1@ | 08 Nov 1995 |      NA     |    @I2@    |  Kelley Russell /Johnson/  |   @I1@  |         Esther /Sullivan/         |                                       ['@I3@', '@I4@', '@I5@']                                      |
+| @F20@ | 31 Dec 1981 |      NA     |   @I66@    |       John /Jamison/       |  @I67@  |           Jane /Jamison/          |                                          ['@I68@', '@I69@']                                         |
+| @F21@ | 04 Jul 2005 |      NA     |   @I68@    |       Jack /Jamison/       |  @I69@  |           Judy /Jamison/          |                                                  []                                                 |
+| @F22@ | 31 Dec 1955 |      NA     |   @I70@    |      John /Jeffries/       |  @I71@  |          Jane /Jeffries/          |                                          ['@I72@', '@I74@']                                         |
+| @F23@ | 31 Dec 1985 |      NA     |   @I72@    |      James /Jeffries/      |  @I73@  |          Janet /Jeffries/         |                                              ['@I76@']                                              |
+| @F24@ | 31 Dec 1985 |      NA     |   @I74@    |      Jack /Jeffries/       |  @I75@  |        Jennifer /Jeffries/        |                                              ['@I77@']                                              |
+| @F25@ | 31 Dec 2015 |      NA     |   @I76@    |      Jacob /Jeffries/      |  @I77@  |         Jessica /Jeffries/        |                                                  []                                                 |
+| @F26@ | 01 Dec 1920 |      NA     |   @I40@    |      James I /Hansen/      |  @I24@  |        Nancy Ann /Cromeans/       |                                                  []                                                 |
+| @F27@ | 01 Dec 1985 |      NA     |   @I27@    |       Brent /Hansen/       |  @I21@  | Michael William /Prince Sullivan/ |                                                  []                                                 |
+|  @F2@ | 01 Dec 1972 |      NA     |    @I7@    | Orville Phillip /Sullivan/ |   @I6@  |          Marilyn /Hansen/         |                                           ['@I1@', '@I8@']                                          |
+|  @F3@ | 10 Mar 1967 | 09 Nov 2010 |   @I20@    |      Richard /Prince/      |   @I6@  |          Marilyn /Hansen/         |                                              ['@I21@']                                              |
+|  @F4@ | 01 Dec 1939 |      NA     |   @I23@    |      Warren /Hansen/       |  @I22@  |         Blanche /Johnson/         |                                      ['@I6@', '@I26@', '@I27@']                                     |
+|  @F5@ | 06 Jul 1942 | 09 Nov 1872 |    @I7@    | Orville Phillip /Sullivan/ |  @I12@  |          Audrey /Ruddick/         |                              ['@I9@', '@I10@', '@I11@', '@IFAKECHILD@']                             |
+|  @F6@ | 01 Dec 1930 |      NA     |   @I14@    | Orville Phillip /Sullivan/ |  @I13@  |     Lorraine Marie /Sullivan/     |                                               ['@I7@']                                              |
+|  @F7@ | 01 Dec 1909 |      NA     |   @I19@    |    Paul Hubert /Abell/     |  @I18@  |       Ethel Winefred /Carr/       |                                              ['@I13@']                                              |
+|  @F8@ | 01 Dec 1970 |      NA     |   @I14@    | Orville Phillip /Sullivan/ |  @I15@  |           Harriet /Pott/          |                                                  []                                                 |
+|  @F9@ | 01 Sep 1905 |      NA     |   @I16@    |     Philip /Sullivan/      |  @I17@  |        Harriet V /Chapman/        |                                              ['@I14@']                                              |
++-------+-------------+-------------+------------+----------------------------+---------+-----------------------------------+-----------------------------------------------------------------------------------------------------+
 
 
+ANOMALY: FAMILY: US17: @F12@: Wife has marriage with decendant
+ANOMALY: FAMILY: US20: @F20@: @I68@ married to a neice or nephew
+ANOMALY: FAMILY: US20: @F20@: @I69@ married to a neice or nephew
+ANOMALY: FAMILY: US20: @F4@: @I27@ married to a neice or nephew
+ANOMALY: FAMILY: US21: @F16@: Invalid parent genders
+ANOMALY: FAMILY: US21: @F27@: Invalid parent genders
 ANOMALY: INDIVIDUAL: US07: @I41@: Older than 150
 ANOMALY: INDIVIDUAL: US07: @I42@: Older than 150
 ANOMALY: INDIVIDUAL: US16: @I21@: Father's Last Name of Prince doesn't match childs's Last Name of Prince Sullivan
@@ -157,7 +165,6 @@ ERROR: FAMILY: US13: @F19@: Invalid Sibling Spacing in Family
 ERROR: FAMILY: US14: @F19@: Invalid Birth Dates for Family
 ERROR: FAMILY: US18: @F21@: Marriage is of siblings of family @F20@
 ERROR: FAMILY: US19: @F25@: Marriage is of cousins of family @F22@
-ERROR: FAMILY: US21: @F16@: Invalid parent genders
 ERROR: GENERAL: US23: N/A: Duplicate individuals were found in the GEDCOM file.
 ERROR: INDIVIDUAL: US01: @I5@: Invalid birth date
 ERROR: INDIVIDUAL: US03: @I12@: Birth Before Death
@@ -166,7 +173,7 @@ ERROR: INDIVIDUAL: US03: @I5@: Birth Before Death
 ERROR: INDIVIDUAL: US22: @I51@: Record ID is not unique
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@29434: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@19530: Individual does not exist in family
 ERROR: INDIVIDUAL: US27: @I12@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I13@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is less than 0
