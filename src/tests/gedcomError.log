@@ -4,8 +4,10 @@ ANOMALY: INDIVIDUAL: US16: @I12@: Father's Last Name of BILL doesn't match child
 ERROR: INDIVIDUAL: US23: @I01@ @I02@: Duplicate individuals. Individuals @I01@ and @I02@ are the same person.
 ERROR: FAMILY: US09: F1: Child C1 born on 2000-10-01 is less than 9 months after father's death date of 2000-01-02
 ERROR: FAMILY: US09: F1: Child C1 born on 2000-10-01 is after mother's death date of 2000-09-30
+ANOMALY: FAMILY: US17: F1: Husband has marriage with decendant
 ERROR: FAMILY: US18: F2: Marriage is of siblings of family F1
 ERROR: FAMILY: US19: G3F1: Marriage is of cousins of family G1F1
+ANOMALY: FAMILY: US20: F1: 4 married to a neice or nephew
 ERROR: FAMILY: US26: @INDV: Family records do not contain children
 ERROR: FAMILY: US26: @FAM: Family members don't exist in individuals
 ERROR: FAMILY: US26: @FAM: Family members don't exist in individuals

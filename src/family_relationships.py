@@ -7,9 +7,13 @@ def validParentDecendantMarriages(familyDic, individualDic):
             if isDecendant(familyDic[i].husbandId, familyDic[i].children, individualDic):
                 #husband is a decendant
                 ErrorLogger.__logAnomaly__(ErrorLogger._FAMILY,"US17", i, "Husband has marriage with decendant")
+                return False
             if isDecendant(familyDic[i].wifeId, familyDic[i].children, individualDic):
                 #wife is a decendant 
                 ErrorLogger.__logAnomaly__(ErrorLogger._FAMILY,"US17", i,"Wife has marriage with decendant")
+                return False
+    return True
+
 
 def validUncleAuntMarriages(familyDic, individualDic):
   # check every child of each family and make sure that for all of their siblings,
@@ -22,7 +26,9 @@ def validUncleAuntMarriages(familyDic, individualDic):
                 if isDecendant(child, siblings, individualDic):
                     # married neice or nephew (second, third, fourth and so on neices and nephews)
                     ErrorLogger.__logAnomaly__(ErrorLogger._FAMILY, "US20", i, child + " married to a neice or nephew")
-
+                    return False
+    return True
+    
 def isDecendant(userId, decendantChildren, individualDic):
 
     if len(decendantChildren) > 0:
