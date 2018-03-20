@@ -4,13 +4,10 @@ ERROR: INDIVIDUAL: US03: @I12@: Birth Before Death
 ERROR: INDIVIDUAL: US03: @I13@: Birth Before Death
 ERROR: INDIVIDUAL: US22: @I51@: Record ID is not unique
 ERROR: FAMILY: US12: @I32@: Invalid Mother Age: Blanche /Johnson/ is more than 60 years older than child: Kim David /OLSEN/
-ERROR: FAMILY: US08: @F10@: Child @I32@ born on 1955-01-04 00:00:00 is before marriage date of 1960-12-01 00:00:00
-ERROR: FAMILY: US08: @F11@: Child @I22@ born on 1850-12-12 00:00:00 is before marriage date of 1884-12-01 00:00:00
 ERROR: FAMILY: US10: @F11@: Marriage is less than 14 years after birth of husband and/or wife
-ERROR: FAMILY: US08: @F12@: Child @I23@ born on 1862-01-18 00:00:00 is before marriage date of 1887-12-01 00:00:00
 ERROR: FAMILY: US10: @F12@: Marriage is less than 14 years after birth of husband and/or wife
 ERROR: FAMILY: US13: @F12@: Invalid Sibling Spacing in Family
-ERROR: FAMILY: US21: @F16@: Invalid parent genders
+ANOMALY: FAMILY: US21: @F16@: Invalid parent genders
 ERROR: FAMILY: US02: @I52@: Invalid marriage and birth dates
 ERROR: FAMILY: US02: @I46@: Invalid marriage and birth dates
 ERROR: FAMILY: US10: @F17@: Marriage is less than 14 years after birth of husband and/or wife
@@ -25,9 +22,9 @@ ANOMALY: INDIVIDUAL: US16: @I65@: Father's Last Name of Gahan doesn't match chil
 ERROR: FAMILY: US14: @F19@: Invalid Birth Dates for Family
 ERROR: FAMILY: US13: @F19@: Invalid Sibling Spacing in Family
 ERROR: FAMILY: US09: @F1@: Child @I5@ has no birth date.
-ERROR: FAMILY: US08: @F1@: Child @I5@ has no birth date.
 ERROR: FAMILY: US18: @F21@: Marriage is of siblings of family @F20@
 ERROR: FAMILY: US19: @F25@: Marriage is of cousins of family @F22@
+ANOMALY: FAMILY: US21: @F27@: Invalid parent genders
 ANOMALY: INDIVIDUAL: US16: @I21@: Father's Last Name of Prince doesn't match childs's Last Name of Prince Sullivan
 ERROR: FAMILY: US06: @F3@: Invalid divorce date
 ERROR: FAMILY: US12: @I6@: Invalid Father Age: Warren /Hansen/ is more than 80 years older than child: Marilyn /Hansen/
@@ -37,13 +34,9 @@ ERROR: FAMILY: US12: @I26@: Invalid Mother Age: Blanche /Johnson/ is more than 6
 ERROR: FAMILY: US12: @I27@: Invalid Father Age: Warren /Hansen/ is more than 80 years older than child: Brent /Hansen/
 ERROR: FAMILY: US12: @I27@: Invalid Mother Age: Blanche /Johnson/ is more than 60 years older than child: Brent /Hansen/
 ERROR: FAMILY: US09: @F5@: Child @I9@ born on 1964-07-19 00:00:00 is after mother's death date of 1916-12-12 00:00:00
-ERROR: FAMILY: US08: @F5@: Child @I9@ born on 1964-07-19 00:00:00 is more than 9 months after divorce date of 1872-11-09 00:00:00
 ERROR: FAMILY: US09: @F5@: Child @I10@ born on 1962-12-23 00:00:00 is after mother's death date of 1916-12-12 00:00:00
-ERROR: FAMILY: US08: @F5@: Child @I10@ born on 1962-12-23 00:00:00 is more than 9 months after divorce date of 1872-11-09 00:00:00
 ERROR: FAMILY: US09: @F5@: Child @I11@ born on 1961-10-03 00:00:00 is after mother's death date of 1916-12-12 00:00:00
-ERROR: FAMILY: US08: @F5@: Child @I11@ born on 1961-10-03 00:00:00 is more than 9 months after divorce date of 1872-11-09 00:00:00
 ERROR: FAMILY: US09: @F5@: Child @IFAKECHILD@ born on 1944-07-04 00:00:00 is after mother's death date of 1916-12-12 00:00:00
-ERROR: FAMILY: US08: @F5@: Child @IFAKECHILD@ born on 1944-07-04 00:00:00 is more than 9 months after divorce date of 1872-11-09 00:00:00
 ERROR: FAMILY: US02: @I12@: Invalid marriage and birth dates
 ERROR: FAMILY: US05: @F5@: Invalid marriage date. Marriage before death.
 ERROR: FAMILY: US04: @F5@: Marriage before divorce date
@@ -64,4 +57,8 @@ ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is les
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: GENERAL: US23: N/A: Duplicate individuals were found in the GEDCOM file.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@90793: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@19530: Individual does not exist in family
+ANOMALY: FAMILY: US17: @F12@: Wife has marriage with decendant
+ANOMALY: FAMILY: US20: @F20@: @I68@ married to a neice or nephew
+ANOMALY: FAMILY: US20: @F20@: @I69@ married to a neice or nephew
+ANOMALY: FAMILY: US20: @F4@: @I27@ married to a neice or nephew
