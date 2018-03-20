@@ -7,6 +7,7 @@
 import individual
 import dateutil.relativedelta
 import ErrorLogger
+import date_diff_calculator
 
 class Family:
     def __init__(self):
@@ -147,3 +148,38 @@ class Family:
             if retValue: 
                 retValue = True if date3 is None else date1 < date3
         return retValue
+    
+     # US08: Birth of child must occur at least 9 months after the death
+    #       of the father and after the death of the mother.
+    def IsBirthAfterMarriage(self,individuals,child):
+        result = True
+        marriageDate = None
+        divorceDate = None
+
+        # Validate the mother record
+        if self.wifeId is not None:
+            mother = individuals[self.wifeId]
+            marriageDate = self.marriageDate
+            divorceDate = self.divorcedDate
+           
+        # Validate the father record
+        if self.husbandId is not None:
+            father = individuals[self.husbandId]
+        
+        # Validate the child record and compare dates
+        if child.birthDate is not None:
+            if marriageDate is not None:
+                marriageDiff = date_diff_calculator.calculateDateDifference(marriageDate, child.birthDate, "months")
+                if marriageDiff < 9:
+                    ErrorLogger.__logError__(ErrorLogger._FAMILY,"US08", self.id, str("Child " + child.id + " born on " + str(child.birthDate) + " is before marriage date of " + str(marriageDate)))
+                    result = False
+            if divorceDate is not None:
+                divorceDiff = date_diff_calculator.calculateDateDifference(divorceDate, child.birthDate, "months")
+                if divorceDiff > 9:
+                    ErrorLogger.__logError__(ErrorLogger._FAMILY,"US08", self.id, str("Child " + child.id + " born on " + str(child.birthDate) + " is more than 9 months after divorce date of " + str(divorceDate)))
+                    result = False
+        else:
+            ErrorLogger.__logError__(ErrorLogger._FAMILY,"US08", self.id, str("Child " + child.id + " has no birth date."))
+            result = "error"
+
+        return result   
