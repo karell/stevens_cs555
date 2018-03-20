@@ -29,8 +29,8 @@
 |    @I32@     |     Kim David      |      OLSEN      |   M    | 04 Jan 1955 |  63 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I33@     |    Stina Maria     |      Hansen     |   F    | 13 Sep 1843 |  89 | False | 26 Sep 1932 |                                              ['@I25@']                                              |     ['@I34@']      |
 |    @I34@     |    Peter Olsen     |      Hansen     |   M    | 06 Apr 1825 |  81 | False | 22 Oct 1906 |                                              ['@I25@']                                              |     ['@I33@']      |
-|    @I35@     |     Alice May      |      Hansen     |        | 16 Feb 1902 |  1  | False | 03 Aug 1903 |                                                  NA                                                 |         NA         |
-|    @I36@     |   Martha Lavon     |      Hansen     |        | 16 Aug 1899 |  7  | False | 13 Aug 1907 |                                                  NA                                                 |         NA         |
+|    @I35@     |     Alice May      |      Hansen     |   F    | 16 Feb 1902 |  1  | False | 03 Aug 1903 |                                                  NA                                                 |         NA         |
+|    @I36@     |   Martha Lavon     |      Hansen     |   F    | 16 Aug 1899 |  7  | False | 13 Aug 1907 |                                                  NA                                                 |         NA         |
 |    @I37@     |  Vendla Arletta    |      Hansen     |   F    | 24 Sep 1909 |  66 | False | 22 Jul 1976 |                                                  NA                                                 |     ['@I38@']      |
 |    @I38@     |  Charles Lathair   |       Kent      |   M    | 30 Jan 1904 |  78 | False | 10 Feb 1982 |                                                  NA                                                 |     ['@I37@']      |
 |    @I39@     |    Vera Leona      |      Hansen     |   F    | 04 Jul 1904 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
@@ -47,7 +47,7 @@
 |     @I4@     |      Avery S       |     Johnson     |   M    | 27 Jun 1999 |  18 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I50@     |     Vendla A       |      Hansen     |   F    | 01 Dec 1909 | 108 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I51@     |      Vera L        |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
-|  @I51@29434  | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
+|  @I51@90793  | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I52@     |      James P       |      Hansen     |   M    | 22 Jun 1872 | 145 |  True |      NA     |                                     ['@I48@', '@I50@', '@I51@']                                     |     ['@I46@']      |
 |    @I53@     |       Jimmy        |     Connors     |   M    | 01 Jan 1970 |  48 |  True |      NA     |                                     ['@I55@', '@I56@', '@I57@']                                     |     ['@I54@']      |
 |    @I54@     |       Chris        |      Evertt     |   F    | 01 Jan 1971 |  47 |  True |      NA     |                                     ['@I55@', '@I56@', '@I57@']                                     |     ['@I53@']      |
@@ -129,6 +129,14 @@ ERROR: FAMILY: US02: @I52@: Invalid marriage and birth dates
 ERROR: FAMILY: US04: @F5@: Marriage before divorce date
 ERROR: FAMILY: US05: @F5@: Invalid marriage date. Marriage before death.
 ERROR: FAMILY: US06: @F3@: Invalid divorce date
+ERROR: FAMILY: US08: @F10@: Child @I32@ born on 1955-01-04 00:00:00 is before marriage date of 1960-12-01 00:00:00
+ERROR: FAMILY: US08: @F11@: Child @I22@ born on 1850-12-12 00:00:00 is before marriage date of 1884-12-01 00:00:00
+ERROR: FAMILY: US08: @F12@: Child @I23@ born on 1862-01-18 00:00:00 is before marriage date of 1887-12-01 00:00:00
+ERROR: FAMILY: US08: @F1@: Child @I5@ has no birth date.
+ERROR: FAMILY: US08: @F5@: Child @I10@ born on 1962-12-23 00:00:00 is more than 9 months after divorce date of 1872-11-09 00:00:00
+ERROR: FAMILY: US08: @F5@: Child @I11@ born on 1961-10-03 00:00:00 is more than 9 months after divorce date of 1872-11-09 00:00:00
+ERROR: FAMILY: US08: @F5@: Child @I9@ born on 1964-07-19 00:00:00 is more than 9 months after divorce date of 1872-11-09 00:00:00
+ERROR: FAMILY: US08: @F5@: Child @IFAKECHILD@ born on 1944-07-04 00:00:00 is more than 9 months after divorce date of 1872-11-09 00:00:00
 ERROR: FAMILY: US09: @F1@: Child @I5@ has no birth date.
 ERROR: FAMILY: US09: @F5@: Child @I10@ born on 1962-12-23 00:00:00 is after mother's death date of 1916-12-12 00:00:00
 ERROR: FAMILY: US09: @F5@: Child @I11@ born on 1961-10-03 00:00:00 is after mother's death date of 1916-12-12 00:00:00
@@ -166,7 +174,7 @@ ERROR: INDIVIDUAL: US03: @I5@: Birth Before Death
 ERROR: INDIVIDUAL: US22: @I51@: Record ID is not unique
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@29434: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@90793: Individual does not exist in family
 ERROR: INDIVIDUAL: US27: @I12@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I13@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is less than 0
