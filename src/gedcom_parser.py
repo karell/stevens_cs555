@@ -245,6 +245,8 @@ for i in sorted(familiesDict.keys()):
                     errorlogger.__logError__(ErrorLogger._FAMILY,"US12", individualsDict.get(j).id, str("Invalid Mother Age: " + indiObjWife.name + " is more than 60 years older than child: " + individualsDict.get(j).name))
             ##US 09 Birth of child must be after death of mother and 9 months after death of father
             familiesDict[i].IsBirthAfterDeath(individualsDict,individualsDict.get(j))
+            ##US 08 Birth of child must be after marriage date and 10 months after divorce
+            familiesDict[i].IsBirthAfterMarriage(individualsDict,individualsDict.get(j))
     
     individualsDict[familiesDict[i].husbandId].children = familiesDict[i].children
         

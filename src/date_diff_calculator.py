@@ -22,7 +22,8 @@ def calculateDateDifference(calcStartDate, calcEndDate, requestedDateUnit):
         return dateDelta.days
     
     elif requestedDateUnit is "months":
-        return dateDelta.months
+        deltaMonths = dateDelta.years * 12 + dateDelta.months
+        return deltaMonths
     
     elif requestedDateUnit is "hours":
         return dateDelta.hours
