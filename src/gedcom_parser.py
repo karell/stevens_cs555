@@ -15,6 +15,7 @@ from siblings_married import is_marriage_of_siblings   # US18
 from cousins_married import is_marriage_of_cousins   # US19
 from family_relationships import validParentDecendantMarriages
 from family_relationships import validUncleAuntMarriages
+from bigamy import is_bigamy
 
 DB_INIT = None
 try:
@@ -230,6 +231,7 @@ for i in sorted(familiesDict.keys()):
     #update the names of husband and wife in the family object
     familiesDict[i].husbandName = indiObjHusband.name
     familiesDict[i].wifeName = indiObjWife.name
+
     #update the children of wife and husband objects
     ##US 16 Make sure Male children have husbands last name, if they don't, don't add them to father as a child
     for j in familiesDict[i].children:
@@ -247,6 +249,7 @@ for i in sorted(familiesDict.keys()):
             familiesDict[i].IsBirthAfterDeath(individualsDict,individualsDict.get(j))
             ##US 08 Birth of child must be after marriage date and 10 months after divorce
             familiesDict[i].IsBirthAfterMarriage(individualsDict,individualsDict.get(j))
+
     
     individualsDict[familiesDict[i].husbandId].children = familiesDict[i].children
         
@@ -254,6 +257,8 @@ for i in sorted(familiesDict.keys()):
     #update the spouse id
     individualsDict[familiesDict[i].husbandId].spouse.append(familiesDict[i].wifeId)
     individualsDict[familiesDict[i].wifeId].spouse.append(familiesDict[i].husbandId)
+    # US11 check for bigamy
+    is_bigamy(indiObjHusband, familiesDict, individualsDict)
     
     #Check marraige date against birth US02
     if familiesDict[i].marriageDate is not None: 
@@ -288,7 +293,7 @@ for i in sorted(familiesDict.keys()):
     else:
         if not validMarriageDate:
             errorlogger.__logError__(ErrorLogger._FAMILY, "US10", familiesDict[i].id, "Marriage is less than 14 years after birth of husband and/or wife")
-
+   
     #User Story 14: check siblings birth dates
     if len(familiesDict[i].children) > 5:
         testDates = []
@@ -319,6 +324,8 @@ for i in sorted(familiesDict.keys()):
 
     # User Story 18: Check for married siblings
     is_marriage_of_siblings(familiesDict[i], familiesDict)
+    
+   
 
     # User Story 19: Check for married cousins
     is_marriage_of_cousins(familiesDict[i], familiesDict)
