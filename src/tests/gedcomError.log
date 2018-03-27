@@ -2,8 +2,12 @@ ERROR: FAMILY: US10: @F4@: Marriage is less than 14 years after birth of husband
 ERROR: FAMILY: US10: @F5@: Unable to validate marriage date
 ANOMALY: INDIVIDUAL: US16: @I12@: Father's Last Name of BILL doesn't match childs's Last Name of SCHMIDT
 ERROR: INDIVIDUAL: US23: @I01@ @I02@: Duplicate individuals. Individuals @I01@ and @I02@ are the same person.
+ERROR: FAMILY: US08: F1: Child C1 born on 2000-11-01 is before marriage date of 2001-01-30
+ERROR: FAMILY: US08: F1: Child C1 born on 2017-11-01 is more than 9 months after divorce date of 2016-09-01
 ERROR: FAMILY: US09: F1: Child C1 born on 2000-10-01 is less than 9 months after father's death date of 2000-01-02
 ERROR: FAMILY: US09: F1: Child C1 born on 2000-10-01 is after mother's death date of 2000-09-30
+ANOMALY: INDIVIDUAL: US11: H1: Possible Bigamy
+ANOMALY: INDIVIDUAL: US11: H1: Possible Bigamy
 ANOMALY: FAMILY: US17: F1: Husband has marriage with decendant
 ERROR: FAMILY: US18: F2: Marriage is of siblings of family F1
 ERROR: FAMILY: US19: G3F1: Marriage is of cousins of family G1F1
