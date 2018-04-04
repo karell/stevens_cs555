@@ -124,6 +124,14 @@ def verifySiblingsSpace(allDates):
                 
     return retValue
 
+#US 28 - sort children by their birth date
+def sortChildren(children):
+    try:
+        childern = sorted(children, key=lambda individual: individual.birthDate)
+    except:
+        errorlogger.__logError__(ErrorLogger._FAMILY,'US28', children[0].id, "Sort children by birth date")
+
+
 # ----------
 # Validate that there is only one argument on the command line. This means there
 # are two arguments total - the first is the name of the script.
@@ -321,6 +329,8 @@ for i in sorted(familiesDict.keys()):
         if not verifySiblingsSpace(testDates):
             #print ("Invalid siblings space for family " + familiesDict[i].id)
             errorlogger.__logError__(ErrorLogger._FAMILY, "US13", familiesDict[i].id, "Invalid Sibling Spacing in Family")
+        #US 28 - sort children by their birth date
+        sortChildren(familiesDict[i].children)
 
     # User Story 18: Check for married siblings
     is_marriage_of_siblings(familiesDict[i], familiesDict)
