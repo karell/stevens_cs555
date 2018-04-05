@@ -126,10 +126,13 @@ def verifySiblingsSpace(allDates):
 
 #US 28 - sort children by their birth date
 def sortChildren(children):
+    sortedChildren = []
     try:
-        childern = sorted(children, key=lambda individual: individual.birthDate)
+        sortedChildren = sorted(children, key=lambda individual: individual.birthDate)
     except:
-        errorlogger.__logError__(ErrorLogger._FAMILY,'US28', children[0].id, "Sort children by birth date")
+        errorlogger.__logError__(ErrorLogger._FAMILY,'US28', children[0], "Sort children by birth date")
+        sortedChildren = children
+    return sortedChildren
 
 
 # ----------
@@ -319,10 +322,12 @@ for i in sorted(familiesDict.keys()):
     #User Story 13: check siblings spacing
     if len(familiesDict[i].children) > 1:
         testDates = []
+        childObjects = []
         for child in familiesDict[i].children:
             try:
                 if individualsDict[child].birthDate is not None:
                     testDates.append(individualsDict[child].birthDate)
+                childObjects.append(individualsDict[child])
             except:
                 #print("Child does id does not exist in individual dictionary")
                 errorlogger.__logError__(ErrorLogger._INDIVIDUAL, "US13", child.id, "Child does id does not exist in individual dictionary")
@@ -330,8 +335,13 @@ for i in sorted(familiesDict.keys()):
             #print ("Invalid siblings space for family " + familiesDict[i].id)
             errorlogger.__logError__(ErrorLogger._FAMILY, "US13", familiesDict[i].id, "Invalid Sibling Spacing in Family")
         #US 28 - sort children by their birth date
-        sortChildren(familiesDict[i].children)
-
+        childObjects = sortChildren(childObjects)
+        familiesDict[i].children = []
+        for child in childObjects:
+            familiesDict[i].children.append(child.id)
+              
+        indiObjHusband.children = familiesDict[i].children
+        indiObjWife.children = familiesDict[i].children
     # User Story 18: Check for married siblings
     is_marriage_of_siblings(familiesDict[i], familiesDict)
     
