@@ -37,7 +37,7 @@
 |     @I3@     |    Jessalyn N      |     Johnson     |   F    | 04 Jul 1997 |  20 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I40@     |      James I       |      Hansen     |   M    | 21 Dec 1898 | 119 |  True |      NA     |                                                  NA                                                 |     ['@I24@']      |
 |    @I41@     |       Sina         |      Hansen     |   P    | 01 Aug 1847 | 170 |  True |      NA     |                                                  NA                                                 |     ['@I42@']      |
-|    @I42@     |       Peter        |      Hansen     |   Y    | 01 Apr 1825 | 192 |  True |      NA     |                                                  NA                                                 |     ['@I41@']      |
+|    @I42@     |       Peter        |      Hansen     |   Y    | 01 Apr 1825 | 193 |  True |      NA     |                                                  NA                                                 |     ['@I41@']      |
 |    @I43@     |      Warren        |      Hansen     |   M    | 18 Jan 1907 |  77 | False | 07 Sep 1984 |                                                  NA                                                 |         NA         |
 |    @I44@     |       Mamie        |      Hansen     |   F    | 19 Sep 1916 |  74 | False | 12 Jan 1991 |                                                  NA                                                 |         NA         |
 |    @I45@     |      Venetta       |      Hansen     |   F    | 27 Dec 1921 |  64 | False | 18 Dec 1986 |                                                  NA                                                 |         NA         |
@@ -47,7 +47,7 @@
 |     @I4@     |      Avery S       |     Johnson     |   M    | 27 Jun 1999 |  18 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I50@     |     Vendla A       |      Hansen     |   F    | 01 Dec 1909 | 108 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I51@     |      Vera L        |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
-|  @I51@12903  | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
+|  @I51@27975  | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I52@     |      James P       |      Hansen     |   M    | 22 Jun 1872 | 145 |  True |      NA     |                                     ['@I48@', '@I50@', '@I51@']                                     |     ['@I46@']      |
 |    @I53@     |       Jimmy        |     Connors     |   M    | 01 Jan 1970 |  48 |  True |      NA     |                                     ['@I55@', '@I56@', '@I57@']                                     |     ['@I54@']      |
 |    @I54@     |       Chris        |      Evertt     |   F    | 01 Jan 1971 |  47 |  True |      NA     |                                     ['@I55@', '@I56@', '@I57@']                                     |     ['@I53@']      |
@@ -181,8 +181,16 @@ ERROR: INDIVIDUAL: US03: @I5@: Birth Before Death
 ERROR: INDIVIDUAL: US22: @I51@: Record ID is not unique
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@12903: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@27975: Individual does not exist in family
 ERROR: INDIVIDUAL: US27: @I12@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I13@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I5@: Can not determine age, individual has no Birth Date
+
+US32: List Multiple Births
++-------+-----------------+
+|   ID  | Multi-Birthdate |
++-------+-----------------+
+| @F18@ |   01 Jan 1991   |
+| @F19@ |   01 Jan 1991   |
++-------+-----------------+

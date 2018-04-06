@@ -16,6 +16,7 @@ from cousins_married import is_marriage_of_cousins   # US19
 from family_relationships import validParentDecendantMarriages
 from family_relationships import validUncleAuntMarriages
 from bigamy import is_bigamy
+from sibling_records import hasMultipleBirths
 
 DB_INIT = None
 try:
@@ -40,6 +41,7 @@ individualsDict = {}
 familiesDict = {}
 outputtableI = PrettyTable(["ID","First Name", "LastName","Gender","Birthday","Age","Alive","Death","Children","Spouse"])
 outputtableF = PrettyTable(["ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children"])
+outputtableMultipleBirths = PrettyTable(["ID","Multi-Birthdate"])
 
 def parseStringtoDate(day,month,year):
     retDate = None
@@ -308,6 +310,19 @@ for i in sorted(familiesDict.keys()):
             #print ("Invalid birth dates for family " + familiesDict[i].id)
             errorlogger.__logError__(ErrorLogger._FAMILY, "US14", familiesDict[i].id, "Invalid Birth Dates for Family")
 
+    #US32 - Multiple births
+    testDates = []
+    for child in familiesDict[i].children:
+        try:
+            if individualsDict[child].birthDate is not None:
+                testDates.append(individualsDict[child].birthDate)
+        except:
+            #print("Child does id does not exist in individual dictionary")
+            errorlogger.__logError__(ErrorLogger._INDIVIDUAL, "US14", child.id, "Child does id does not exist in individual dictionary")
+    multi_births = hasMultipleBirths(testDates)
+    if multi_births:
+        outputtableMultipleBirths.add_row([familiesDict[i].id, multi_births])
+
     #User Story 13: check siblings spacing
     if len(familiesDict[i].children) > 1:
         testDates = []
@@ -401,6 +416,9 @@ outputFile.write("\n\n")
 for i in sorted(errorlogger._logMessages):
     outputFile.write("\n")
     outputFile.write(i)
+
+outputFile.write("\n\nUS32: List Multiple Births\n")
+outputFile.write(outputtableMultipleBirths.get_string())
 # ----------
 # Print out the errors and anomalies.
 # ----------
