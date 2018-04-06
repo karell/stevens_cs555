@@ -19,6 +19,7 @@ from family_relationships import uniqueFamilyBySpouses
 from bigamy import is_bigamy
 from sibling_records import hasMultipleBirths
 
+
 DB_INIT = None
 try:
     # DB Constant definition
