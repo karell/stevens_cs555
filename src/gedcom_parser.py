@@ -16,8 +16,10 @@ from siblings_married import is_marriage_of_siblings   # US18
 from cousins_married import is_marriage_of_cousins   # US19
 from family_relationships import validParentDecendantMarriages
 from family_relationships import validUncleAuntMarriages
+from family_relationships import uniqueFamilyBySpouses
 from bigamy import is_bigamy
 from sibling_records import hasMultipleBirths
+
 
 DB_INIT = None
 try:
@@ -343,8 +345,6 @@ for i in sorted(familiesDict.keys()):
 
     # User Story 18: Check for married siblings
     is_marriage_of_siblings(familiesDict[i], familiesDict)
-    
-   
 
     # User Story 19: Check for married cousins
     is_marriage_of_cousins(familiesDict[i], familiesDict)
@@ -399,6 +399,10 @@ validParentDecendantMarriages(familiesDict,individualsDict)
 # ----------
 validUncleAuntMarriages(familiesDict,individualsDict)
 
+
+#US24 No more than one family with the same spouses by name and the same marriage date should appear in a GEDCOM file
+uniqueFamilyBySpouses(familiesDict)
+
 # ----------
 # US29 - 
 # List Deceased
@@ -416,6 +420,7 @@ marriedAliveIndividualDict = create_list_individual_characteristic.listMarriedIn
 for i in marriedAliveIndividualDict:   
     checkPerson = marriedAliveIndividualDict[i] 
     outputtableAliveAndMarried.add_row([checkPerson.id, checkPerson.firstAndMiddleName, checkPerson.lastname])
+
 
 # ----------
 # Print out the Individuals and Families in table format.
