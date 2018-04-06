@@ -6,6 +6,7 @@ import ErrorLogger
 import random
 import unique_record_id
 import corresponding_records
+import create_list_individual_characteristic
 
 from datetime import datetime
 from prettytable import PrettyTable
@@ -42,6 +43,9 @@ familiesDict = {}
 outputtableI = PrettyTable(["ID","First Name", "LastName","Gender","Birthday","Age","Alive","Death","Children","Spouse"])
 outputtableF = PrettyTable(["ID","Married","Divorced","Husband ID","Husband Name","Wife ID","Wife Name","Children"])
 outputtableMultipleBirths = PrettyTable(["ID","Multi-Birthdate"])
+
+outputtableAliveAndMarried = PrettyTable(["ID","First And Middle Names", "LastName"])
+outputtableDeceased = PrettyTable(["ID","First and Middle Names", "LastName"])
 
 def parseStringtoDate(day,month,year):
     retDate = None
@@ -394,6 +398,25 @@ validParentDecendantMarriages(familiesDict,individualsDict)
 # Aunts and uncles	Aunts and uncles should not marry their nieces or nephews
 # ----------
 validUncleAuntMarriages(familiesDict,individualsDict)
+
+# ----------
+# US29 - 
+# List Deceased
+# ----------
+deceasedIndividualDict = create_list_individual_characteristic.listDeceasedIndividuals(individualsDict)
+for i in deceasedIndividualDict:   
+    checkPerson = deceasedIndividualDict[i] 
+    outputtableDeceased.add_row([checkPerson.id, checkPerson.firstAndMiddleName, checkPerson.lastname])
+
+# ----------
+# US30 - 
+# List Married and Alive
+# ----------
+marriedAliveIndividualDict = create_list_individual_characteristic.listMarriedIndividuals(individualsDict)
+for i in marriedAliveIndividualDict:   
+    checkPerson = marriedAliveIndividualDict[i] 
+    outputtableAliveAndMarried.add_row([checkPerson.id, checkPerson.firstAndMiddleName, checkPerson.lastname])
+
 # ----------
 # Print out the Individuals and Families in table format.
 # ----------
@@ -413,6 +436,15 @@ outputFile.write(outputtableI.get_string())
 outputFile.write("\n")
 outputFile.write(outputtableF.get_string())
 outputFile.write("\n\n")
+
+
+
+outputFile.write("\n\nUS29: List Deceased\n")
+outputFile.write(outputtableDeceased.get_string())
+outputFile.write("\n\nUS30: List Living Married\n")
+outputFile.write(outputtableAliveAndMarried.get_string())
+
+
 for i in sorted(errorlogger._logMessages):
     outputFile.write("\n")
     outputFile.write(i)
