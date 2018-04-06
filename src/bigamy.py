@@ -49,6 +49,8 @@ def is_bigamy(individual, families, individuals):
         for i in spouses:
             #print (i)
             spouseIndividual = individuals.get(i)
+            if spouseIndividual.familyIdSpouse is None:
+                continue
             #print (spouseIndividual.toString())
             #print (spouseIndividual.familyIdSpouse)
             family = families.get(spouseIndividual.familyIdSpouse)

@@ -15,6 +15,7 @@ from siblings_married import is_marriage_of_siblings   # US18
 from cousins_married import is_marriage_of_cousins   # US19
 from family_relationships import validParentDecendantMarriages
 from family_relationships import validUncleAuntMarriages
+from family_relationships import uniqueFamilyBySpouses
 from bigamy import is_bigamy
 from sibling_records import hasMultipleBirths
 
@@ -339,8 +340,6 @@ for i in sorted(familiesDict.keys()):
 
     # User Story 18: Check for married siblings
     is_marriage_of_siblings(familiesDict[i], familiesDict)
-    
-   
 
     # User Story 19: Check for married cousins
     is_marriage_of_cousins(familiesDict[i], familiesDict)
@@ -394,6 +393,10 @@ validParentDecendantMarriages(familiesDict,individualsDict)
 # Aunts and uncles	Aunts and uncles should not marry their nieces or nephews
 # ----------
 validUncleAuntMarriages(familiesDict,individualsDict)
+
+#US24 No more than one family with the same spouses by name and the same marriage date should appear in a GEDCOM file
+uniqueFamilyBySpouses(familiesDict)
+
 # ----------
 # Print out the Individuals and Families in table format.
 # ----------

@@ -12,6 +12,8 @@ ANOMALY: FAMILY: US17: F1: Husband has marriage with decendant
 ERROR: FAMILY: US18: F2: Marriage is of siblings of family F1
 ERROR: FAMILY: US19: G3F1: Marriage is of cousins of family G1F1
 ANOMALY: FAMILY: US20: F1: 4 married to a neice or nephew
+ERROR: FAMILY: US24: F1: Duplicate family record
+ERROR: FAMILY: US24: F1: Duplicate family record
 ERROR: FAMILY: US26: @INDV: Family records do not contain children
 ERROR: FAMILY: US26: @FAM: Family members don't exist in individuals
 ERROR: FAMILY: US26: @FAM: Family members don't exist in individuals
