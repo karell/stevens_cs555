@@ -134,6 +134,15 @@ def sortChildren(children):
         sortedChildren = children
     return sortedChildren
 
+#US31 get individual and return its details in GED format
+def printSingleOver30(indi):
+    output = "0 " + indi.id + " INDI\n"
+    output += "1 NAME " + indi.name + "\n"
+    output += "1 SEX " + indi.gender + "\n"
+    if indi.birthDate is not None:
+        output += "1 BIRT\n" + "2 DATE " + indi.birthDateStr + "\n"
+    
+    return output
 
 # ----------
 # Validate that there is only one argument on the command line. This means there
@@ -362,10 +371,16 @@ for i in sorted(familiesDict.keys()):
     if DB_INIT is not None:
         FAMILIES.insert_one(familiesDict[i].__dict__)
 
+outputFileGED30 = open("singles_over_30.ged","w+")  
+
 for i in sorted(individualsDict.keys()):
     # Build the output prettytable. Convert the internal format of variables to
     # string format prior to adding a row to the output prettytable.
+
     individualsDict[i].toString()
+    #US_31 print to GEDCOM all living single people above age 30
+    if int(individualsDict[i].age) > 30 and individualsDict[i].alive and len(individualsDict[i].spouse) == 0:     
+        outputFileGED30.write(printSingleOver30(individualsDict[i]))
     try:
         ind = individualsDict[i]
         outputtableI.add_row([ind.id,ind.firstAndMiddleName,ind.lastname,ind.gender,ind.birthDateStr,ind.age,ind.alive,ind.deathDateStr,ind.childrenStr,ind.spouseStr])
@@ -375,6 +390,7 @@ for i in sorted(individualsDict.keys()):
     if DB_INIT is not None:
         INDVIDUALS.insert_one(individualsDict[i].__dict__)
 
+outputFileGED30.close()  
 # ----------
 # US23 - Unique Individuals
 # Check the list of individuals for any that are not unique.
