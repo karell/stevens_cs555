@@ -47,7 +47,7 @@
 |     @I4@     |      Avery S       |     Johnson     |   M    | 27 Jun 1999 |  18 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I50@     |     Vendla A       |      Hansen     |   F    | 01 Dec 1909 | 108 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I51@     |      Vera L        |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
-|  @I51@42665  | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
+|  @I51@15221  | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I52@     |      James P       |      Hansen     |   M    | 22 Jun 1872 | 145 |  True |      NA     |                                     ['@I48@', '@I50@', '@I51@']                                     |     ['@I46@']      |
 |    @I53@     |       Jimmy        |     Connors     |   M    | 01 Jan 1970 |  48 |  True |      NA     |                                     ['@I55@', '@I56@', '@I57@']                                     |     ['@I54@']      |
 |    @I54@     |       Chris        |      Evertt     |   F    | 01 Jan 1971 |  47 |  True |      NA     |                                     ['@I55@', '@I56@', '@I57@']                                     |     ['@I53@']      |
@@ -115,6 +115,72 @@
 +-------+-------------+-------------+------------+----------------------------+---------+-----------------------------------+-----------------------------------------------------------------------------------------------------+
 
 
+
+US29: List Deceased
++-------+------------------------+----------+
+|   ID  | First and Middle Names | LastName |
++-------+------------------------+----------+
+|  @I6@ |        Marilyn         |  Hansen  |
+|  @I7@ |    Orville Phillip     | Sullivan |
+| @I12@ |        Audrey          | Ruddick  |
+| @I13@ |    Lorraine Marie      | Sullivan |
+| @I14@ |    Orville Phillip     | Sullivan |
+| @I15@ |        Harriet         |   Pott   |
+| @I16@ |        Philip          | Sullivan |
+| @I17@ |       Harriet V        | Chapman  |
+| @I18@ |    Ethel Winefred      |   Carr   |
+| @I19@ |      Paul Hubert       |  Abell   |
+| @I20@ |        Richard         |  Prince  |
+| @I22@ |        Blanche         | Johnson  |
+| @I23@ |        Warren          |  Hansen  |
+| @I24@ |       Nancy Ann        | Cromeans |
+| @I25@ |      James Peter       |  Hansen  |
+| @I26@ |        Leeland         |  Hansen  |
+| @I29@ |        Anders          | Johnson  |
+| @I30@ |     Delbert James      |  OLSEN   |
+| @I31@ |        Deloras         |  Hansen  |
+| @I33@ |      Stina Maria       |  Hansen  |
+| @I34@ |      Peter Olsen       |  Hansen  |
+| @I35@ |       Alice May        |  Hansen  |
+| @I36@ |     Martha Lavon       |  Hansen  |
+| @I37@ |    Vendla Arletta      |  Hansen  |
+| @I38@ |    Charles Lathair     |   Kent   |
+| @I43@ |        Warren          |  Hansen  |
+| @I44@ |         Mamie          |  Hansen  |
+| @I45@ |        Venetta         |  Hansen  |
+| @I46@ |       Anna Tate        |  Hansen  |
++-------+------------------------+----------+
+
+US30: List Living Married
++-------+------------------------+-----------------+
+|   ID  | First And Middle Names |     LastName    |
++-------+------------------------+-----------------+
+|  @I1@ |        Esther          |     Sullivan    |
+|  @I2@ |    Kelley Russell      |     Johnson     |
+| @I21@ |    Michael William     | Prince Sullivan |
+| @I27@ |         Brent          |      Hansen     |
+| @I28@ |      Emily Sofi        |    Andersson    |
+| @I40@ |        James I         |      Hansen     |
+| @I41@ |         Sina           |      Hansen     |
+| @I42@ |         Peter          |      Hansen     |
+| @I52@ |        James P         |      Hansen     |
+| @I53@ |         Jimmy          |     Connors     |
+| @I54@ |         Chris          |      Evertt     |
+| @I58@ |         Dave           |      Gahan      |
+| @I59@ |         Terry          |      Evertt     |
+| @I66@ |         John           |     Jamison     |
+| @I67@ |         Jane           |     Jamison     |
+| @I68@ |         Jack           |     Jamison     |
+| @I69@ |         Judy           |     Jamison     |
+| @I70@ |         John           |     Jeffries    |
+| @I71@ |         Jane           |     Jeffries    |
+| @I72@ |         James          |     Jeffries    |
+| @I73@ |         Janet          |     Jeffries    |
+| @I74@ |         Jack           |     Jeffries    |
+| @I75@ |       Jennifer         |     Jeffries    |
+| @I76@ |         Jacob          |     Jeffries    |
+| @I77@ |        Jessica         |     Jeffries    |
++-------+------------------------+-----------------+
 ANOMALY: FAMILY: US17: @F12@: Wife has marriage with decendant
 ANOMALY: FAMILY: US20: @F20@: @I68@ married to a neice or nephew
 ANOMALY: FAMILY: US21: @F16@: Invalid parent genders
@@ -131,6 +197,110 @@ ANOMALY: INDIVIDUAL: US16: @I61@: Father's Last Name of Gahan doesn't match chil
 ANOMALY: INDIVIDUAL: US16: @I63@: Father's Last Name of Gahan doesn't match childs's Last Name of Marr
 ANOMALY: INDIVIDUAL: US16: @I64@: Father's Last Name of Gahan doesn't match childs's Last Name of Joyce
 ANOMALY: INDIVIDUAL: US16: @I65@: Father's Last Name of Gahan doesn't match childs's Last Name of Gore
+ANOMALY: INDIVIDUAL: US29: @I10@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I11@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I1@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I21@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I27@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I28@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I2@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I3222@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I32@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I39@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I3@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I40@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I41@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I42@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I47@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I48@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I4@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I50@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I51@15221: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I51@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I52@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I53@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I54@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I55@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I56@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I57@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I58@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I59@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I5@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I60@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I61@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I62@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I63@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I64@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I65@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I66@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I67@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I68@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I69@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I70@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I71@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I72@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I73@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I74@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I75@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I76@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I77@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I8@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I9@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @IFAKECHILD@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US30: @I10@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I11@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I12@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I13@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I14@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I15@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I16@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I17@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I18@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I19@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I20@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I22@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I23@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I24@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I25@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I26@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I29@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I30@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I31@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I3222@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I32@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I33@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I34@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I35@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I36@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I37@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I38@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I39@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I3@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I43@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I44@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I45@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I46@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I47@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I48@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I4@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I50@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I51@15221: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I51@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I55@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I56@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I57@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I5@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I60@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I61@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I62@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I63@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I64@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I65@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I6@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I7@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I8@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I9@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @IFAKECHILD@: Living, But Not Married
 ERROR: FAMILY: US02: @I12@: Invalid marriage and birth dates
 ERROR: FAMILY: US02: @I13@: Invalid marriage and birth dates
 ERROR: FAMILY: US02: @I46@: Invalid marriage and birth dates
@@ -176,6 +346,7 @@ ERROR: FAMILY: US18: @F21@: Marriage is of siblings of family @F99@
 ERROR: FAMILY: US19: @F25@: Marriage is of cousins of family @F22@
 ERROR: FAMILY: US24: @F20@: Duplicate family record
 ERROR: FAMILY: US24: @F99@: Duplicate family record
+ERROR: FAMILY: US25: @F12@: Child name Warren is not unique.
 ERROR: GENERAL: US23: N/A: Duplicate individuals were found in the GEDCOM file.
 ERROR: INDIVIDUAL: US01: @I5@: Invalid birth date
 ERROR: INDIVIDUAL: US03: @I12@: Birth Before Death
@@ -184,7 +355,7 @@ ERROR: INDIVIDUAL: US03: @I5@: Birth Before Death
 ERROR: INDIVIDUAL: US22: @I51@: Record ID is not unique
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@42665: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@15221: Individual does not exist in family
 ERROR: INDIVIDUAL: US27: @I12@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I13@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is less than 0

@@ -10,6 +10,7 @@ ERROR: FAMILY: US10: @F11@: Marriage is less than 14 years after birth of husban
 ERROR: FAMILY: US08: @F12@: Child @I23@ born on 1862-01-18 00:00:00 is before marriage date of 1887-12-01 00:00:00
 ERROR: FAMILY: US10: @F12@: Marriage is less than 14 years after birth of husband and/or wife
 ERROR: FAMILY: US13: @F12@: Invalid Sibling Spacing in Family
+ERROR: FAMILY: US25: @F12@: Child name Warren is not unique.
 ANOMALY: INDIVIDUAL: US11: @I30@: Possible Bigamy
 ANOMALY: FAMILY: US21: @F16@: Invalid parent genders
 ERROR: FAMILY: US02: @I52@: Invalid marriage and birth dates
@@ -67,8 +68,112 @@ ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is les
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: GENERAL: US23: N/A: Duplicate individuals were found in the GEDCOM file.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@42665: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@15221: Individual does not exist in family
 ANOMALY: FAMILY: US17: @F12@: Wife has marriage with decendant
 ANOMALY: FAMILY: US20: @F20@: @I68@ married to a neice or nephew
 ERROR: FAMILY: US24: @F20@: Duplicate family record
 ERROR: FAMILY: US24: @F99@: Duplicate family record
+ANOMALY: INDIVIDUAL: US29: @I1@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I2@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I3@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @IFAKECHILD@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I4@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I5@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I8@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I9@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I10@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I11@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I21@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I27@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I28@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I32@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I3222@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I39@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I40@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I41@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I42@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I47@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I48@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I50@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I51@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I51@15221: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I52@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I53@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I54@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I55@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I56@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I57@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I58@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I59@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I60@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I61@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I62@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I63@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I64@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I65@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I66@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I67@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I68@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I69@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I70@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I71@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I72@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I73@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I74@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I75@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I76@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I77@: Person is not Deceased
+ANOMALY: INDIVIDUAL: US30: @I3@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @IFAKECHILD@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I4@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I5@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I6@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I7@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I8@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I9@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I10@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I11@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I12@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I13@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I14@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I15@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I16@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I17@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I18@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I19@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I20@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I22@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I23@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I24@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I25@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I26@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I29@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I30@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I31@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I32@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I3222@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I33@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I34@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I35@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I36@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I37@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I38@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I39@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I43@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I44@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I45@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I46@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I47@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I48@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I50@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I51@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I51@15221: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I55@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I56@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I57@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I60@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I61@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I62@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I63@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I64@: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I65@: Living, But Not Married
