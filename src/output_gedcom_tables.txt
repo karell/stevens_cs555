@@ -47,7 +47,7 @@
 |     @I4@     |      Avery S       |     Johnson     |   M    | 27 Jun 1999 |  18 |  True |      NA     |                                                                    NA                                                                   |         NA         |
 |    @I50@     |     Vendla A       |      Hansen     |   F    | 01 Dec 1909 | 108 |  True |      NA     |                                                                    NA                                                                   |         NA         |
 |    @I51@     |      Vera L        |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|  @I51@83962  | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|  @I51@15768  | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                                    NA                                                                   |         NA         |
 |    @I52@     |      James P       |      Hansen     |   M    | 22 Jun 1872 | 145 |  True |      NA     |                                                       ['@I48@', '@I50@', '@I51@']                                                       |     ['@I46@']      |
 |    @I53@     |       Jimmy        |     Connors     |   M    | 01 Jan 1970 |  48 |  True |      NA     |                                                       ['@I55@', '@I56@', '@I57@']                                                       |     ['@I54@']      |
 |    @I54@     |       Chris        |      Evertt     |   F    | 01 Jan 1971 |  47 |  True |      NA     |                                                       ['@I55@', '@I56@', '@I57@']                                                       |     ['@I53@']      |
@@ -77,24 +77,24 @@
 |    @I76@     |       Jacob        |     Jeffries    |   M    | 01 Jan 1990 |  28 |  True |      NA     |                                                                    NA                                                                   |     ['@I77@']      |
 |    @I77@     |      Jessica       |     Jeffries    |   F    | 01 Jan 1991 |  27 |  True |      NA     |                                                                    NA                                                                   |     ['@I76@']      |
 |    @I78@     |      Mister        |      Smith      |   M    | 12 Mar 1960 |  58 |  True |      NA     | ['@I80@', '@I81@', '@I82@', '@I83@', '@I84@', '@I85@', '@I86@', '@I87@', '@I88@', '@I89@', '@I90@', '@I91@', '@I92@', '@I93@', '@I94@'] |     ['@I79@']      |
-|    @I79@     |      Misses        |      Smith      |   F    | 12 Mar 1961 |  57 |  True |      NA     | ['@I80@', '@I81@', '@I82@', '@I83@', '@I84@', '@I85@', '@I86@', '@I87@', '@I88@', '@I89@', '@I90@', '@I91@', '@I92@', '@I93@', '@I94@'] |     ['@I78@']      |
+|    @I79@     |      Missus        |      Smith      |   F    | 12 Mar 1961 |  57 |  True |      NA     | ['@I80@', '@I81@', '@I82@', '@I83@', '@I84@', '@I85@', '@I86@', '@I87@', '@I88@', '@I89@', '@I90@', '@I91@', '@I92@', '@I93@', '@I94@'] |     ['@I78@']      |
 |     @I7@     |  Orville Phillip   |     Sullivan    |   M    | 19 Aug 1937 |  75 | False | 13 Jul 2013 |                                                ['@I9@', '@I10@', '@I11@', '@IFAKECHILD@']                                               | ['@I6@', '@I12@']  |
-|    @I80@     |       Avery        |      Smith      |   F    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I81@     |      Brandon       |      Smith      |   M    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I82@     |       Chase        |      Smith      |   F    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I83@     |       David        |      Smith      |   M    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I84@     |       Ethan        |      Smith      |   M    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I85@     |      Frances       |      Smith      |   F    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I86@     |      Gregory       |      Smith      |   M    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I87@     |       Henry        |      Smith      |   M    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I88@     |   Independence     |      Smith      |   F    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I89@     |       Janet        |      Smith      |   F    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I80@     |       Avery        |      Smith      |   F    | 01 Dec 1990 |  27 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I81@     |      Brandon       |      Smith      |   M    | 01 Dec 1991 |  26 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I82@     |       Chase        |      Smith      |   F    | 01 Dec 1992 |  25 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I83@     |       David        |      Smith      |   M    | 01 Dec 1993 |  24 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I84@     |       Ethan        |      Smith      |   M    | 01 Dec 1994 |  23 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I85@     |      Frances       |      Smith      |   F    | 01 Dec 1995 |  22 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I86@     |      Gregory       |      Smith      |   M    | 01 Dec 1996 |  21 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I87@     |       Henry        |      Smith      |   M    | 01 Dec 1997 |  20 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I88@     |   Independence     |      Smith      |   F    | 01 Dec 1998 |  19 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I89@     |       Janet        |      Smith      |   F    | 01 Dec 1999 |  18 |  True |      NA     |                                                                    NA                                                                   |         NA         |
 |     @I8@     |     Lorraine       |     Sullivan    |   F    | 10 Feb 1981 |  37 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I90@     |       Karla        |      Smith      |   F    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I91@     |       Lisa         |      Smith      |   F    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I92@     |      Melissa       |      Smith      |   F    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I93@     |       Nora         |      Smith      |   F    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
-|    @I94@     |      Olivia        |      Smith      |   F    |      NA     |  -1 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I90@     |       Karla        |      Smith      |   F    | 01 Dec 2000 |  17 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I91@     |       Lisa         |      Smith      |   F    | 01 Dec 2001 |  16 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I92@     |      Melissa       |      Smith      |   F    | 01 Dec 2002 |  15 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I93@     |       Nora         |      Smith      |   F    | 01 Dec 2003 |  14 |  True |      NA     |                                                                    NA                                                                   |         NA         |
+|    @I94@     |      Olivia        |      Smith      |   F    | 01 Dec 2004 |  13 |  True |      NA     |                                                                    NA                                                                   |         NA         |
 |     @I9@     |   Grant Steven     |     Sullivan    |   M    | 19 Jul 1964 |  53 |  True |      NA     |                                                                    NA                                                                   |         NA         |
 | @IFAKECHILD@ |    FAKE CHILD      |      CHILD      |   F    | 04 Jul 1944 |  73 |  True |      NA     |                                                                    NA                                                                   |         NA         |
 +--------------+--------------------+-----------------+--------+-------------+-----+-------+-------------+-----------------------------------------------------------------------------------------------------------------------------------------+--------------------+
@@ -120,7 +120,7 @@
 | @F25@ | 31 Dec 2015 |      NA     |   @I76@    |      Jacob /Jeffries/      |  @I77@  |         Jessica /Jeffries/        |                                                                    []                                                                   |
 | @F26@ | 01 Dec 1920 |      NA     |   @I40@    |      James I /Hansen/      |  @I24@  |        Nancy Ann /Cromeans/       |                                                                    []                                                                   |
 | @F27@ | 01 Dec 1985 |      NA     |   @I27@    |       Brent /Hansen/       |  @I21@  | Michael William /Prince Sullivan/ |                                                                    []                                                                   |
-| @F28@ | 01 Dec 1989 |      NA     |   @I78@    |       Mister /Smith/       |  @I79@  |           Misses /Smith/          | ['@I80@', '@I81@', '@I82@', '@I83@', '@I84@', '@I85@', '@I86@', '@I87@', '@I88@', '@I89@', '@I90@', '@I91@', '@I92@', '@I93@', '@I94@'] |
+| @F28@ | 01 Dec 1989 |      NA     |   @I78@    |       Mister /Smith/       |  @I79@  |           Missus /Smith/          | ['@I80@', '@I81@', '@I82@', '@I83@', '@I84@', '@I85@', '@I86@', '@I87@', '@I88@', '@I89@', '@I90@', '@I91@', '@I92@', '@I93@', '@I94@'] |
 |  @F2@ | 01 Dec 1972 |      NA     |    @I7@    | Orville Phillip /Sullivan/ |   @I6@  |          Marilyn /Hansen/         |                                                             ['@I1@', '@I8@']                                                            |
 |  @F3@ | 10 Mar 1967 | 09 Nov 2010 |   @I20@    |      Richard /Prince/      |   @I6@  |          Marilyn /Hansen/         |                                                                ['@I21@']                                                                |
 |  @F4@ | 01 Dec 1939 |      NA     |   @I23@    |      Warren /Hansen/       |  @I22@  |         Blanche /Johnson/         |                                                        ['@I6@', '@I26@', '@I27@']                                                       |
@@ -199,7 +199,7 @@ US30: List Living Married
 | @I76@ |         Jacob          |     Jeffries    |
 | @I77@ |        Jessica         |     Jeffries    |
 | @I78@ |        Mister          |      Smith      |
-| @I79@ |        Misses          |      Smith      |
+| @I79@ |        Missus          |      Smith      |
 +-------+------------------------+-----------------+
 ANOMALY: FAMILY: US17: @F12@: Wife has marriage with decendant
 ANOMALY: FAMILY: US20: @F20@: @I68@ married to a neice or nephew
@@ -235,7 +235,7 @@ ANOMALY: INDIVIDUAL: US29: @I47@: Person is not Deceased
 ANOMALY: INDIVIDUAL: US29: @I48@: Person is not Deceased
 ANOMALY: INDIVIDUAL: US29: @I4@: Person is not Deceased
 ANOMALY: INDIVIDUAL: US29: @I50@: Person is not Deceased
-ANOMALY: INDIVIDUAL: US29: @I51@83962: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I51@15768: Person is not Deceased
 ANOMALY: INDIVIDUAL: US29: @I51@: Person is not Deceased
 ANOMALY: INDIVIDUAL: US29: @I52@: Person is not Deceased
 ANOMALY: INDIVIDUAL: US29: @I53@: Person is not Deceased
@@ -321,7 +321,7 @@ ANOMALY: INDIVIDUAL: US30: @I47@: Living, But Not Married
 ANOMALY: INDIVIDUAL: US30: @I48@: Living, But Not Married
 ANOMALY: INDIVIDUAL: US30: @I4@: Living, But Not Married
 ANOMALY: INDIVIDUAL: US30: @I50@: Living, But Not Married
-ANOMALY: INDIVIDUAL: US30: @I51@83962: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I51@15768: Living, But Not Married
 ANOMALY: INDIVIDUAL: US30: @I51@: Living, But Not Married
 ANOMALY: INDIVIDUAL: US30: @I55@: Living, But Not Married
 ANOMALY: INDIVIDUAL: US30: @I56@: Living, But Not Married
@@ -364,41 +364,11 @@ ERROR: FAMILY: US08: @F10@: Child @I32@ born on 1955-01-04 00:00:00 is before ma
 ERROR: FAMILY: US08: @F11@: Child @I22@ born on 1850-12-12 00:00:00 is before marriage date of 1884-12-01 00:00:00
 ERROR: FAMILY: US08: @F12@: Child @I23@ born on 1862-01-18 00:00:00 is before marriage date of 1887-12-01 00:00:00
 ERROR: FAMILY: US08: @F1@: Child @I5@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I80@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I81@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I82@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I83@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I84@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I85@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I86@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I87@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I88@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I89@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I90@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I91@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I92@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I93@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I94@ has no birth date.
 ERROR: FAMILY: US08: @F5@: Child @I10@ born on 1962-12-23 00:00:00 is more than 9 months after divorce date of 1872-11-09 00:00:00
 ERROR: FAMILY: US08: @F5@: Child @I11@ born on 1961-10-03 00:00:00 is more than 9 months after divorce date of 1872-11-09 00:00:00
 ERROR: FAMILY: US08: @F5@: Child @I9@ born on 1964-07-19 00:00:00 is more than 9 months after divorce date of 1872-11-09 00:00:00
 ERROR: FAMILY: US08: @F5@: Child @IFAKECHILD@ born on 1944-07-04 00:00:00 is more than 9 months after divorce date of 1872-11-09 00:00:00
 ERROR: FAMILY: US09: @F1@: Child @I5@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I80@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I81@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I82@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I83@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I84@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I85@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I86@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I87@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I88@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I89@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I90@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I91@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I92@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I93@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I94@ has no birth date.
 ERROR: FAMILY: US09: @F5@: Child @I10@ born on 1962-12-23 00:00:00 is after mother's death date of 1916-12-12 00:00:00
 ERROR: FAMILY: US09: @F5@: Child @I11@ born on 1961-10-03 00:00:00 is after mother's death date of 1916-12-12 00:00:00
 ERROR: FAMILY: US09: @F5@: Child @I9@ born on 1964-07-19 00:00:00 is after mother's death date of 1916-12-12 00:00:00
@@ -435,58 +405,14 @@ ERROR: INDIVIDUAL: US01: @I5@: Invalid birth date
 ERROR: INDIVIDUAL: US03: @I12@: Birth Before Death
 ERROR: INDIVIDUAL: US03: @I13@: Birth Before Death
 ERROR: INDIVIDUAL: US03: @I5@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I80@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I81@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I82@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I83@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I84@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I85@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I86@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I87@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I88@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I89@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I90@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I91@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I92@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I93@: Birth Before Death
 ERROR: INDIVIDUAL: US22: @I51@: Record ID is not unique
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@83962: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@15768: Individual does not exist in family
 ERROR: INDIVIDUAL: US27: @I12@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I13@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I5@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I80@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I80@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I81@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I81@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I82@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I82@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I83@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I83@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I84@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I84@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I85@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I85@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I86@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I86@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I87@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I87@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I88@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I88@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I89@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I89@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I90@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I90@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I91@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I91@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I92@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I92@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I93@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I93@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I94@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I94@: Can not determine age, individual has no Birth Date
 
 US32: List Multiple Births
 +-------+-----------------+

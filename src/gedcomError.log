@@ -3,20 +3,6 @@ ERROR: INDIVIDUAL: US03: @I5@: Birth Before Death
 ERROR: INDIVIDUAL: US03: @I12@: Birth Before Death
 ERROR: INDIVIDUAL: US03: @I13@: Birth Before Death
 ERROR: INDIVIDUAL: US22: @I51@: Record ID is not unique
-ERROR: INDIVIDUAL: US03: @I80@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I81@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I82@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I83@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I84@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I85@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I86@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I87@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I88@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I89@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I90@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I91@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I92@: Birth Before Death
-ERROR: INDIVIDUAL: US03: @I93@: Birth Before Death
 ERROR: FAMILY: US12: @I32@: Invalid Mother Age: Blanche /Johnson/ is more than 60 years older than child: Kim David /OLSEN/
 ERROR: FAMILY: US08: @F10@: Child @I32@ born on 1955-01-04 00:00:00 is before marriage date of 1960-12-01 00:00:00
 ERROR: FAMILY: US08: @F11@: Child @I22@ born on 1850-12-12 00:00:00 is before marriage date of 1884-12-01 00:00:00
@@ -45,36 +31,6 @@ ERROR: FAMILY: US08: @F1@: Child @I5@ has no birth date.
 ERROR: FAMILY: US18: @F21@: Marriage is of siblings of family @F99@
 ERROR: FAMILY: US19: @F25@: Marriage is of cousins of family @F22@
 ANOMALY: FAMILY: US21: @F27@: Invalid parent genders
-ERROR: FAMILY: US09: @F28@: Child @I80@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I80@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I81@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I81@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I82@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I82@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I83@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I83@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I84@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I84@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I85@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I85@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I86@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I86@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I87@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I87@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I88@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I88@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I89@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I89@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I90@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I90@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I91@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I91@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I92@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I92@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I93@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I93@ has no birth date.
-ERROR: FAMILY: US09: @F28@: Child @I94@ has no birth date.
-ERROR: FAMILY: US08: @F28@: Child @I94@ has no birth date.
 ERROR: FAMILY: US15: @F28@: There are too many (15) siblings.
 ANOMALY: INDIVIDUAL: US16: @I21@: Father's Last Name of Prince doesn't match childs's Last Name of Prince Sullivan
 ERROR: FAMILY: US06: @F3@: Invalid divorce date
@@ -110,40 +66,10 @@ ANOMALY: INDIVIDUAL: US07: @I41@: Older than 150
 ANOMALY: INDIVIDUAL: US07: @I42@: Older than 150
 ERROR: INDIVIDUAL: US27: @I5@: Can not determine age, individual has no Birth Date
 ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I80@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I80@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I81@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I81@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I82@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I82@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I83@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I83@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I84@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I84@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I85@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I85@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I86@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I86@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I87@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I87@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I88@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I88@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I89@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I89@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I90@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I90@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I91@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I91@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I92@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I92@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I93@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I93@: Age Calculation may be off, individual age is less than 0
-ERROR: INDIVIDUAL: US27: @I94@: Can not determine age, individual has no Birth Date
-ERROR: INDIVIDUAL: US27: @I94@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: GENERAL: US23: N/A: Duplicate individuals were found in the GEDCOM file.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@83962: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@15768: Individual does not exist in family
 ANOMALY: FAMILY: US17: @F12@: Wife has marriage with decendant
 ANOMALY: FAMILY: US20: @F20@: @I68@ married to a neice or nephew
 ERROR: FAMILY: US24: @F20@: Duplicate family record
@@ -171,7 +97,7 @@ ANOMALY: INDIVIDUAL: US29: @I47@: Person is not Deceased
 ANOMALY: INDIVIDUAL: US29: @I48@: Person is not Deceased
 ANOMALY: INDIVIDUAL: US29: @I50@: Person is not Deceased
 ANOMALY: INDIVIDUAL: US29: @I51@: Person is not Deceased
-ANOMALY: INDIVIDUAL: US29: @I51@83962: Person is not Deceased
+ANOMALY: INDIVIDUAL: US29: @I51@15768: Person is not Deceased
 ANOMALY: INDIVIDUAL: US29: @I52@: Person is not Deceased
 ANOMALY: INDIVIDUAL: US29: @I53@: Person is not Deceased
 ANOMALY: INDIVIDUAL: US29: @I54@: Person is not Deceased
@@ -259,7 +185,7 @@ ANOMALY: INDIVIDUAL: US30: @I47@: Living, But Not Married
 ANOMALY: INDIVIDUAL: US30: @I48@: Living, But Not Married
 ANOMALY: INDIVIDUAL: US30: @I50@: Living, But Not Married
 ANOMALY: INDIVIDUAL: US30: @I51@: Living, But Not Married
-ANOMALY: INDIVIDUAL: US30: @I51@83962: Living, But Not Married
+ANOMALY: INDIVIDUAL: US30: @I51@15768: Living, But Not Married
 ANOMALY: INDIVIDUAL: US30: @I55@: Living, But Not Married
 ANOMALY: INDIVIDUAL: US30: @I56@: Living, But Not Married
 ANOMALY: INDIVIDUAL: US30: @I57@: Living, But Not Married
