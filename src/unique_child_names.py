@@ -13,11 +13,22 @@ import individual
 
 def are_child_names_unique(the_family, all_individuals):
     """
-    function are_child_names_unique
-    determines whether the first names of the children of the provided family
-    have unique first names
-    returns true: children first names are unique
-    returns false: at least one child has the same first name as another child
+    ---------------------------------------------------------------------------
+    This function checks whether the first names of all children in the
+    provided Family object are unique. User Story #25.
+
+    Parameters
+    ----------
+    the_family:      The family object to test whether the child first names
+                     are unique.
+    all_individuals: A dictionary object that contains all of the individual
+                     records in the GEDCOM file.
+
+    Returns
+    -------
+    True:  When the child first names are unique.
+    False: When at least one child first name is duplicated.
+    ---------------------------------------------------------------------------
     """
     unique = True
     child_first_names = []
