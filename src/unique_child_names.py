@@ -4,8 +4,6 @@ checks whether children of a family have unique first names (US#25)
 @author Keith Roseberry
 """
 import ErrorLogger
-import family
-import individual
 
 # -----------------------------------------------------------------------------
 # User Story #25: The first names of all children in a family must be unique.
@@ -44,8 +42,8 @@ def are_child_names_unique(the_family, all_individuals):
             else:
                 child_first_names.append(first_name)
         else:
-            print("US25 error: Child " + 
-                the_child_id + 
-                " is not in the Individuals dictionary.")
-    
+            print("US25 error: Child " +
+                  the_child_id +
+                  " is not in the Individuals dictionary.")
+
     return unique
