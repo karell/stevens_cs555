@@ -111,22 +111,30 @@ class TestUS25FirstNamesUnique(unittest.TestCase):
         child_4.firstAndMiddleName = "Jeremy John"
         child_4.lastname = "Jamison"
 
+        child_5 = individual.Individual()
+        child_5.id = "C5"
+        child_5.firstAndMiddleName = "Jessica Jamie"
+        child_5.lastname = "Jamison"
+
         # Family - tie them all together
         family_1 = family.Family()
         family_1.id = "G1F1"
         family_1.husbandId = father_1.id
         family_1.wifeId = mother_1.id
         family_1.children.append(child_1.id)
-        family_1.children.append(child_3.id)
         family_1.children.append(child_2.id)
+        family_1.children.append(child_3.id)
         family_1.children.append(child_4.id)
+        family_1.children.append(child_5.id)
 
         individuals_dict = {}
         individuals_dict[child_1.id] = child_1
         individuals_dict[child_2.id] = child_2
         individuals_dict[child_3.id] = child_3
+        individuals_dict[child_4.id] = child_4
+        individuals_dict[child_5.id] = child_5
 
-        self.assertTrue(unique_child_names.are_child_names_unique( \
+        self.assertFalse(unique_child_names.are_child_names_unique( \
             family_1, individuals_dict))
 
 if __name__ == '__main__':
