@@ -26,6 +26,11 @@ def less_than_15_siblings(the_family):
     False: When there are 15 or more siblings in the family.
     ---------------------------------------------------------------------------
     """
-    less_than_15 = True
+    result = True
 
-    return less_than_15
+    if len(the_family.children) >= 15:
+        result = False
+        ErrorLogger.__logError__(ErrorLogger._FAMILY, "US15", the_family.id, \
+            "There are too many (" + str(len(the_family.children)) + ") siblings.")
+
+    return result

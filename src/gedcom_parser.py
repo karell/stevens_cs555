@@ -20,6 +20,7 @@ from family_relationships import uniqueFamilyBySpouses
 from bigamy import is_bigamy
 from sibling_records import hasMultipleBirths
 from unique_child_names import are_child_names_unique
+from sibling_count import less_than_15_siblings
 
 DB_INIT = None
 try:
@@ -351,6 +352,9 @@ for i in sorted(familiesDict.keys()):
 
     # User Story 25: Check for unique child first names
     are_child_names_unique(familiesDict[i], individualsDict)
+
+    # User Story 15: Check for too many siblings
+    less_than_15_siblings(familiesDict[i])
     
     # Build the output prettytable. Convert the internal format of variables to
     # string format prior to adding a row to the output prettytable.
