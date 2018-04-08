@@ -442,20 +442,23 @@ outputFile.write("\n")
 outputFile.write(outputtableF.get_string())
 outputFile.write("\n\n")
 
-
-
 outputFile.write("\n\nUS29: List Deceased\n")
 outputFile.write(outputtableDeceased.get_string())
+
 outputFile.write("\n\nUS30: List Living Married\n")
 outputFile.write(outputtableAliveAndMarried.get_string())
 
+outputFile.write("\n\nUS32: List Multiple Births\n")
+outputFile.write(outputtableMultipleBirths.get_string())
+
+outputFile.write("\n\n")
+outputFile.write("Log Output:\n")
 
 for i in sorted(errorlogger._logMessages):
     outputFile.write("\n")
     outputFile.write(i)
 
-outputFile.write("\n\nUS32: List Multiple Births\n")
-outputFile.write(outputtableMultipleBirths.get_string())
+outputFile.close()
 # ----------
 # Print out the errors and anomalies.
 # ----------

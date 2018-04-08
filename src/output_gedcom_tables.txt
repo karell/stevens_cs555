@@ -47,7 +47,7 @@
 |     @I4@     |      Avery S       |     Johnson     |   M    | 27 Jun 1999 |  18 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I50@     |     Vendla A       |      Hansen     |   F    | 01 Dec 1909 | 108 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I51@     |      Vera L        |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
-|  @I51@42665  | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
+|  @I51@7680   | DuplicateID VeraL  |      Hansen     |   F    | 14 Jan 1905 | 113 |  True |      NA     |                                                  NA                                                 |         NA         |
 |    @I52@     |      James P       |      Hansen     |   M    | 22 Jun 1872 | 145 |  True |      NA     |                                     ['@I48@', '@I50@', '@I51@']                                     |     ['@I46@']      |
 |    @I53@     |       Jimmy        |     Connors     |   M    | 01 Jan 1970 |  48 |  True |      NA     |                                     ['@I55@', '@I56@', '@I57@']                                     |     ['@I54@']      |
 |    @I54@     |       Chris        |      Evertt     |   F    | 01 Jan 1971 |  47 |  True |      NA     |                                     ['@I55@', '@I56@', '@I57@']                                     |     ['@I53@']      |
@@ -114,6 +114,83 @@
 |  @F9@ | 01 Sep 1905 |      NA     |   @I16@    |     Philip /Sullivan/      |  @I17@  |        Harriet V /Chapman/        |                                              ['@I14@']                                              |
 +-------+-------------+-------------+------------+----------------------------+---------+-----------------------------------+-----------------------------------------------------------------------------------------------------+
 
+
+
+US29: List Deceased
++-------+------------------------+----------+
+|   ID  | First and Middle Names | LastName |
++-------+------------------------+----------+
+|  @I6@ |        Marilyn         |  Hansen  |
+|  @I7@ |    Orville Phillip     | Sullivan |
+| @I12@ |        Audrey          | Ruddick  |
+| @I13@ |    Lorraine Marie      | Sullivan |
+| @I14@ |    Orville Phillip     | Sullivan |
+| @I15@ |        Harriet         |   Pott   |
+| @I16@ |        Philip          | Sullivan |
+| @I17@ |       Harriet V        | Chapman  |
+| @I18@ |    Ethel Winefred      |   Carr   |
+| @I19@ |      Paul Hubert       |  Abell   |
+| @I20@ |        Richard         |  Prince  |
+| @I22@ |        Blanche         | Johnson  |
+| @I23@ |        Warren          |  Hansen  |
+| @I24@ |       Nancy Ann        | Cromeans |
+| @I25@ |      James Peter       |  Hansen  |
+| @I26@ |        Leeland         |  Hansen  |
+| @I29@ |        Anders          | Johnson  |
+| @I30@ |     Delbert James      |  OLSEN   |
+| @I31@ |        Deloras         |  Hansen  |
+| @I33@ |      Stina Maria       |  Hansen  |
+| @I34@ |      Peter Olsen       |  Hansen  |
+| @I35@ |       Alice May        |  Hansen  |
+| @I36@ |     Martha Lavon       |  Hansen  |
+| @I37@ |    Vendla Arletta      |  Hansen  |
+| @I38@ |    Charles Lathair     |   Kent   |
+| @I43@ |        Warren          |  Hansen  |
+| @I44@ |         Mamie          |  Hansen  |
+| @I45@ |        Venetta         |  Hansen  |
+| @I46@ |       Anna Tate        |  Hansen  |
++-------+------------------------+----------+
+
+US30: List Living Married
++-------+------------------------+-----------------+
+|   ID  | First And Middle Names |     LastName    |
++-------+------------------------+-----------------+
+|  @I1@ |        Esther          |     Sullivan    |
+|  @I2@ |    Kelley Russell      |     Johnson     |
+| @I21@ |    Michael William     | Prince Sullivan |
+| @I27@ |         Brent          |      Hansen     |
+| @I28@ |      Emily Sofi        |    Andersson    |
+| @I40@ |        James I         |      Hansen     |
+| @I41@ |         Sina           |      Hansen     |
+| @I42@ |         Peter          |      Hansen     |
+| @I52@ |        James P         |      Hansen     |
+| @I53@ |         Jimmy          |     Connors     |
+| @I54@ |         Chris          |      Evertt     |
+| @I58@ |         Dave           |      Gahan      |
+| @I59@ |         Terry          |      Evertt     |
+| @I66@ |         John           |     Jamison     |
+| @I67@ |         Jane           |     Jamison     |
+| @I68@ |         Jack           |     Jamison     |
+| @I69@ |         Judy           |     Jamison     |
+| @I70@ |         John           |     Jeffries    |
+| @I71@ |         Jane           |     Jeffries    |
+| @I72@ |         James          |     Jeffries    |
+| @I73@ |         Janet          |     Jeffries    |
+| @I74@ |         Jack           |     Jeffries    |
+| @I75@ |       Jennifer         |     Jeffries    |
+| @I76@ |         Jacob          |     Jeffries    |
+| @I77@ |        Jessica         |     Jeffries    |
++-------+------------------------+-----------------+
+
+US32: List Multiple Births
++-------+-----------------+
+|   ID  | Multi-Birthdate |
++-------+-----------------+
+| @F18@ |   01 Jan 1991   |
+| @F19@ |   01 Jan 1991   |
++-------+-----------------+
+
+Log Output:
 
 ANOMALY: FAMILY: US17: @F12@: Wife has marriage with decendant
 ANOMALY: FAMILY: US20: @F20@: @I68@ married to a neice or nephew
@@ -184,16 +261,8 @@ ERROR: INDIVIDUAL: US03: @I5@: Birth Before Death
 ERROR: INDIVIDUAL: US22: @I51@: Record ID is not unique
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@42665: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@7680: Individual does not exist in family
 ERROR: INDIVIDUAL: US27: @I12@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I13@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is less than 0
 ERROR: INDIVIDUAL: US27: @I5@: Can not determine age, individual has no Birth Date
-
-US32: List Multiple Births
-+-------+-----------------+
-|   ID  | Multi-Birthdate |
-+-------+-----------------+
-| @F18@ |   01 Jan 1991   |
-| @F19@ |   01 Jan 1991   |
-+-------+-----------------+

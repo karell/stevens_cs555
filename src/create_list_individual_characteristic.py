@@ -13,11 +13,11 @@ def listMarriedIndividuals(individuals):
      
     for i in allIndividualsDict:
         checkPerson = allIndividualsDict[i]
-        if ((len(checkPerson.spouse) > 0) and checkPerson.alive is True) and checkPerson.deathDate is None:
+        if len(checkPerson.spouse) > 0 and checkPerson.alive is True and checkPerson.deathDate is None:
             individualsDict.__setitem__(checkPerson.id, checkPerson)
             
-        else:
-            ErrorLogger.__logAnomaly__(ErrorLogger._INDIVIDUAL,"US30", checkPerson.id, "Living, But Not Married")
+        #else:
+        #   ErrorLogger.__logAnomaly__(ErrorLogger._INDIVIDUAL,"US30", checkPerson.id, "Living, But Not Married")
     return individualsDict
 
 def listDeceasedIndividuals(individuals):
@@ -26,9 +26,9 @@ def listDeceasedIndividuals(individuals):
    
     for i in allIndividualsDict:
         checkPerson = allIndividualsDict[i]
-        if (checkPerson.alive is False) or checkPerson.deathDate is not None:
+        if checkPerson.alive is False or checkPerson.deathDate is not None:
             individualsDict.__setitem__(checkPerson.id, checkPerson)
             
-        else:
-            ErrorLogger.__logAnomaly__(ErrorLogger._INDIVIDUAL,"US29", checkPerson.id, "Person is not Deceased")
+        #else:
+        #    ErrorLogger.__logAnomaly__(ErrorLogger._INDIVIDUAL,"US29", checkPerson.id, "Person is not Deceased")
     return individualsDict

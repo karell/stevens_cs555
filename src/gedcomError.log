@@ -67,7 +67,7 @@ ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is les
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: GENERAL: US23: N/A: Duplicate individuals were found in the GEDCOM file.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@42665: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@7680: Individual does not exist in family
 ANOMALY: FAMILY: US17: @F12@: Wife has marriage with decendant
 ANOMALY: FAMILY: US20: @F20@: @I68@ married to a neice or nephew
 ERROR: FAMILY: US24: @F20@: Duplicate family record
