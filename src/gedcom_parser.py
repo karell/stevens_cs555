@@ -139,7 +139,7 @@ def sortChildren(children):
     try:
         sortedChildren = sorted(children, key=lambda individual: individual.birthDate)
     except:
-        errorlogger.__logError__(ErrorLogger._FAMILY,'US28', children[0], "Sort children by birth date")
+        errorlogger.__logError__(ErrorLogger._INDIVIDUAL,'US28', children[0].id, "Sort children by birth date. Child missing birthdate")
         sortedChildren = children
     return sortedChildren
 
@@ -344,10 +344,12 @@ for i in sorted(familiesDict.keys()):
     #User Story 13: check siblings spacing
     if len(familiesDict[i].children) > 1:
         testDates = []
+        childObjects = []
         for child in familiesDict[i].children:
             try:
                 if individualsDict[child].birthDate is not None:
                     testDates.append(individualsDict[child].birthDate)
+                childObjects.append(individualsDict[child])
             except:
                 #print("Child does id does not exist in individual dictionary")
                 errorlogger.__logError__(ErrorLogger._INDIVIDUAL, "US13", child.id, "Child does id does not exist in individual dictionary")
@@ -468,6 +470,7 @@ except:
 	print("Unable to open the output file.")
 	quit()
 
+outputFile.write("US28: Children sorted by birthdate in table. \n\n")
 outputFile.write(outputtableI.get_string())
 outputFile.write("\n")
 outputFile.write(outputtableF.get_string())
