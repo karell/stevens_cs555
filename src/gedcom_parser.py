@@ -386,7 +386,7 @@ for i in sorted(familiesDict.keys()):
     if DB_INIT is not None:
         FAMILIES.insert_one(familiesDict[i].__dict__)
 
- outputtableSingleOver30 = PrettyTable(["ID","First Name", "LastName","Age"])
+outputtableSingleOver30 = PrettyTable(["ID","First Name", "LastName","Age"])
 
 for i in sorted(individualsDict.keys()):
     # Build the output prettytable. Convert the internal format of variables to
