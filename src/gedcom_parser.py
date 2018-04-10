@@ -477,23 +477,22 @@ outputFile.write(outputtableF.get_string())
 outputFile.write("\n\n")
 
 
-
-outputFile.write("\n\nUS29: List Deceased\n")
-outputFile.write(outputtableDeceased.get_string())
-outputFile.write("\n\nUS30: List Living Married\n")
-outputFile.write(outputtableAliveAndMarried.get_string())
-
-
-for i in sorted(errorlogger._logMessages):
-    outputFile.write("\n")
-    outputFile.write(i)
-
 outputFile.write("\n\nUS31: List Single Alive over 30\n")
 outputFile.write(outputtableSingleOver30.get_string())
 
 outputFile.write("\n\nUS32: List Multiple Births\n")
 outputFile.write(outputtableMultipleBirths.get_string())
-# ----------
-# Print out the errors and anomalies.
-# ----------
-# errorlogger.__printLogMessages__()
+
+outputFile.write("\n\nUS29: List Deceased\n")
+outputFile.write(outputtableDeceased.get_string())
+
+outputFile.write("\n\nUS30: List Living Married\n")
+outputFile.write(outputtableAliveAndMarried.get_string())
+
+outputFile.write("\n\nLog Output:\n")
+
+for i in sorted(errorlogger._logMessages):
+    outputFile.write("\n")
+    outputFile.write(i)
+
+outputFile.close()

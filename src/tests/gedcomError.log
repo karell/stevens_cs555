@@ -7,7 +7,6 @@ ERROR: FAMILY: US08: F1: Child C1 born on 2017-11-01 is more than 9 months after
 ERROR: FAMILY: US09: F1: Child C1 born on 2000-10-01 is less than 9 months after father's death date of 2000-01-02
 ERROR: FAMILY: US09: F1: Child C1 born on 2000-10-01 is after mother's death date of 2000-09-30
 ANOMALY: INDIVIDUAL: US11: H1: Possible Bigamy
-ANOMALY: INDIVIDUAL: US11: H1: Possible Bigamy
 ANOMALY: FAMILY: US17: F1: Husband has marriage with decendant
 ERROR: FAMILY: US18: F2: Marriage is of siblings of family F1
 ERROR: FAMILY: US19: G3F1: Marriage is of cousins of family G1F1
