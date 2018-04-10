@@ -45,3 +45,18 @@ def createSiblingList(userId, children):
     siblings = list(children)
     siblings.remove(userId)
     return siblings
+
+# US24 No more than one family with the same spouses by name and the same marriage date should appear in a GEDCOM file
+def uniqueFamilyBySpouses(familyDic):
+    uniqueFams = True
+    for i in sorted(familyDic.keys()):
+        fam = familyDic[i]
+        comparisonStr = fam.husbandName + fam.wifeName + fam.marriageDateStr
+        for j in sorted(familyDic.keys()):
+            famB = familyDic[j]
+            famBComparisonStr = famB.husbandName + famB.wifeName + famB.marriageDateStr
+            if i != j:
+                if comparisonStr == famBComparisonStr:
+                    uniqueFams = False
+                    ErrorLogger.__logError__(ErrorLogger._FAMILY,"US24", fam.id,"Duplicate family record")
+    return uniqueFams
