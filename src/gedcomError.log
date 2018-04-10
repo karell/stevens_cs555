@@ -10,6 +10,7 @@ ERROR: FAMILY: US10: @F11@: Marriage is less than 14 years after birth of husban
 ERROR: FAMILY: US08: @F12@: Child @I23@ born on 1862-01-18 00:00:00 is before marriage date of 1887-12-01 00:00:00
 ERROR: FAMILY: US10: @F12@: Marriage is less than 14 years after birth of husband and/or wife
 ERROR: FAMILY: US13: @F12@: Invalid Sibling Spacing in Family
+ERROR: FAMILY: US25: @F12@: Child name Warren is not unique.
 ANOMALY: INDIVIDUAL: US11: @I30@: Possible Bigamy
 ANOMALY: FAMILY: US21: @F16@: Invalid parent genders
 ERROR: FAMILY: US02: @I52@: Invalid marriage and birth dates
@@ -27,9 +28,11 @@ ERROR: FAMILY: US14: @F19@: Invalid Birth Dates for Family
 ERROR: FAMILY: US13: @F19@: Invalid Sibling Spacing in Family
 ERROR: FAMILY: US09: @F1@: Child @I5@ has no birth date.
 ERROR: FAMILY: US08: @F1@: Child @I5@ has no birth date.
+ERROR: INDIVIDUAL: US28: @I3@: Sort children by birth date. Child missing birthdate
 ERROR: FAMILY: US18: @F21@: Marriage is of siblings of family @F99@
 ERROR: FAMILY: US19: @F25@: Marriage is of cousins of family @F22@
 ANOMALY: FAMILY: US21: @F27@: Invalid parent genders
+ERROR: FAMILY: US15: @F28@: There are too many (15) siblings.
 ANOMALY: INDIVIDUAL: US16: @I21@: Father's Last Name of Prince doesn't match childs's Last Name of Prince Sullivan
 ERROR: FAMILY: US06: @F3@: Invalid divorce date
 ERROR: FAMILY: US12: @I6@: Invalid Father Age: Warren /Hansen/ is more than 80 years older than child: Marilyn /Hansen/
@@ -67,7 +70,7 @@ ERROR: INDIVIDUAL: US27: @I5@: Age Calculation may be off, individual age is les
 ERROR: INDIVIDUAL: US23: @I32@ @I3222@: Duplicate individuals. Individuals @I32@ and @I3222@ are the same person.
 ERROR: GENERAL: US23: N/A: Duplicate individuals were found in the GEDCOM file.
 ERROR: INDIVIDUAL: US26: @I3222@: Individual does not exist in family
-ERROR: INDIVIDUAL: US26: @I51@7680: Individual does not exist in family
+ERROR: INDIVIDUAL: US26: @I51@24353: Individual does not exist in family
 ANOMALY: FAMILY: US17: @F12@: Wife has marriage with decendant
 ANOMALY: FAMILY: US20: @F20@: @I68@ married to a neice or nephew
 ERROR: FAMILY: US24: @F20@: Duplicate family record

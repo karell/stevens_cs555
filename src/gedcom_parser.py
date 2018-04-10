@@ -133,6 +133,17 @@ def verifySiblingsSpace(allDates):
                 
     return retValue
 
+#US 28 - sort children by their birth date
+def sortChildren(children):
+    sortedChildren = []
+    try:
+        sortedChildren = sorted(children, key=lambda individual: individual.birthDate)
+    except:
+        errorlogger.__logError__(ErrorLogger._INDIVIDUAL,'US28', children[0].id, "Sort children by birth date. Child missing birthdate")
+        sortedChildren = children
+    return sortedChildren
+
+
 # ----------
 # Validate that there is only one argument on the command line. This means there
 # are two arguments total - the first is the name of the script.
@@ -333,17 +344,26 @@ for i in sorted(familiesDict.keys()):
     #User Story 13: check siblings spacing
     if len(familiesDict[i].children) > 1:
         testDates = []
+        childObjects = []
         for child in familiesDict[i].children:
             try:
                 if individualsDict[child].birthDate is not None:
                     testDates.append(individualsDict[child].birthDate)
+                childObjects.append(individualsDict[child])
             except:
                 #print("Child does id does not exist in individual dictionary")
                 errorlogger.__logError__(ErrorLogger._INDIVIDUAL, "US13", child.id, "Child does id does not exist in individual dictionary")
         if not verifySiblingsSpace(testDates):
             #print ("Invalid siblings space for family " + familiesDict[i].id)
             errorlogger.__logError__(ErrorLogger._FAMILY, "US13", familiesDict[i].id, "Invalid Sibling Spacing in Family")
-
+        #US 28 - sort children by their birth date
+        childObjects = sortChildren(childObjects)
+        familiesDict[i].children = []
+        for child in childObjects:
+            familiesDict[i].children.append(child.id)
+              
+        indiObjHusband.children = familiesDict[i].children
+        indiObjWife.children = familiesDict[i].children
     # User Story 18: Check for married siblings
     is_marriage_of_siblings(familiesDict[i], familiesDict)
 
@@ -368,10 +388,16 @@ for i in sorted(familiesDict.keys()):
     if DB_INIT is not None:
         FAMILIES.insert_one(familiesDict[i].__dict__)
 
+outputtableSingleOver30 = PrettyTable(["ID","First Name", "LastName","Age"])
+
 for i in sorted(individualsDict.keys()):
     # Build the output prettytable. Convert the internal format of variables to
     # string format prior to adding a row to the output prettytable.
     individualsDict[i].toString()
+        #US_31 print to GEDCOM all living single people above age 30
+    if individualsDict[i].isSingleAliveOver30():     
+        outputtableSingleOver30.add_row([individualsDict[i].id,individualsDict[i].firstAndMiddleName,individualsDict[i].lastname,individualsDict[i].age])
+
     try:
         ind = individualsDict[i]
         outputtableI.add_row([ind.id,ind.firstAndMiddleName,ind.lastname,ind.gender,ind.birthDateStr,ind.age,ind.alive,ind.deathDateStr,ind.childrenStr,ind.spouseStr])
@@ -444,10 +470,18 @@ except:
 	print("Unable to open the output file.")
 	quit()
 
+outputFile.write("US28: Children sorted by birthdate in table. \n\n")
 outputFile.write(outputtableI.get_string())
 outputFile.write("\n")
 outputFile.write(outputtableF.get_string())
 outputFile.write("\n\n")
+
+
+outputFile.write("\n\nUS31: List Single Alive over 30\n")
+outputFile.write(outputtableSingleOver30.get_string())
+
+outputFile.write("\n\nUS32: List Multiple Births\n")
+outputFile.write(outputtableMultipleBirths.get_string())
 
 outputFile.write("\n\nUS29: List Deceased\n")
 outputFile.write(outputtableDeceased.get_string())
@@ -455,18 +489,10 @@ outputFile.write(outputtableDeceased.get_string())
 outputFile.write("\n\nUS30: List Living Married\n")
 outputFile.write(outputtableAliveAndMarried.get_string())
 
-outputFile.write("\n\nUS32: List Multiple Births\n")
-outputFile.write(outputtableMultipleBirths.get_string())
-
-outputFile.write("\n\n")
-outputFile.write("Log Output:\n")
+outputFile.write("\n\nLog Output:\n")
 
 for i in sorted(errorlogger._logMessages):
     outputFile.write("\n")
     outputFile.write(i)
 
 outputFile.close()
-# ----------
-# Print out the errors and anomalies.
-# ----------
-# errorlogger.__printLogMessages__()

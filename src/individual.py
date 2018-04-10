@@ -68,9 +68,21 @@ class Individual:
             return False
         else:
             return True
+    
+        #US31 get individual and return its details in GED format
+    def isSingleAliveOver30(self):
+        retValue = False
+        try:
+            retValue = int(self.age) > 30 and self.alive and len(self.spouse) == 0
+        except:
+            retValue = False
+        
+        return retValue
 #For story 01 - generic function to compare input date with current date, return true if input date is bigger than current date
 def compareDates(tmpDate):
     return tmpDate > datetime.now()
+
+
 
 
         
